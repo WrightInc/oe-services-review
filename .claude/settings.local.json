@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"C:\\\\Users\\\\dwinc\\\\OneDrive\\\\Documents\\\\001 - OE Utility Services\\\\GitHub Pages\\\\oe-services-review\" log --oneline -3)"
+    ]
+  }
+}
