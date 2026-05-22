@@ -106,6 +106,21 @@
     }
     .dropdown a:hover { background: var(--oe-light); color: var(--oe-navy); }
     .nav-centre > li:hover .dropdown { display: block; }
+
+    /* ── DROPDOWN SUB-MENU ────────────────────────────────── */
+    .dropdown-item { position: relative; }
+    .dropdown-item > a::after { content: ' ▸'; font-size: 11px; opacity: 0.6; }
+    .submenu {
+      display: none;
+      position: absolute;
+      left: 100%; top: 0;
+      background: var(--oe-white);
+      min-width: 280px;
+      box-shadow: 4px 4px 18px rgba(15,38,112,0.12);
+      border-top: 3px solid var(--oe-blue);
+      z-index: 11;
+    }
+    .dropdown-item.has-submenu:hover .submenu { display: block; }
     .nav-emergency img { height: 44px; }
 
     /* ── BREADCRUMBS ──────────────────────────────────────── */
@@ -869,7 +884,20 @@
         <a href="https://www.oeservices.ca/services" class="active">Services ▾</a>
         <div class="dropdown">
           <a href="https://www.oeservices.ca/services">All Services</a>
-          <a href="#">Hydrovac Excavation</a>
+          <div class="dropdown-item has-submenu">
+            <a href="#">Hydrovac Excavation</a>
+            <div class="submenu">
+              <a href="daylighting-utility-exposure/">Daylighting / Utility Exposure</a>
+              <a href="slot-trenching/">Slot Trenching / Narrow Trenching</a>
+              <a href="utility-pole-holes/">Utility Pole Holes</a>
+              <a href="anode-installation/">Anode Installation</a>
+              <a href="power-distribution-excavation/">Power Distribution Excavation</a>
+              <a href="culvert-catch-basin-cleaning/">Culvert & Catch Basin Cleaning</a>
+              <a href="remote-long-reach-excavation/">Remote / Long-Reach Excavation</a>
+              <a href="tree-root-sensitive-area/">Tree Root / Sensitive Area Excavation</a>
+              <a href="contaminated-soil-removal/">Contaminated Soil Removal</a>
+            </div>
+          </div>
           <a href="https://www.oeservices.ca/services/water-distribution">Water Distribution</a>
           <a href="https://www.oeservices.ca/services/gas-distribution">Gas Distribution</a>
           <a href="https://www.oeservices.ca/services/subsurface-engineering">Subsurface Utility Engineering</a>

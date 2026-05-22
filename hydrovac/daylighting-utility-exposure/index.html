@@ -101,6 +101,46 @@
     }
     .dropdown a:hover { background: var(--oe-light); color: var(--oe-navy); }
     .nav-centre > li:hover .dropdown { display: block; }
+
+    /* ── DROPDOWN SUB-MENU ────────────────────────────────── */
+    .dropdown-item { position: relative; }
+    .dropdown-item > a::after { content: ' ▸'; font-size: 11px; opacity: 0.6; }
+    .submenu {
+      display: none;
+      position: absolute;
+      left: 100%; top: 0;
+      background: var(--oe-white);
+      min-width: 280px;
+      box-shadow: 4px 4px 18px rgba(15,38,112,0.12);
+      border-top: 3px solid var(--oe-blue);
+      z-index: 11;
+    }
+    .dropdown-item.has-submenu:hover .submenu { display: block; }
+
+    /* ── SIBLINGS GRID ────────────────────────────────────── */
+    .siblings-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .sibling-card {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-top: 4px solid var(--oe-blue);
+      padding: 24px 20px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+      color: var(--oe-text);
+    }
+    .sibling-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(15,38,112,0.10);
+      color: var(--oe-text);
+    }
+    .sibling-icon { font-size: 28px; margin-bottom: 12px; }
+    .sibling-card h4 { font-size: 15px; color: var(--oe-navy); line-height: 1.4; }
     .nav-emergency img { height: 44px; }
 
     /* ── BREADCRUMBS ──────────────────────────────────────── */
@@ -408,7 +448,7 @@
 
     /* ── RESPONSIVE ───────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .applications-grid { grid-template-columns: repeat(2, 1fr); }
+      .applications-grid, .siblings-grid { grid-template-columns: repeat(2, 1fr); }
       .trust-inner { grid-template-columns: 1fr; gap: 20px; }
     }
     @media (max-width: 960px) {
@@ -427,7 +467,7 @@
       .hero-inner { padding: 56px 20px; }
       .hero h1 { font-size: 34px; }
       .section-title { font-size: 28px; }
-      .applications-grid { grid-template-columns: 1fr; }
+      .applications-grid, .siblings-grid { grid-template-columns: 1fr; }
       .footer-body { padding: 40px 20px 28px; }
       .footer-cols { grid-template-columns: 1fr 1fr; }
     }
@@ -449,7 +489,20 @@
         <a href="https://www.oeservices.ca/services" class="active">Services ▾</a>
         <div class="dropdown">
           <a href="https://www.oeservices.ca/services">All Services</a>
-          <a href="../">Hydrovac Excavation</a>
+          <div class="dropdown-item has-submenu">
+            <a href="../">Hydrovac Excavation</a>
+            <div class="submenu">
+              <a href="../daylighting-utility-exposure/">Daylighting / Utility Exposure</a>
+              <a href="../slot-trenching/">Slot Trenching / Narrow Trenching</a>
+              <a href="../utility-pole-holes/">Utility Pole Holes</a>
+              <a href="../anode-installation/">Anode Installation</a>
+              <a href="../power-distribution-excavation/">Power Distribution Excavation</a>
+              <a href="../culvert-catch-basin-cleaning/">Culvert & Catch Basin Cleaning</a>
+              <a href="../remote-long-reach-excavation/">Remote / Long-Reach Excavation</a>
+              <a href="../tree-root-sensitive-area/">Tree Root / Sensitive Area Excavation</a>
+              <a href="../contaminated-soil-removal/">Contaminated Soil Removal</a>
+            </div>
+          </div>
           <a href="https://www.oeservices.ca/services/water-distribution">Water Distribution</a>
           <a href="https://www.oeservices.ca/services/gas-distribution">Gas Distribution</a>
           <a href="https://www.oeservices.ca/services/subsurface-engineering">Subsurface Utility Engineering</a>
@@ -624,6 +677,52 @@
       <div class="trust-logo">MTO Compliant</div>
       <div class="trust-logo">MOECP Approved</div>
       <div class="trust-logo">WHMIS / TDG</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SIBLING CAPABILITIES
+══════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-eyebrow">Hydrovac Capabilities</div>
+    <h2 class="section-title">Other Hydrovac Capabilities</h2>
+    <p class="section-lead">Explore the full range of OE hydrovac applications across Ontario.</p>
+
+    <div class="siblings-grid">
+      <a href="../slot-trenching/" class="sibling-card">
+        <div class="sibling-icon">📏</div>
+        <h4>Slot Trenching / Narrow Trenching</h4>
+      </a>
+      <a href="../utility-pole-holes/" class="sibling-card">
+        <div class="sibling-icon">🪜</div>
+        <h4>Utility Pole Holes</h4>
+      </a>
+      <a href="../anode-installation/" class="sibling-card">
+        <div class="sibling-icon">⚙️</div>
+        <h4>Anode Installation</h4>
+      </a>
+      <a href="../power-distribution-excavation/" class="sibling-card">
+        <div class="sibling-icon">⚡</div>
+        <h4>Power Distribution Excavation</h4>
+      </a>
+      <a href="../culvert-catch-basin-cleaning/" class="sibling-card">
+        <div class="sibling-icon">🚧</div>
+        <h4>Culvert & Catch Basin Cleaning</h4>
+      </a>
+      <a href="../remote-long-reach-excavation/" class="sibling-card">
+        <div class="sibling-icon">📡</div>
+        <h4>Remote / Long-Reach Excavation</h4>
+      </a>
+      <a href="../tree-root-sensitive-area/" class="sibling-card">
+        <div class="sibling-icon">🌳</div>
+        <h4>Tree Root / Sensitive Area Excavation</h4>
+      </a>
+      <a href="../contaminated-soil-removal/" class="sibling-card">
+        <div class="sibling-icon">⚠️</div>
+        <h4>Contaminated Soil Removal</h4>
+      </a>
     </div>
   </div>
 </section>
