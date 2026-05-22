@@ -125,9 +125,8 @@
       pointer-events: none;
     }
     .hero-inner {
-      max-width: 1400px; margin: 0 auto; padding: 80px 30px;
+      max-width: 860px; margin: 0 auto; padding: 80px 30px;
       position: relative; z-index: 1;
-      max-width: 860px;
     }
     .hero-eyebrow {
       display: inline-block;
@@ -170,6 +169,21 @@
     .btn-ghost:hover { background: var(--oe-white); color: var(--oe-navy); }
     .btn-navy { background: var(--oe-navy); color: var(--oe-white); }
     .btn-navy:hover { background: var(--oe-blue); }
+
+    /* ── HERO PHOTO ───────────────────────────────────────── */
+    .hero-photo-section { background: var(--oe-light); padding: 0; }
+    .hero-photo-wrap { max-width: 1400px; margin: 0 auto; position: relative; }
+    .hero-photo { width: 100%; height: 460px; object-fit: cover; display: block; }
+    .hero-photo-caption {
+      position: absolute; bottom: 36px; left: 36px;
+      background: rgba(15,38,112,0.92);
+      color: var(--oe-white);
+      padding: 22px 28px;
+      max-width: 460px;
+      border-left: 4px solid var(--oe-blue);
+    }
+    .hero-photo-caption .cap-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--oe-blue); margin-bottom: 6px; }
+    .hero-photo-caption .cap-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.25; }
 
     /* ── SECTIONS ─────────────────────────────────────────── */
     .section { padding: 72px 30px; }
@@ -223,22 +237,95 @@
       max-width: 800px;
     }
 
-    /* ── APPLICATIONS GRID ────────────────────────────────── */
+    /* ── APPLICATION CARDS ────────────────────────────────── */
     .applications-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
       margin-top: 8px;
     }
-    .application-item {
+    .application-card {
       background: var(--oe-white);
       border: 1px solid var(--oe-border);
-      border-left: 4px solid var(--oe-blue);
-      padding: 16px 20px;
-      border-radius: 0 4px 4px 0;
+      border-top: 4px solid var(--oe-blue);
+      padding: 24px 20px;
+      border-radius: 4px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .application-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(15,38,112,0.10);
+    }
+    .application-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .application-card h4 {
       font-size: 15px;
-      line-height: 1.5;
-      color: var(--oe-text);
+      color: var(--oe-navy);
+      line-height: 1.4;
+    }
+
+    /* ── PROJECT HIGHLIGHT ────────────────────────────────── */
+    .project-highlight {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .project-highlight-image { width: 100%; height: 340px; object-fit: cover; display: block; }
+    .project-highlight-body { padding: 36px 40px 36px 0; }
+    .project-tag {
+      display: inline-block;
+      background: var(--oe-light);
+      color: var(--oe-navy);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 3px;
+      margin-bottom: 14px;
+    }
+    .project-highlight-body h3 { font-size: 24px; color: var(--oe-navy); margin-bottom: 12px; }
+    .project-highlight-body p { font-size: 16px; color: var(--oe-muted); line-height: 1.65; }
+
+    /* ── TRUST BAND ───────────────────────────────────────── */
+    .trust-band {
+      background: var(--oe-white);
+      border-top: 1px solid var(--oe-border);
+      border-bottom: 1px solid var(--oe-border);
+      padding: 40px 30px;
+    }
+    .trust-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center;
+    }
+    .trust-label {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--oe-navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 1.4;
+    }
+    .trust-label span { display: block; color: var(--oe-muted); font-weight: 600; font-size: 12px; margin-top: 4px; }
+    .trust-logos { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .trust-logo {
+      background: var(--oe-light);
+      padding: 12px 18px;
+      border-radius: 4px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--oe-navy);
+      letter-spacing: 0.5px;
+      border: 1px solid var(--oe-border);
     }
 
     /* ── CTA BLOCK ────────────────────────────────────────── */
@@ -320,11 +407,19 @@
     }
 
     /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .applications-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-inner { grid-template-columns: 1fr; gap: 20px; }
+    }
     @media (max-width: 960px) {
       .nav-centre { display: none; }
       .nav-emergency img { height: 36px; }
       .hero h1 { font-size: 42px; }
-      .applications-grid { grid-template-columns: 1fr; }
+      .hero-photo { height: 320px; }
+      .hero-photo-caption { bottom: 20px; left: 20px; padding: 16px 20px; }
+      .project-highlight { grid-template-columns: 1fr; }
+      .project-highlight-image { height: 260px; }
+      .project-highlight-body { padding: 28px; }
       .footer-cols { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 540px) {
@@ -332,6 +427,7 @@
       .hero-inner { padding: 56px 20px; }
       .hero h1 { font-size: 34px; }
       .section-title { font-size: 28px; }
+      .applications-grid { grid-template-columns: 1fr; }
       .footer-body { padding: 40px 20px 28px; }
       .footer-cols { grid-template-columns: 1fr 1fr; }
     }
@@ -401,6 +497,20 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
+     HERO PHOTO
+══════════════════════════════════════════════════════════ -->
+<section class="hero-photo-section">
+  <div class="hero-photo-wrap">
+    <!-- STOCK PLACEHOLDER — REPLACE with OE daylighting on-site photo -->
+    <img class="hero-photo" src="https://placehold.co/1600x600/0F2670/01ABEE/png?text=OE+HYDROVAC+DAYLIGHTING%0A%5BReplace+with+real+photo%5D" alt="OE crew daylighting a buried utility" />
+    <div class="hero-photo-caption">
+      <div class="cap-eyebrow">Non-Destructive · Precision · Compliant</div>
+      <div class="cap-title">Hydrovac daylighting before any mechanical work begins</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
      SECTION 1 — What Daylighting Is
 ══════════════════════════════════════════════════════════ -->
 <section class="section">
@@ -427,14 +537,38 @@
     <h2 class="section-title">Daylighting Applications</h2>
 
     <div class="applications-grid">
-      <div class="application-item">Visual confirmation of buried utilities prior to mechanical excavation</div>
-      <div class="application-item">Directional drilling test holes</div>
-      <div class="application-item">Sacrificial anode installation locations</div>
-      <div class="application-item">Pipeline and utility crossings</div>
-      <div class="application-item">Subsurface Utility Engineering (S.U.E.) test holes</div>
-      <div class="application-item">Pre-construction utility verification on ICI and municipal sites</div>
-      <div class="application-item">Locate validation in congested urban corridors</div>
-      <div class="application-item">Daylighting around mature trees and other sensitive ground</div>
+      <div class="application-card">
+        <div class="application-icon">🎯</div>
+        <h4>Visual confirmation of buried utilities prior to mechanical excavation</h4>
+      </div>
+      <div class="application-card">
+        <div class="application-icon">🛠️</div>
+        <h4>Directional drilling test holes</h4>
+      </div>
+      <div class="application-card">
+        <div class="application-icon">⚙️</div>
+        <h4>Sacrificial anode installation locations</h4>
+      </div>
+      <div class="application-card">
+        <div class="application-icon">🔀</div>
+        <h4>Pipeline and utility crossings</h4>
+      </div>
+      <div class="application-card">
+        <div class="application-icon">📐</div>
+        <h4>Subsurface Utility Engineering (S.U.E.) test holes</h4>
+      </div>
+      <div class="application-card">
+        <div class="application-icon">🏗️</div>
+        <h4>Pre-construction utility verification on ICI and municipal sites</h4>
+      </div>
+      <div class="application-card">
+        <div class="application-icon">📍</div>
+        <h4>Locate validation in congested urban corridors</h4>
+      </div>
+      <div class="application-card">
+        <div class="application-icon">🌳</div>
+        <h4>Daylighting around mature trees and other sensitive ground</h4>
+      </div>
     </div>
   </div>
 </section>
@@ -455,7 +589,47 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     SECTION 4 — CTA Block
+     PROJECT HIGHLIGHT
+══════════════════════════════════════════════════════════ -->
+<section class="section section-light">
+  <div class="section-inner">
+    <div class="section-eyebrow">Project Example</div>
+    <h2 class="section-title">Representative Work</h2>
+
+    <div class="project-highlight">
+      <!-- STOCK PLACEHOLDER — REPLACE with OE gas main daylighting photo -->
+      <img class="project-highlight-image" src="https://placehold.co/800x500/0F2670/01ABEE/png?text=GAS+MAIN+DAYLIGHTING%0A%5BReplace+with+real+photo%5D" alt="Gas main daylighting project" />
+      <div class="project-highlight-body">
+        <span class="project-tag">Utility · Gas</span>
+        <h3>High-Risk Gas Main Daylighting</h3>
+        <p>Precision exposure of pre-1960s cast iron gas main running beneath an active intersection. Non-destructive method, zero strikes, full restoration in 48 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     COMPLIANCE LOGO STRIP
+══════════════════════════════════════════════════════════ -->
+<section class="trust-band">
+  <div class="trust-inner">
+    <div class="trust-label">
+      Certified & Compliant
+      <span>Meeting Ontario's strictest safety and environmental standards</span>
+    </div>
+    <div class="trust-logos">
+      <div class="trust-logo">Ontario One Call</div>
+      <div class="trust-logo">TSSA Certified</div>
+      <div class="trust-logo">COR Certified</div>
+      <div class="trust-logo">MTO Compliant</div>
+      <div class="trust-logo">MOECP Approved</div>
+      <div class="trust-logo">WHMIS / TDG</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     CTA BLOCK
 ══════════════════════════════════════════════════════════ -->
 <section class="cta-block">
   <h2>Ready to start?</h2>
