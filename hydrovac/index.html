@@ -316,6 +316,8 @@
       padding: 28px;
       border-radius: 4px;
       transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
     }
     .service-card:hover {
       transform: translateY(-4px);
@@ -334,7 +336,17 @@
       color: var(--oe-navy);
       margin-bottom: 10px;
     }
-    .service-card p { font-size: 15px; line-height: 1.55; color: var(--oe-muted); }
+    .service-card p { font-size: 15px; line-height: 1.55; color: var(--oe-muted); flex-grow: 1; }
+    .service-read-more {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--oe-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .service-read-more:hover { color: var(--oe-navy); }
 
     /* ── PROCESS / 6 STEPS ────────────────────────────────── */
     .process-grid {
@@ -991,46 +1003,55 @@
         <div class="service-icon">🎯</div>
         <h3>Daylighting / Utility Exposure</h3>
         <p>Safe exposure of buried utilities — gas, electric, water, telecom, fibre — before any mechanical work begins.</p>
+        <a href="/hydrovac/daylighting-utility-exposure/" class="service-read-more">Read More →</a>
       </div>
       <div class="service-card">
         <div class="service-icon">📏</div>
         <h3>Slot Trenching / Narrow Trenching</h3>
         <p>Precise, narrow trenches for pipelines, cables, and conduit installations with minimal soil disturbance.</p>
+        <a href="/hydrovac/slot-trenching/" class="service-read-more">Read More →</a>
       </div>
       <div class="service-card">
         <div class="service-icon">🪜</div>
         <h3>Utility Pole Holes</h3>
         <p>Clean, precise excavation for new pole installations, pole replacements, and anchor placement.</p>
+        <a href="/hydrovac/utility-pole-holes/" class="service-read-more">Read More →</a>
       </div>
       <div class="service-card">
         <div class="service-icon">⚙️</div>
         <h3>Anode Installation</h3>
         <p>Cathodic protection anode installation for pipeline corrosion control — precise, non-destructive placement.</p>
+        <a href="/hydrovac/anode-installation/" class="service-read-more">Read More →</a>
       </div>
       <div class="service-card">
         <div class="service-icon">⚡</div>
         <h3>Power Distribution Excavation</h3>
         <p>Safe excavation for electrical distribution work — transformer pads, vaults, primary and secondary cable runs.</p>
+        <a href="/hydrovac/power-distribution-excavation/" class="service-read-more">Read More →</a>
       </div>
       <div class="service-card">
         <div class="service-icon">🚧</div>
         <h3>Culvert & Catch Basin Cleaning</h3>
         <p>Cleanout and maintenance of catch basins, culverts, and stormwater infrastructure across municipal and ICI sites.</p>
+        <a href="/hydrovac/culvert-catch-basin-cleaning/" class="service-read-more">Read More →</a>
       </div>
       <div class="service-card">
         <div class="service-icon">📡</div>
         <h3>Remote / Long-Reach Excavation</h3>
         <p>Industry-leading 900-foot extraction range — for tight-access locations, secured sites, and obstructed work zones.</p>
+        <a href="/hydrovac/remote-long-reach-excavation/" class="service-read-more">Read More →</a>
       </div>
       <div class="service-card">
         <div class="service-icon">🌳</div>
         <h3>Tree Root / Sensitive Area Excavation</h3>
         <p>Non-destructive excavation around mature trees, root systems, heritage landscapes, and other sensitive environments.</p>
+        <a href="/hydrovac/tree-root-sensitive-area/" class="service-read-more">Read More →</a>
       </div>
       <div class="service-card">
         <div class="service-icon">⚠️</div>
         <h3>Contaminated Soil Removal</h3>
         <p>Safe extraction and managed disposal of contaminated soils — with full chain-of-custody tracking and regulatory compliance.</p>
+        <a href="/hydrovac/contaminated-soil-removal/" class="service-read-more">Read More →</a>
       </div>
     </div>
   </div>
