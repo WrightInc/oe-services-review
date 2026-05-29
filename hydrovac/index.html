@@ -330,14 +330,18 @@
       border-top: 4px solid var(--oe-blue);
       padding: 28px;
       border-radius: 4px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
       display: flex;
       flex-direction: column;
+      cursor: pointer;
+      color: inherit;
     }
     .service-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(15,38,112,0.10);
+      border-color: var(--oe-blue);
     }
+    .service-card:hover .service-read-more { color: var(--oe-navy); }
     .service-icon {
       width: 48px; height: 48px;
       background: var(--oe-light);
@@ -1027,66 +1031,66 @@
     <p class="section-lead">From utility daylighting to slot trenching to cold-weather digging, OE handles the full range of hydrovac applications across Ontario.</p>
 
     <div class="services-grid">
-      <div class="service-card">
+      <a class="service-card" href="daylighting-utility-exposure/">
         <div class="service-icon">🎯</div>
         <h3>Hydrovac Non-Destructive Utility Exposure (Daylighting)</h3>
         <p>Safe exposure of buried utilities — gas, electric, water, telecom, fibre — before any mechanical work begins.</p>
-        <a href="daylighting-utility-exposure/" class="service-read-more">Read More →</a>
-      </div>
-      <div class="service-card">
+        <span class="service-read-more">Read More →</span>
+      </a>
+      <a class="service-card" href="slot-trenching/">
         <div class="service-icon">📏</div>
         <h3>Slot Trenching / Narrow Trenching</h3>
         <p>Precise, narrow trenches for pipelines, cables, and conduit installations with minimal soil disturbance.</p>
-        <a href="slot-trenching/" class="service-read-more">Read More →</a>
-      </div>
-      <div class="service-card">
+        <span class="service-read-more">Read More →</span>
+      </a>
+      <a class="service-card" href="utility-pole-holes/">
         <div class="service-icon">🪜</div>
         <h3>Utility Pole Holes</h3>
         <p>Clean, precise excavation for new pole installations, pole replacements, and anchor placement.</p>
-        <a href="utility-pole-holes/" class="service-read-more">Read More →</a>
-      </div>
-      <div class="service-card">
+        <span class="service-read-more">Read More →</span>
+      </a>
+      <a class="service-card" href="anode-installation/">
         <div class="service-icon">⚙️</div>
         <h3>Anode Installation</h3>
         <p>Cathodic protection anode installation for pipeline corrosion control — precise, non-destructive placement.</p>
-        <a href="anode-installation/" class="service-read-more">Read More →</a>
-      </div>
-      <div class="service-card">
+        <span class="service-read-more">Read More →</span>
+      </a>
+      <a class="service-card" href="power-distribution-excavation/">
         <div class="service-icon">⚡</div>
         <h3>Power Distribution Excavation</h3>
         <p>Safe excavation for electrical distribution work — transformer pads, vaults, primary and secondary cable runs.</p>
-        <a href="power-distribution-excavation/" class="service-read-more">Read More →</a>
-      </div>
-      <div class="service-card">
+        <span class="service-read-more">Read More →</span>
+      </a>
+      <a class="service-card" href="culvert-catch-basin-cleaning/">
         <div class="service-icon">🚧</div>
         <h3>Culvert & Catch Basin Cleaning</h3>
         <p>Cleanout and maintenance of catch basins, culverts, and stormwater infrastructure across municipal and ICI sites.</p>
-        <a href="culvert-catch-basin-cleaning/" class="service-read-more">Read More →</a>
-      </div>
-      <div class="service-card">
+        <span class="service-read-more">Read More →</span>
+      </a>
+      <a class="service-card" href="remote-long-reach-excavation/">
         <div class="service-icon">📡</div>
         <h3>Remote / Long-Reach Excavation</h3>
         <p>Industry-leading 900-foot extraction range — for tight-access locations, secured sites, and obstructed work zones.</p>
-        <a href="remote-long-reach-excavation/" class="service-read-more">Read More →</a>
-      </div>
-      <div class="service-card">
+        <span class="service-read-more">Read More →</span>
+      </a>
+      <a class="service-card" href="tree-root-sensitive-area/">
         <div class="service-icon">🌳</div>
         <h3>Tree Root / Sensitive Area Excavation</h3>
         <p>Non-destructive excavation around mature trees, root systems, heritage landscapes, and other sensitive environments.</p>
-        <a href="tree-root-sensitive-area/" class="service-read-more">Read More →</a>
-      </div>
-      <div class="service-card">
+        <span class="service-read-more">Read More →</span>
+      </a>
+      <a class="service-card" href="contaminated-soil-removal/">
         <div class="service-icon">⚠️</div>
         <h3>Contaminated Soil Removal</h3>
         <p>Safe extraction and managed disposal of contaminated soils — with full chain-of-custody tracking and regulatory compliance.</p>
-        <a href="contaminated-soil-removal/" class="service-read-more">Read More →</a>
-      </div>
-      <div class="service-card">
+        <span class="service-read-more">Read More →</span>
+      </a>
+      <a class="service-card" href="subsurface-utility-engineering/">
         <div class="service-icon">🔍</div>
         <h3>Subsurface Utility Engineering (SUE) / Level A Support</h3>
         <p>Non-destructive test-hole excavation to expose and verify buried utilities — including cutting/coring, excavation, backfilling and restoration.</p>
-        <a href="subsurface-utility-engineering/" class="service-read-more">Read More →</a>
-      </div>
+        <span class="service-read-more">Read More →</span>
+      </a>
     </div>
   </div>
 </section>
