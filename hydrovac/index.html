@@ -877,7 +877,16 @@
     /* ── FOOTER ───────────────────────────────────────────── */
     footer { background: var(--oe-navy); color: var(--oe-white); }
     .footer-body { max-width: 1400px; margin: 0 auto; padding: 60px 30px 36px; }
-    .footer-cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr 1fr; gap: 40px; align-items: start; }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+    /* Footer reflow — explicit even column counts per breakpoint (no flex-wrap) */
+    @media (max-width: 1180px) { .footer-cols { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 620px)  { .footer-cols { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 420px)  { .footer-cols { grid-template-columns: 1fr; } }
     .footer-col h5 {
       font-family: 'Nunito', sans-serif;
       font-weight: 800;
@@ -975,7 +984,6 @@
       .services-grid, .process-grid, .project-grid, .industries-grid, .coverage-grid { grid-template-columns: 1fr 1fr; }
       .full-service-grid { grid-template-columns: 1fr 1fr; }
       .stats-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-      .footer-cols { grid-template-columns: repeat(3, 1fr); }
       .hero-photo { height: 360px; }
     }
     @media (max-width: 960px) {
@@ -984,7 +992,6 @@
       .nav-toggle { display: flex; }
       .nav-emergency img { height: 36px; }
       .hero h1 { font-size: 48px; }
-      .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 28px; }
       .trust-inner { grid-template-columns: 1fr; gap: 20px; }
       .sticky-cta { bottom: 14px; right: 14px; padding: 12px 18px; font-size: 13px; }
     }
@@ -992,7 +999,6 @@
       .services-grid, .process-grid, .project-grid, .industries-grid, .coverage-grid, .stats-grid, .full-service-grid { grid-template-columns: 1fr; }
       .section { padding: 56px 20px; }
       .footer-body { padding: 40px 20px 28px; }
-      .footer-cols { grid-template-columns: 1fr; }
       .form-row, .form-checkboxes { grid-template-columns: 1fr; }
       .hero h1 { font-size: 40px; }
       .section-title { font-size: 30px; }
