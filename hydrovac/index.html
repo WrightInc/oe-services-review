@@ -207,6 +207,44 @@
     }
     .mobile-submenu a.active { color: var(--oe-blue); }
 
+    /* Third level — Hydrovac sub-pages, nested under the service line */
+    .mobile-hydrovac-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 13px 30px 13px 44px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Nunito', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--oe-text);
+    }
+    .mobile-hydrovac-toggle::after {
+      content: '+';
+      font-size: 20px;
+      line-height: 1;
+      color: var(--oe-blue);
+      font-weight: 700;
+    }
+    .mobile-hydrovac-toggle[aria-expanded="true"]::after { content: '–'; }
+
+    .mobile-subsubmenu { display: none; background: var(--oe-border); }
+    .mobile-subsubmenu.open { display: block; }
+    .mobile-subsubmenu li { border-top: 1px solid rgba(15,38,112,0.10); }
+    .mobile-subsubmenu a {
+      padding: 12px 30px 12px 60px;   /* deeper indent than level-two items */
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--oe-muted);
+    }
+    .mobile-subsubmenu a.active { color: var(--oe-blue); }
+
     .mobile-menu .mobile-contact a {
       color: var(--oe-white);
       background: var(--oe-navy);
@@ -1021,16 +1059,21 @@
         <button class="mobile-services-toggle" type="button" aria-controls="mobileServices" aria-expanded="false">Services</button>
         <ul class="mobile-submenu" id="mobileServices">
           <li><a href="https://www.oeservices.ca/services">All Services</a></li>
-          <li><a class="active" href="https://www.oeservices.ca/services">Hydrovac Excavation</a></li>
-          <li><a href="daylighting-utility-exposure/">Daylighting / Utility Exposure</a></li>
-          <li><a href="slot-trenching/">Slot Trenching / Narrow Trenching</a></li>
-          <li><a href="utility-pole-holes/">Utility Pole Holes</a></li>
-          <li><a href="anode-installation/">Anode Installation</a></li>
-          <li><a href="power-distribution-excavation/">Power Distribution Excavation</a></li>
-          <li><a href="culvert-catch-basin-cleaning/">Culvert &amp; Catch Basin Cleaning</a></li>
-          <li><a href="remote-long-reach-excavation/">Remote / Long-Reach Excavation</a></li>
-          <li><a href="tree-root-sensitive-area/">Tree Root / Sensitive Area Excavation</a></li>
-          <li><a href="contaminated-soil-removal/">Contaminated Soil Removal</a></li>
+          <li>
+            <button class="mobile-hydrovac-toggle" type="button" aria-controls="mobileHydrovac" aria-expanded="false">Hydrovac Excavation</button>
+            <ul class="mobile-subsubmenu" id="mobileHydrovac">
+              <li><a href="daylighting-utility-exposure/">Daylighting / Utility Exposure</a></li>
+              <li><a href="slot-trenching/">Slot Trenching / Narrow Trenching</a></li>
+              <li><a href="utility-pole-holes/">Utility Pole Holes</a></li>
+              <li><a href="anode-installation/">Anode Installation</a></li>
+              <li><a href="power-distribution-excavation/">Power Distribution Excavation</a></li>
+              <li><a href="culvert-catch-basin-cleaning/">Culvert &amp; Catch Basin Cleaning</a></li>
+              <li><a href="remote-long-reach-excavation/">Remote / Long-Reach Excavation</a></li>
+              <li><a href="tree-root-sensitive-area/">Tree Root / Sensitive Area Excavation</a></li>
+              <li><a href="contaminated-soil-removal/">Contaminated Soil Removal</a></li>
+              <li><a href="subsurface-utility-engineering/">Subsurface Utility Engineering (SUE) / Level A Support</a></li>
+            </ul>
+          </li>
           <li><a href="https://www.oeservices.ca/services/water-distribution">Water Distribution</a></li>
           <li><a href="https://www.oeservices.ca/services/gas-distribution">Gas Distribution</a></li>
           <li><a href="https://www.oeservices.ca/services/subsurface-engineering">Subsurface Utility Engineering</a></li>
@@ -1769,6 +1812,15 @@
       svcToggle.addEventListener('click', function () {
         var isOpen = svcMenu.classList.toggle('open');
         svcToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    var hydroToggle = document.querySelector('.mobile-hydrovac-toggle');
+    var hydroMenu = document.getElementById('mobileHydrovac');
+    if (hydroToggle && hydroMenu) {
+      hydroToggle.addEventListener('click', function () {
+        var isOpen = hydroMenu.classList.toggle('open');
+        hydroToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
     }
   })();
