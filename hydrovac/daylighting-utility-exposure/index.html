@@ -226,8 +226,8 @@
     }
     .mobile-submenu a.active { color: var(--oe-blue); }
 
-    /* Third level — Hydrovac sub-pages, nested under the service line */
-    .mobile-hydrovac-toggle {
+    /* Third level — sub-services nested under an expandable service line */
+    .mobile-sub-toggle {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -242,14 +242,14 @@
       font-size: 13px;
       color: var(--oe-text);
     }
-    .mobile-hydrovac-toggle::after {
+    .mobile-sub-toggle::after {
       content: '+';
       font-size: 20px;
       line-height: 1;
       color: var(--oe-blue);
       font-weight: 700;
     }
-    .mobile-hydrovac-toggle[aria-expanded="true"]::after { content: '–'; }
+    .mobile-sub-toggle[aria-expanded="true"]::after { content: '–'; }
 
     .mobile-subsubmenu { display: none; background: var(--oe-border); }
     .mobile-subsubmenu.open { display: block; }
@@ -616,27 +616,57 @@
       <li>
         <a href="https://www.oeservices.ca/services" class="active">Services ▾</a>
         <div class="dropdown">
-          <a href="https://www.oeservices.ca/services">All Services</a>
           <div class="dropdown-item has-submenu">
-            <a href="../">Hydrovac Excavation</a>
+            <a href="/hydrovac/">Hydrovac Trucks</a>
             <div class="submenu">
-              <a href="../daylighting-utility-exposure/">Daylighting / Utility Exposure</a>
-              <a href="../slot-trenching/">Slot Trenching / Narrow Trenching</a>
-              <a href="../utility-pole-holes/">Utility Pole Holes</a>
-              <a href="../anode-installation/">Anode Installation</a>
-              <a href="../power-distribution-excavation/">Power Distribution Excavation</a>
-              <a href="../culvert-catch-basin-cleaning/">Culvert & Catch Basin Cleaning</a>
-              <a href="../remote-long-reach-excavation/">Remote / Long-Reach Excavation</a>
-              <a href="../tree-root-sensitive-area/">Tree Root / Sensitive Area Excavation</a>
-              <a href="../contaminated-soil-removal/">Contaminated Soil Removal</a>
-              <a href="../subsurface-utility-engineering/">Subsurface Utility Engineering (SUE) / Level A Support</a>
+              <a href="/hydrovac/daylighting-utility-exposure/">Daylighting / Utility Exposure</a>
+              <a href="/hydrovac/slot-trenching/">Slot Trenching / Narrow Trenching</a>
+              <a href="/hydrovac/utility-pole-holes/">Utility Pole Holes</a>
+              <a href="/hydrovac/anode-installation/">Anode Installation</a>
+              <a href="/hydrovac/power-distribution-excavation/">Power Distribution Excavation</a>
+              <a href="/hydrovac/culvert-catch-basin-cleaning/">Culvert & Catch Basin Cleaning</a>
+              <a href="/hydrovac/remote-long-reach-excavation/">Remote / Long-Reach Excavation</a>
+              <a href="/hydrovac/tree-root-sensitive-area/">Tree Root / Sensitive Area Excavation</a>
+              <a href="/hydrovac/contaminated-soil-removal/">Contaminated Soil Removal</a>
+              <a href="/hydrovac/subsurface-utility-engineering/">Subsurface Utility Engineering (SUE) / Level A Support</a>
             </div>
           </div>
-          <a href="https://www.oeservices.ca/services/water-distribution">Water Distribution</a>
-          <a href="https://www.oeservices.ca/services/gas-distribution">Gas Distribution</a>
-          <a href="https://www.oeservices.ca/services/subsurface-engineering">Subsurface Utility Engineering</a>
-          <a href="https://www.oeservices.ca/services/restoration">Restoration Services</a>
-          <a href="https://www.oeservices.ca/services/soil-recycling">Soil Recycling</a>
+          <div class="dropdown-item has-submenu">
+            <a href="/u-fill/">U-Fill (Unshrinkable Concrete Trucks)</a>
+            <div class="submenu">
+              <a href="/u-fill/controlled-low-strength-material/">Controlled Low Strength Material</a>
+              <a href="/u-fill/flowable-fill/">Flowable Fill</a>
+            </div>
+          </div>
+          <div class="dropdown-item has-submenu">
+            <a href="/material-slinger/">Material Slinger Trucks</a>
+            <div class="submenu">
+              <a href="/material-slinger/stone-gravel-placement/">Stone / Gravel Placement</a>
+              <a href="/material-slinger/controlled-precisioned-material-placement/">Controlled / Precisioned Material Placement</a>
+            </div>
+          </div>
+          <div class="dropdown-item has-submenu">
+            <a href="/coring/">Coring Trucks</a>
+            <div class="submenu">
+              <a href="/coring/concrete-asphalt-coring/">Concrete and Asphalt Coring</a>
+              <a href="/coring/concrete-restoration/">Concrete Restoration</a>
+            </div>
+          </div>
+          <a href="/traffic-control/">Traffic Control</a>
+          <div class="dropdown-item has-submenu">
+            <a href="/turnkey-sue/">Turnkey SUE — Level A</a>
+            <div class="submenu">
+              <a href="/turnkey-sue/project-coordination/">Project Coordination</a>
+            </div>
+          </div>
+          <a href="/soil-recycling/">Soil Recycling</a>
+          <div class="dropdown-item has-submenu">
+            <a href="/additional-services/">Additional Services</a>
+            <div class="submenu">
+              <a href="/additional-services/dump-trucks/">Dump Trucks</a>
+              <a href="/additional-services/soft-services/">Soft Services</a>
+            </div>
+          </div>
         </div>
       </li>
       <li><a href="https://www.oeservices.ca/sustainability">Sustainability</a></li>
@@ -659,27 +689,57 @@
       <li>
         <button class="mobile-services-toggle" type="button" aria-controls="mobileServices" aria-expanded="false">Services</button>
         <ul class="mobile-submenu" id="mobileServices">
-          <li><a href="https://www.oeservices.ca/services">All Services</a></li>
           <li>
-            <button class="mobile-hydrovac-toggle" type="button" aria-controls="mobileHydrovac" aria-expanded="false">Hydrovac Excavation</button>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileHydrovac" aria-expanded="false">Hydrovac Trucks</button>
             <ul class="mobile-subsubmenu" id="mobileHydrovac">
-              <li><a href="../daylighting-utility-exposure/">Daylighting / Utility Exposure</a></li>
-              <li><a href="../slot-trenching/">Slot Trenching / Narrow Trenching</a></li>
-              <li><a href="../utility-pole-holes/">Utility Pole Holes</a></li>
-              <li><a href="../anode-installation/">Anode Installation</a></li>
-              <li><a href="../power-distribution-excavation/">Power Distribution Excavation</a></li>
-              <li><a href="../culvert-catch-basin-cleaning/">Culvert &amp; Catch Basin Cleaning</a></li>
-              <li><a href="../remote-long-reach-excavation/">Remote / Long-Reach Excavation</a></li>
-              <li><a href="../tree-root-sensitive-area/">Tree Root / Sensitive Area Excavation</a></li>
-              <li><a href="../contaminated-soil-removal/">Contaminated Soil Removal</a></li>
-              <li><a href="../subsurface-utility-engineering/">Subsurface Utility Engineering (SUE) / Level A Support</a></li>
+              <li><a href="/hydrovac/daylighting-utility-exposure/">Daylighting / Utility Exposure</a></li>
+              <li><a href="/hydrovac/slot-trenching/">Slot Trenching / Narrow Trenching</a></li>
+              <li><a href="/hydrovac/utility-pole-holes/">Utility Pole Holes</a></li>
+              <li><a href="/hydrovac/anode-installation/">Anode Installation</a></li>
+              <li><a href="/hydrovac/power-distribution-excavation/">Power Distribution Excavation</a></li>
+              <li><a href="/hydrovac/culvert-catch-basin-cleaning/">Culvert &amp; Catch Basin Cleaning</a></li>
+              <li><a href="/hydrovac/remote-long-reach-excavation/">Remote / Long-Reach Excavation</a></li>
+              <li><a href="/hydrovac/tree-root-sensitive-area/">Tree Root / Sensitive Area Excavation</a></li>
+              <li><a href="/hydrovac/contaminated-soil-removal/">Contaminated Soil Removal</a></li>
+              <li><a href="/hydrovac/subsurface-utility-engineering/">Subsurface Utility Engineering (SUE) / Level A Support</a></li>
             </ul>
           </li>
-          <li><a href="https://www.oeservices.ca/services/water-distribution">Water Distribution</a></li>
-          <li><a href="https://www.oeservices.ca/services/gas-distribution">Gas Distribution</a></li>
-          <li><a href="https://www.oeservices.ca/services/subsurface-engineering">Subsurface Utility Engineering</a></li>
-          <li><a href="https://www.oeservices.ca/services/restoration">Restoration Services</a></li>
-          <li><a href="https://www.oeservices.ca/services/soil-recycling">Soil Recycling</a></li>
+          <li>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileUfill" aria-expanded="false">U-Fill (Unshrinkable Concrete Trucks)</button>
+            <ul class="mobile-subsubmenu" id="mobileUfill">
+              <li><a href="/u-fill/controlled-low-strength-material/">Controlled Low Strength Material</a></li>
+              <li><a href="/u-fill/flowable-fill/">Flowable Fill</a></li>
+            </ul>
+          </li>
+          <li>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileSlinger" aria-expanded="false">Material Slinger Trucks</button>
+            <ul class="mobile-subsubmenu" id="mobileSlinger">
+              <li><a href="/material-slinger/stone-gravel-placement/">Stone / Gravel Placement</a></li>
+              <li><a href="/material-slinger/controlled-precisioned-material-placement/">Controlled / Precisioned Material Placement</a></li>
+            </ul>
+          </li>
+          <li>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileCoring" aria-expanded="false">Coring Trucks</button>
+            <ul class="mobile-subsubmenu" id="mobileCoring">
+              <li><a href="/coring/concrete-asphalt-coring/">Concrete and Asphalt Coring</a></li>
+              <li><a href="/coring/concrete-restoration/">Concrete Restoration</a></li>
+            </ul>
+          </li>
+          <li><a href="/traffic-control/">Traffic Control</a></li>
+          <li>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileTurnkey" aria-expanded="false">Turnkey SUE — Level A</button>
+            <ul class="mobile-subsubmenu" id="mobileTurnkey">
+              <li><a href="/turnkey-sue/project-coordination/">Project Coordination</a></li>
+            </ul>
+          </li>
+          <li><a href="/soil-recycling/">Soil Recycling</a></li>
+          <li>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileAdditional" aria-expanded="false">Additional Services</button>
+            <ul class="mobile-subsubmenu" id="mobileAdditional">
+              <li><a href="/additional-services/dump-trucks/">Dump Trucks</a></li>
+              <li><a href="/additional-services/soft-services/">Soft Services</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
       <li><a href="https://www.oeservices.ca/sustainability">Sustainability</a></li>
@@ -994,23 +1054,16 @@
       });
     }
 
-    var svcToggle = document.querySelector('.mobile-services-toggle');
-    var svcMenu = document.getElementById('mobileServices');
-    if (svcToggle && svcMenu) {
-      svcToggle.addEventListener('click', function () {
-        var isOpen = svcMenu.classList.toggle('open');
-        svcToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    // Every accordion toggle controls the list named in its aria-controls
+    var toggles = document.querySelectorAll('.mobile-services-toggle, .mobile-sub-toggle');
+    Array.prototype.forEach.call(toggles, function (btn) {
+      var target = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!target) return;
+      btn.addEventListener('click', function () {
+        var isOpen = target.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
-    }
-
-    var hydroToggle = document.querySelector('.mobile-hydrovac-toggle');
-    var hydroMenu = document.getElementById('mobileHydrovac');
-    if (hydroToggle && hydroMenu) {
-      hydroToggle.addEventListener('click', function () {
-        var isOpen = hydroMenu.classList.toggle('open');
-        hydroToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-    }
+    });
   })();
 </script>
 
