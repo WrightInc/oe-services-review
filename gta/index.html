@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  OE UTILITY SERVICES — LOCATIONS PAGE TEMPLATE
+  Example: Greater Toronto Area (GTA)
+  
+  USE THIS TEMPLATE FOR ALL SIX RBU PAGES.
+  Replace the bracketed placeholders below with location-specific content:
+  
+    [LOCATION_NAME]              e.g. "Greater Toronto Area" / "Hamilton" / "Ottawa"
+    [LOCATION_SHORT]             e.g. "GTA" / "Hamilton" / "Ottawa"
+    [OFFICE_ADDRESS_LINE_1]      Street address
+    [OFFICE_ADDRESS_LINE_2]      City, Province, Postal Code
+    [OFFICE_PHONE]               Local branch line if different from HQ
+    [OFFICE_EMAIL]               Branch email if different
+    [LOCATION_PHOTO_URL]         Hero photo of the office / yard / building
+    [BRANCH_LEAD_NAME]           RBU Manager name (e.g. "Todd Desjardins")
+    [HEADSHOT_URL]               URL to the manager's headshot photo
+    [GOOGLE_MAPS_EMBED_URL]      Embed src URL from Google Maps
+    [SERVICE_AREA_LIST]          Cities / regions served from this RBU
+    [PROJECT_1] / [PROJECT_2]    2–3 representative local projects
+    [CLIENT_LIST]                Notable municipal / ICI clients in region
+  
+  IMPORTANT: For each RBU page:
+  1. Update the "Six Locations Serving Ontario" section to highlight 
+     the CURRENT page as `current-location` with "You are here" badge,
+     and convert that page's link from <a> to a <div> (no link).
+  2. Update breadcrumbs and page title to match the location.
+  3. Update LocalBusiness schema to match the location's address.
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greater Toronto Area Utility Services | OE Utility Services</title>
+  <meta name="description" content="OE Utility Services delivers hydrovac excavation, gas and water distribution, subsurface utility engineering, and restoration across the Greater Toronto Area. 30 years serving the GTA!" />
+
+  <!-- Local Business Schema for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "OE Utility Services — Greater Toronto Area",
+    "image": "https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE-main-fullcolor-logo-1920w.png",
+    "url": "https://www.oeservices.ca/gta/",
+    "telephone": "+1-416-749-0005",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[OFFICE_ADDRESS_LINE_1]",
+      "addressLocality": "Toronto",
+      "addressRegion": "ON",
+      "postalCode": "[POSTAL_CODE]",
+      "addressCountry": "CA"
+    },
+    "areaServed": "Greater Toronto Area, Ontario",
+    "openingHours": "Mo-Fr 07:00-17:00",
+    "priceRange": "$$"
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ── OE OFFICIAL BRAND TOKENS (Brand Guide v1.1) ─────── */
+    :root {
+      --oe-navy:   #0F2670;
+      --oe-blue:   #01ABEE;
+      --oe-white:  #FFFFFF;
+      --oe-light:  #F4F7FA;
+      --oe-border: #D8E4EE;
+      --oe-text:   #222222;
+      --oe-muted:  #666666;
+      --enb-orange:#E05A00;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito Sans', Arial, sans-serif;
+      color: var(--oe-text);
+      background: var(--oe-white);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    h1,h2,h3,h4,.btn,.step-title,.faq-q,.eyebrow,.stat-num,.tag,.cert-tag {
+      font-family: 'Nunito', Arial, sans-serif;
+    }
+
+    /* ════════════════════════════════════════════════════════
+       HEADER — matches oeservices.ca exactly
+    ════════════════════════════════════════════════════════ */
+    header {
+      background: var(--oe-white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 300;
+    }
+    .nav-outer {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 88px;
+      gap: 32px;
+    }
+    .nav-logo img { height: 52px; width: auto; display: block; }
+    .nav-centre {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+      flex: 1;
+      justify-content: flex-end;
+      margin-right: 28px;
+    }
+    .nav-centre li { position: relative; }
+    .nav-centre > li > a {
+      display: block;
+      padding: 10px 18px;
+      font-family: 'Nunito', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--oe-text);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-centre > li > a:hover { color: var(--oe-blue); }
+    .nav-centre > li > a.active { color: var(--oe-blue); border-bottom: 3px solid var(--oe-blue); }
+    .nav-centre .nav-contact > a {
+      background: var(--oe-navy);
+      color: var(--oe-white);
+      padding: 10px 20px;
+      border-radius: 3px;
+    }
+    .nav-centre .nav-contact > a:hover { background: var(--oe-blue); color: var(--oe-navy); }
+    .nav-centre li:hover .dropdown { display: block; }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--oe-white);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      min-width: 220px;
+      z-index: 400;
+      border-top: 3px solid var(--oe-blue);
+    }
+    .dropdown a {
+      display: block;
+      padding: 11px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--oe-text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--oe-border);
+      transition: background 0.15s, color 0.15s;
+    }
+    .dropdown a:last-child { border-bottom: none; }
+    .dropdown a:hover { background: var(--oe-light); color: var(--oe-navy); }
+    .nav-emergency img { height: 44px; width: auto; display: block; }
+
+    /* ════════════════════════════════════════════════════════
+       BREADCRUMBS
+    ════════════════════════════════════════════════════════ */
+    .breadcrumbs {
+      background: var(--oe-light);
+      padding: 12px 40px;
+      border-bottom: 1px solid var(--oe-border);
+    }
+    .breadcrumbs-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      font-size: 13px;
+      color: var(--oe-muted);
+    }
+    .breadcrumbs a {
+      color: var(--oe-navy);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .breadcrumbs a:hover { color: var(--oe-blue); }
+    .breadcrumbs .sep { margin: 0 8px; color: var(--oe-border); }
+    .breadcrumbs .current { color: var(--oe-muted); font-weight: 600; }
+
+    /* ════════════════════════════════════════════════════════
+       HERO — Location-specific
+    ════════════════════════════════════════════════════════ */
+    .hero {
+      background: var(--oe-navy);
+      padding: 72px 40px 68px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 40%;
+      background: linear-gradient(135deg, transparent, rgba(1,171,238,0.10));
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--oe-blue);
+      color: var(--oe-white);
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 800;
+      color: var(--oe-white);
+      line-height: 1.06;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero h1 span { color: var(--oe-blue); }
+    .hero-desc {
+      font-size: 17px;
+      color: rgba(255,255,255,0.62);
+      max-width: 540px;
+      line-height: 1.75;
+      margin-bottom: 30px;
+    }
+    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      padding: 13px 30px;
+      border-radius: 3px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-blue { background: var(--oe-blue); color: var(--oe-navy); }
+    .btn-blue:hover { background: var(--oe-white); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--oe-white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .btn-ghost:hover { border-color: var(--oe-blue); color: var(--oe-blue); }
+
+    .hero-sidebar { display: flex; flex-direction: column; gap: 10px; }
+    .hero-badge {
+      background: rgba(1,171,238,0.09);
+      border: 1px solid rgba(1,171,238,0.22);
+      border-left: 4px solid var(--oe-blue);
+      padding: 15px 18px;
+    }
+    .hero-badge .bl { font-family:'Nunito',sans-serif; font-size:10px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--oe-blue); margin-bottom:4px; }
+    .hero-badge .bv { font-family:'Nunito',sans-serif; font-size:15px; font-weight:800; color:rgba(255,255,255,0.9); }
+
+    /* Alert bar */
+    .alert-bar {
+      background: var(--oe-blue);
+      padding: 14px 40px;
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--oe-white);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Location photo banner */
+    .location-photo-section {
+      background: var(--oe-light);
+    }
+    .location-photo-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .location-photo {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      background: var(--oe-navy);
+    }
+    .location-photo-caption {
+      position: absolute;
+      left: 40px;
+      bottom: 30px;
+      background: var(--oe-navy);
+      color: var(--oe-white);
+      padding: 18px 24px;
+      border-left: 4px solid var(--oe-blue);
+      max-width: 70%;
+    }
+    .caption-eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--oe-blue);
+      margin-bottom: 5px;
+    }
+    .caption-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--oe-white);
+    }
+
+    /* ════════════════════════════════════════════════════════
+       CONTENT SECTIONS
+    ════════════════════════════════════════════════════════ */
+    .section { padding: 72px 40px; }
+    .section.gray { background: var(--oe-light); }
+    .section.dark { background: var(--oe-navy); }
+    .wrap { max-width: 1280px; margin: 0 auto; }
+    .eyebrow { font-size:11px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--oe-blue); margin-bottom:10px; }
+    h2.stitle { font-size:clamp(24px,3vw,38px); font-weight:800; color:var(--oe-navy); text-transform:uppercase; letter-spacing:-0.5px; line-height:1.1; margin-bottom:14px; }
+    .section.dark h2.stitle { color:var(--oe-white); }
+    .blue-rule { width:50px; height:4px; background:var(--oe-blue); margin-bottom:34px; }
+    .body-text { font-size:16px; color:var(--oe-muted); line-height:1.75; margin-bottom:14px; }
+    .body-text strong { color:var(--oe-text); }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+
+    /* Stat cards */
+    .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+    .stat-card { background:var(--oe-white); border-top:4px solid var(--oe-blue); padding:26px 22px; }
+    .stat-card-link { display:block; text-decoration:none; color:inherit; transition:transform 0.2s, box-shadow 0.2s; cursor:pointer; }
+    .stat-card-link:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(15,38,112,0.12); }
+    .stat-card-link:hover .stat-num { color: var(--oe-blue); }
+    .stat-num { font-size:34px; font-weight:800; color:var(--oe-navy); line-height:1; margin-bottom:7px; }
+    .stat-label { font-size:13px; color:var(--oe-muted); line-height:1.45; }
+
+    /* Services offered grid */
+    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+    .service-card {
+      background:var(--oe-white);
+      padding:30px 24px;
+      border-top:4px solid transparent;
+      transition:border-top-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .service-card:hover {
+      border-top-color:var(--oe-blue);
+      transform: translateY(-2px);
+    }
+    .service-icon {
+      width:54px; height:54px;
+      background:var(--oe-navy);
+      color:var(--oe-blue);
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Nunito',sans-serif; font-size:24px; font-weight:800;
+      margin-bottom:18px;
+    }
+    .service-card h3 {
+      font-size:15px; font-weight:800; text-transform:uppercase;
+      letter-spacing:0.5px; color:var(--oe-navy); margin-bottom:10px;
+    }
+    .service-card p { font-size:14px; color:var(--oe-muted); line-height:1.6; }
+    .service-card .read-more {
+      display:inline-block; margin-top:14px;
+      font-family:'Nunito',sans-serif; font-size:11px; font-weight:800;
+      letter-spacing:1.5px; text-transform:uppercase; color:var(--oe-blue);
+    }
+
+    /* Service area / projects table */
+    .oe-table { width:100%; border-collapse:collapse; font-size:15px; }
+    .oe-table thead tr { background:var(--oe-navy); }
+    .oe-table th { padding:14px 20px; text-align:left; font-family:'Nunito',sans-serif; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:var(--oe-blue); }
+    .oe-table td { padding:14px 20px; border-bottom:1px solid var(--oe-border); color:var(--oe-text); vertical-align:middle; }
+    .oe-table tr:last-child td { border-bottom:none; }
+    .oe-table tr:nth-child(even) td { background:var(--oe-light); }
+    .tag { display:inline-block; background:var(--oe-navy); color:var(--oe-blue); font-family:'Nunito',sans-serif; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:4px 11px; border-radius:2px; }
+
+    /* Service area pill list */
+    .area-pills {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 8px;
+    }
+    .area-pill {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      color: var(--oe-navy);
+      font-size: 13px; font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 20px;
+    }
+
+    /* Project cards */
+    .project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+    .project-card { background:var(--oe-white); padding:28px 24px; border-left:4px solid var(--oe-blue); }
+    .project-card .p-tag {
+      display:inline-block;
+      font-family:'Nunito',sans-serif;
+      font-size:10px; font-weight:800;
+      letter-spacing:2px; text-transform:uppercase;
+      color:var(--oe-blue); margin-bottom:10px;
+    }
+    .project-card h4 {
+      font-size:16px; font-weight:800; color:var(--oe-navy);
+      margin-bottom:12px; line-height:1.3;
+    }
+    .project-card p { font-size:14px; color:var(--oe-muted); line-height:1.6; margin-bottom:10px; }
+    .project-card .p-meta {
+      font-size:12px; color:var(--oe-muted);
+      padding-top:12px; border-top:1px solid var(--oe-border);
+    }
+
+    /* Map + contact split */
+    .map-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+    }
+    .map-wrap {
+      background: var(--oe-white);
+      min-height: 420px;
+      position: relative;
+    }
+    .map-wrap iframe {
+      width: 100%; height: 100%; min-height: 420px;
+      border: 0; display: block;
+    }
+    .map-placeholder {
+      width: 100%; height: 100%; min-height: 420px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: var(--oe-light);
+      color: var(--oe-muted);
+      padding: 40px;
+      text-align: center;
+    }
+    .map-placeholder .pin {
+      font-size: 48px; color: var(--oe-blue); margin-bottom: 12px;
+    }
+    .contact-wrap {
+      background: var(--oe-white);
+      padding: 40px 36px;
+    }
+    .contact-wrap h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--oe-navy);
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--oe-blue);
+      margin-bottom: 22px;
+    }
+    .c-line { display:flex; gap:11px; margin-bottom:14px; font-size:14px; color:var(--oe-muted); align-items:flex-start; }
+    .c-line a { color:var(--oe-navy); font-weight:700; text-decoration:none; }
+    .c-line a:hover { color:var(--oe-blue); }
+    .c-line .icon {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: var(--oe-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+    }
+    .hours-block {
+      margin-top: 18px;
+      background: var(--oe-light);
+      border-left: 4px solid var(--oe-blue);
+      padding: 14px 16px;
+    }
+    .hours-block strong {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--oe-navy); margin-bottom: 6px;
+    }
+    .hours-block .hours-row {
+      font-size: 13px; color: var(--oe-muted);
+      display: flex; justify-content: space-between;
+      padding: 2px 0;
+    }
+    .emergency-callout {
+      margin-top: 18px;
+      background: var(--oe-navy);
+      color: var(--oe-white);
+      padding: 16px 18px;
+      border-left: 4px solid var(--oe-blue);
+    }
+    .emergency-callout .lbl {
+      font-family: 'Nunito', sans-serif;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--oe-blue); margin-bottom: 4px;
+    }
+    .emergency-callout a {
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px; font-weight: 800;
+      color: var(--oe-white); text-decoration: none;
+    }
+    .emergency-callout a:hover { color: var(--oe-blue); }
+
+    /* Branch lead card */
+    .lead-card {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-top: 4px solid var(--oe-blue);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+    .lead-headshot {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--oe-blue);
+      background: var(--oe-light);
+    }
+    .lead-card h4 {
+      font-size: 18px; color: var(--oe-navy);
+      font-weight: 800; margin-bottom: 4px;
+    }
+    .lead-card .role {
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--oe-blue); margin-bottom: 8px;
+    }
+    .lead-card p { font-size: 14px; color: var(--oe-muted); line-height: 1.55; }
+
+    /* Certifications strip */
+    .cert-strip {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 20px;
+    }
+    .cert-tag {
+      background: var(--oe-light);
+      color: var(--oe-navy);
+      font-size: 12px; font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 8px 14px;
+      border-radius: 3px;
+      border: 1px solid var(--oe-border);
+    }
+
+    /* CTA section */
+    .cta-section {
+      background: var(--oe-navy);
+      padding: 64px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 50%, rgba(1,171,238,0.08));
+      pointer-events: none;
+    }
+    .cta-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-section h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 800;
+      color: var(--oe-blue);
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      line-height: 1.15;
+    }
+    .cta-section h2 .slogan-white { color: var(--oe-white); }
+    .cta-section p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+    .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* Other locations */
+    .other-locations-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 3px;
+    }
+    .other-loc-card {
+      background: var(--oe-white);
+      padding: 26px 18px 22px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      border-top: 3px solid transparent;
+      transition: border-top-color 0.2s, transform 0.15s;
+      position: relative;
+    }
+    .other-loc-card:hover {
+      border-top-color: var(--oe-blue);
+      transform: translateY(-2px);
+    }
+    .other-loc-card.current-location {
+      background: var(--oe-navy);
+      border-top: 3px solid var(--oe-blue);
+      cursor: default;
+    }
+    .other-loc-card.current-location:hover {
+      transform: none;
+    }
+    .other-loc-card.current-location h4 { color: var(--oe-white); }
+    .other-loc-card.current-location p { color: rgba(255,255,255,0.7); }
+    .other-loc-card.current-location .pin-icon { color: var(--oe-blue); }
+    .current-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--oe-blue);
+      color: var(--oe-navy);
+      font-family: 'Nunito', sans-serif;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 3px 7px;
+      border-radius: 2px;
+    }
+    .other-loc-card .pin-icon {
+      font-size: 24px; color: var(--oe-blue); margin-bottom: 8px;
+    }
+    .other-loc-card h4 {
+      font-size: 14px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      color: var(--oe-navy); margin-bottom: 4px;
+    }
+    .other-loc-card p {
+      font-size: 12px; color: var(--oe-muted);
+    }
+
+    /* ════════════════════════════════════════════════════════
+       FOOTER — matches oeservices.ca exactly
+    ════════════════════════════════════════════════════════ */
+    .footer-body { background: var(--oe-navy); padding: 56px 40px 40px; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-logo-row { margin-bottom: 44px; display: flex; align-items: center; gap: 20px; }
+    .footer-logo-row img { height: 52px; width: auto; display: block; }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 32px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .footer-col h4 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--oe-blue); }
+    .footer-bottom {
+      background: #08153E;
+      text-align: center;
+      padding: 14px 40px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.38);
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.45); text-decoration: none; margin: 0 8px; }
+    .footer-bottom a:hover { color: var(--oe-blue); }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .project-grid { grid-template-columns: 1fr 1fr; }
+      .other-locations-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-cols { grid-template-columns: repeat(3, 1fr); }
+      .location-photo { height: 340px; }
+    }
+    @media (max-width: 960px) {
+      .hero-inner, .two-col, .map-contact-grid { grid-template-columns: 1fr; }
+      .services-grid, .project-grid { grid-template-columns: 1fr 1fr; }
+      .other-locations-grid { grid-template-columns: 1fr 1fr; }
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .nav-centre { display: none; }
+      .nav-emergency img { height: 36px; }
+      .location-photo { height: 280px; }
+      .location-photo-caption { left: 20px; right: 20px; bottom: 20px; max-width: none; }
+    }
+    @media (max-width: 540px) {
+      .stat-grid, .services-grid, .project-grid, .other-locations-grid { grid-template-columns: 1fr; }
+      .section { padding: 48px 20px; }
+      .footer-body { padding: 40px 20px 28px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .lead-card { grid-template-columns: 1fr; text-align: center; }
+      .lead-headshot { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════ -->
+<header>
+  <div class="nav-outer">
+    <a href="/" class="nav-logo">
+      <img src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE-main-fullcolor-logo-1920w.png" alt="OE Utility Services" />
+    </a>
+    <ul class="nav-centre">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="/services">Services ▾</a>
+        <div class="dropdown">
+          <a href="/hydrovac/">Hydrovac Trucks</a>
+          <a href="/u-fill/">U-Fill (Unshrinkable Concrete Trucks)</a>
+          <a href="/material-slinger/">Material Slinger Trucks</a>
+          <a href="/coring/">Coring Trucks</a>
+          <a href="/traffic-control/">Traffic Control</a>
+          <a href="/turnkey-sue/">Turnkey SUE — Level A</a>
+          <a href="/soil-recycling/">Soil Recycling</a>
+          <a href="/additional-services/">Additional Services</a>
+        </div>
+      </li>
+      <li><a href="/sustainability">Sustainability</a></li>
+      <li><a href="/about-us">About Us</a></li>
+      <li><a href="/locations" class="active">Locations</a></li>
+      <li class="nav-contact"><a href="/contact">Contact • Estimate</a></li>
+    </ul>
+    <a href="tel:4167490005" class="nav-emergency">
+      <img src="https://irp.cdn-website.com/7f93686c/dms3rep/multi/Emergency-full.svg" alt="24/7 Emergency Number 416.749.0005" />
+    </a>
+  </div>
+</header>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <div class="breadcrumbs-inner">
+    <a href="/">Home</a>
+    <span class="sep">›</span>
+    <a href="/locations">Locations</a>
+    <span class="sep">›</span>
+    <span class="current">Greater Toronto Area</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Ontario Service Locations</div>
+      <h1>Greater<br>Toronto<br><span>Area</span></h1>
+      <p class="hero-desc">Our flagship operations base — serving the GTA with hydrovac excavation, gas and water distribution, and subsurface utility engineering for 30 years.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-blue">Contact GTA Office →</a>
+        <a href="/contact" class="btn btn-ghost">Request a Quote</a>
+      </div>
+    </div>
+    <div class="hero-sidebar">
+      <div class="hero-badge"><div class="bl">Headquartered In</div><div class="bv">Greater Toronto Area</div></div>
+      <div class="hero-badge"><div class="bl">Years Serving the GTA</div><div class="bv">30+ Years</div></div>
+      <div class="hero-badge"><div class="bl">Service Response</div><div class="bv">24/7 Emergency Coverage</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="alert-bar">📍 &nbsp; 24/7 EMERGENCY RESPONSE ACROSS THE GTA — Call 416.749.0005 anytime</div>
+
+<!-- LOCATION PHOTO -->
+<section class="location-photo-section">
+  <div class="location-photo-wrap">
+    <img class="location-photo" src="[LOCATION_PHOTO_URL]" alt="OE Utility Services Greater Toronto Area office and yard" />
+    <div class="location-photo-caption">
+      <div class="caption-eyebrow">Greater Toronto Area Regional Business Unit</div>
+      <div class="caption-title">[OFFICE_ADDRESS_LINE_1] · [OFFICE_ADDRESS_LINE_2]</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO + STATS -->
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">About Our GTA Operations</div>
+        <h2 class="stitle">Get More Out of the GTA's Most Trusted Utility Contractor</h2>
+        <div class="blue-rule"></div>
+        <p class="body-text">For three decades, OE Utility Services has been the contractor of choice for utility and civil construction across the <strong>Greater Toronto Area</strong>. Our GTA <strong>Regional Business Unit (RBU)</strong> is the operational heart of our business — supporting work across Toronto, Mississauga, Brampton, Markham, Vaughan, Richmond Hill, Oakville, Burlington, Pickering, and Ajax.</p>
+        <p class="body-text">From emergency gas distribution repairs in downtown Toronto to large-scale subsurface utility engineering for new developments in Vaughan, our GTA crews bring the same standard of safety, precision, and accountability to every project — large or small, public or private.</p>
+        <p class="body-text">As an <strong>authorized Enbridge Gas Inc. contractor</strong>, we serve the GTA with the same standard of safety, precision, and accountability on every project — and hold every certification required to operate safely on Ontario's most demanding utility projects.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-num">30+</div><div class="stat-label">Years serving the Greater Toronto Area</div></div>
+        <div class="stat-card"><div class="stat-num">24/7</div><div class="stat-label">Emergency utility response across the GTA</div></div>
+        <a href="/safety_certificates" class="stat-card stat-card-link"><div class="stat-num" style="font-size:26px;">ISO 45001</div><div class="stat-label">International standard for safety management — view certificate →</div></a>
+        <a href="/safety_certificates" class="stat-card stat-card-link"><div class="stat-num" style="font-size:26px;">COR&reg; 2020</div><div class="stat-label">IHSA audit-certified safety program — view certificate →</div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES OFFERED FROM THIS LOCATION -->
+<section class="section gray">
+  <div class="wrap">
+    <div class="eyebrow">Available From Our GTA Office</div>
+    <h2 class="stitle">Services Delivered Across the Greater Toronto Area</h2>
+    <div class="blue-rule"></div>
+    <p class="body-text" style="max-width:780px; margin-bottom:34px;">Every OE service line is fully resourced and crewed from our GTA operations base. Click any service to learn more.</p>
+    <div class="services-grid">
+      <a href="/hydrovac/" class="service-card">
+        <div class="service-icon">H</div>
+        <h3>Hydrovac Trucks</h3>
+        <p>Non-destructive hydrovac excavation across Toronto, Mississauga, and surrounding GTA municipalities. Ideal for congested urban utility corridors.</p>
+        <span class="read-more">Learn more →</span>
+      </a>
+      <a href="/u-fill/" class="service-card">
+        <div class="service-icon">U</div>
+        <h3>U-Fill (Unshrinkable Concrete Trucks)</h3>
+        <p>On-site unshrinkable concrete and flowable fill for utility backfill, void filling, and road base stabilization across the GTA.</p>
+        <span class="read-more">Learn more →</span>
+      </a>
+      <a href="/material-slinger/" class="service-card">
+        <div class="service-icon">M</div>
+        <h3>Material Slinger Trucks</h3>
+        <p>Precise placement of stone, gravel, and soil — including long-distance and hard-to-reach placement on GTA job sites.</p>
+        <span class="read-more">Learn more →</span>
+      </a>
+      <a href="/coring/" class="service-card">
+        <div class="service-icon">C</div>
+        <h3>Coring Trucks</h3>
+        <p>Concrete and asphalt coring, utility access coring, and full surface restoration across the Greater Toronto Area.</p>
+        <span class="read-more">Learn more →</span>
+      </a>
+      <a href="/traffic-control/" class="service-card">
+        <div class="service-icon">T</div>
+        <h3>Traffic Control</h3>
+        <p>Traffic control plans, lane closure permits, flagging personnel, and municipal coordination for GTA work zones.</p>
+        <span class="read-more">Learn more →</span>
+      </a>
+      <a href="/turnkey-sue/" class="service-card">
+        <div class="service-icon">S</div>
+        <h3>Turnkey SUE — Level A</h3>
+        <p>Turnkey subsurface utility engineering (SUE) Level A support — locating, test holes, and project coordination for GTA infrastructure projects.</p>
+        <span class="read-more">Learn more →</span>
+      </a>
+      <a href="/soil-recycling/" class="service-card">
+        <div class="service-icon">SR</div>
+        <h3>Soil Recycling</h3>
+        <p>Excess soil management and recycling at OE's ECA-approved central GTA facility — keeping projects compliant and reducing landfill disposal.</p>
+        <span class="read-more">Learn more →</span>
+      </a>
+      <a href="/additional-services/" class="service-card">
+        <div class="service-icon">A</div>
+        <h3>Additional Services</h3>
+        <p>Dump trucks, soft services, locates, permits, and project management — the full range of OE support available across the GTA.</p>
+        <span class="read-more">Learn more →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">Coverage Area</div>
+        <h2 class="stitle">Where We Work in the GTA</h2>
+        <div class="blue-rule"></div>
+        <p class="body-text">Our GTA office services every major municipality across the region. If your project is anywhere in the Greater Toronto Area, we have crews and equipment within reach.</p>
+        <p class="body-text"><strong>Don't see your municipality listed?</strong> We routinely take on projects beyond our standard coverage area. <a href="/contact" style="color:var(--oe-blue);font-weight:700;">Contact us</a> to confirm availability for your location.</p>
+      </div>
+      <div>
+        <div class="eyebrow">GTA Areas Served</div>
+        <div class="area-pills">
+          <span class="area-pill">Toronto</span>
+          <span class="area-pill">Mississauga</span>
+          <span class="area-pill">Brampton</span>
+          <span class="area-pill">Markham</span>
+          <span class="area-pill">Vaughan</span>
+          <span class="area-pill">Richmond Hill</span>
+          <span class="area-pill">Oakville</span>
+          <span class="area-pill">Burlington</span>
+          <span class="area-pill">Pickering</span>
+          <span class="area-pill">Ajax</span>
+          <span class="area-pill">Whitby</span>
+          <span class="area-pill">Oshawa</span>
+          <span class="area-pill">Milton</span>
+          <span class="area-pill">Caledon</span>
+          <span class="area-pill">Aurora</span>
+          <span class="area-pill">Newmarket</span>
+          <span class="area-pill">King City</span>
+          <span class="area-pill">Halton Hills</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL PROJECTS -->
+<section class="section gray">
+  <div class="wrap">
+    <div class="eyebrow">GTA Project Highlights</div>
+    <h2 class="stitle">Recent Work Across the Region</h2>
+    <div class="blue-rule"></div>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="p-tag">Gas Distribution</div>
+        <h4>[PROJECT_1_TITLE]</h4>
+        <p>[Brief 2–3 sentence description of the project, scope, and outcome. Include municipality and approximate scale where appropriate.]</p>
+        <div class="p-meta">[Municipality] · [Year] · [Client / Sector]</div>
+      </div>
+      <div class="project-card">
+        <div class="p-tag">Hydrovac Excavation</div>
+        <h4>[PROJECT_2_TITLE]</h4>
+        <p>[Brief 2–3 sentence description of the project, scope, and outcome. Include municipality and approximate scale where appropriate.]</p>
+        <div class="p-meta">[Municipality] · [Year] · [Client / Sector]</div>
+      </div>
+      <div class="project-card">
+        <div class="p-tag">Subsurface Engineering</div>
+        <h4>[PROJECT_3_TITLE]</h4>
+        <p>[Brief 2–3 sentence description of the project, scope, and outcome. Include municipality and approximate scale where appropriate.]</p>
+        <div class="p-meta">[Municipality] · [Year] · [Client / Sector]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANCH LEAD + CERTIFICATIONS -->
+<section class="section">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">Your GTA Contact</div>
+        <h2 class="stitle">Local Leadership You Can Count On</h2>
+        <div class="blue-rule"></div>
+        <p class="body-text">Our GTA Regional Business Unit is led by a dedicated operations team with deep regional experience. For project enquiries, quotes, or partnership discussions, contact OE directly and our team will route your request to the right people.</p>
+        <div class="lead-card" style="margin-top:20px;">
+          <img class="lead-headshot" src="[HEADSHOT_URL]" alt="[BRANCH_LEAD_NAME], [BRANCH_LEAD_TITLE]" />
+          <div>
+            <h4>[BRANCH_LEAD_NAME]</h4>
+            <div class="role">Manager, Greater Toronto Area Regional Business Unit</div>
+            <p>[1–2 sentence bio. e.g., "20+ years of utility construction experience across the GTA. Oversees daily operations, project planning, and crew deployment for the Greater Toronto Area RBU."]</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Credentials & Standards</div>
+        <h2 class="stitle">Certified for Every GTA Project</h2>
+        <div class="blue-rule"></div>
+        <p class="body-text">OE Utility Services holds the highest safety credentials in the Ontario utility sector — independently audited and currently certified to <strong>both ISO 45001 (international) and COR&reg; 2020 (Ontario)</strong> standards through the Infrastructure Health & Safety Association (IHSA).</p>
+        <div class="cert-strip">
+          <span class="cert-tag">ISO 45001 Certified</span>
+          <span class="cert-tag">COR&reg; 2020 Certified</span>
+          <span class="cert-tag">IHSA Audited</span>
+          <span class="cert-tag">Authorized Enbridge Gas Inc. Contractor</span>
+          <span class="cert-tag">SOSE Safe Employer</span>
+        </div>
+        <a href="/safety_certificates" class="btn btn-blue" style="margin-top:24px; display:inline-block;">View Our Safety Certificates →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP + CONTACT -->
+<section class="section gray" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Visit or Contact Our GTA Office</div>
+    <h2 class="stitle">Greater Toronto Area Office</h2>
+    <div class="blue-rule"></div>
+    <div class="map-contact-grid">
+      <div class="map-wrap">
+        <!-- Replace placeholder below with Google Maps embed iframe for the actual GTA office.
+             From Google Maps: Share → Embed a map → copy the <iframe src="..."> URL. -->
+        <div class="map-placeholder">
+          <div class="pin">📍</div>
+          <strong style="color:var(--oe-navy); font-size:16px; margin-bottom:6px;">[OFFICE_ADDRESS_LINE_1]</strong>
+          <span>[OFFICE_ADDRESS_LINE_2]</span>
+          <span style="margin-top:14px; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--oe-blue); font-weight:800;">Replace with Google Maps embed</span>
+        </div>
+        <!--
+        <iframe
+          src="[GOOGLE_MAPS_EMBED_URL]"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        -->
+      </div>
+      <div class="contact-wrap">
+        <h3>Office Details</h3>
+        <div class="c-line">
+          <div class="icon">📍</div>
+          <span>
+            <strong style="color:var(--oe-navy);display:block;margin-bottom:2px;">[OFFICE_ADDRESS_LINE_1]</strong>
+            [OFFICE_ADDRESS_LINE_2]
+          </span>
+        </div>
+        <div class="c-line">
+          <div class="icon">📞</div>
+          <span><a href="tel:4167490005">416-749-0005</a></span>
+        </div>
+        <div class="c-line">
+          <div class="icon">✉</div>
+          <span><a href="mailto:sales@oeservices.ca">sales@oeservices.ca</a></span>
+        </div>
+        <div class="c-line">
+          <div class="icon">🌐</div>
+          <span><a href="/">oeservices.ca</a></span>
+        </div>
+
+        <div class="hours-block">
+          <strong>Office Hours</strong>
+          <div class="hours-row"><span>Monday – Friday</span><span>7:00 AM – 5:00 PM</span></div>
+          <div class="hours-row"><span>Saturday – Sunday</span><span>By Appointment</span></div>
+        </div>
+
+        <div class="emergency-callout">
+          <div class="lbl">24/7 Emergency Line</div>
+          <a href="tel:4167490005">416-749-0005</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL SIX LOCATIONS -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Our Ontario Locations</div>
+    <h2 class="stitle">Six Locations Serving Ontario</h2>
+    <div class="blue-rule"></div>
+    <p class="body-text" style="max-width:780px; margin-bottom:34px;">OE Utility Services operates from six Regional Business Units (RBUs) across Ontario — bringing the same standards, certifications, and 24/7 response to every region we serve.</p>
+    <div class="other-locations-grid">
+      <!-- CURRENT PAGE: GTA (highlighted) -->
+      <div class="other-loc-card current-location">
+        <div class="pin-icon">📍</div>
+        <h4>Greater Toronto Area</h4>
+        <p>[Cities to be confirmed]</p>
+        <div class="current-badge">You are here</div>
+      </div>
+      <a href="/ottawa/" class="other-loc-card">
+        <div class="pin-icon">📍</div>
+        <h4>Ottawa</h4>
+        <p>[Cities to be confirmed]</p>
+      </a>
+      <a href="/durham/" class="other-loc-card">
+        <div class="pin-icon">📍</div>
+        <h4>Durham</h4>
+        <p>[Cities to be confirmed]</p>
+      </a>
+      <a href="/london/" class="other-loc-card">
+        <div class="pin-icon">📍</div>
+        <h4>London</h4>
+        <p>[Cities to be confirmed]</p>
+      </a>
+      <a href="/barrie/" class="other-loc-card">
+        <div class="pin-icon">📍</div>
+        <h4>Barrie</h4>
+        <p>[Cities to be confirmed]</p>
+      </a>
+      <a href="/hamilton/" class="other-loc-card">
+        <div class="pin-icon">📍</div>
+        <h4>Hamilton</h4>
+        <p>[Cities to be confirmed]</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2><span class="slogan-white">GET MORE OUT</span> OF YOUR GTA PROJECT!</h2>
+    <p>Whether it's a one-day hydrovac dig or a multi-month gas main rebuild, our GTA team is ready to deliver. Reach out for a free consultation or estimate.</p>
+    <div class="cta-buttons">
+      <a href="/contact" class="btn btn-blue">Request a Quote →</a>
+      <a href="tel:4167490005" class="btn btn-ghost">Call 416-749-0005</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER — matches oeservices.ca exactly (with Locations column)
+══════════════════════════════════════════════════════════ -->
+<div class="footer-body">
+  <div class="footer-inner">
+    <div class="footer-logo-row">
+      <img src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE_logo_30th_RGB_rev-1920w.png" alt="OE Utility Services — 30 Years" />
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/news">News</a></li>
+          <li><a href="/cost-calculator">Cost Calculator</a></li>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/accessibility">Accessibility</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/hydrovac/">Hydrovac Trucks</a></li>
+          <li><a href="/u-fill/">U-Fill (Unshrinkable Concrete Trucks)</a></li>
+          <li><a href="/material-slinger/">Material Slinger Trucks</a></li>
+          <li><a href="/coring/">Coring Trucks</a></li>
+          <li><a href="/traffic-control/">Traffic Control</a></li>
+          <li><a href="/turnkey-sue/">Turnkey SUE — Level A</a></li>
+          <li><a href="/soil-recycling/">Soil Recycling</a></li>
+          <li><a href="/additional-services/">Additional Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="/gta/">Greater Toronto Area</a></li>
+          <li><a href="/ottawa/">Ottawa</a></li>
+          <li><a href="/durham/">Durham</a></li>
+          <li><a href="/london/">London</a></li>
+          <li><a href="/barrie/">Barrie</a></li>
+          <li><a href="/hamilton/">Hamilton</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/sustainability">Sustainability</a></li>
+          <li><a href="/contact">Contact • Estimate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Committed to Safety</h4>
+        <ul>
+          <li><a href="/safety">Safety</a></li>
+          <li><a href="/safety_certificates">Safety Certificates</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer-bottom">
+  © 2026 OE Utility Services. All Rights Reserved.
+  <a href="/privacy-policy">Privacy Policy</a>
+  <a href="/accessibility">Accessibility</a>
+</div>
+
+</body>
+</html>
