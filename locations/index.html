@@ -1522,6 +1522,11 @@
     }
     @media (max-width: 960px) {
       .hero-inner, .two-col, .map-contact-grid { grid-template-columns: 1fr; }
+      /* Match the hydrovac hero on mobile: the template's .hero side padding
+         stacks on top of .hero-inner's 30px, producing a large left indent.
+         Zero the .hero side padding so only the inner 30px remains —
+         left-aligned and tight to the edge, exactly like hydrovac. */
+      .hero { padding-left: 0; padding-right: 0; }
       .services-grid, .project-grid { grid-template-columns: 1fr 1fr; }
       .other-locations-grid { grid-template-columns: 1fr 1fr; }
       .location-photo { height: 280px; }
