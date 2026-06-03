@@ -351,6 +351,7 @@
     }
     .hero-badge .bl { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 4px; }
     .hero-badge .bv { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2; }
+    a.hero-badge { text-decoration: none; color: inherit; cursor: pointer; }
 
     /* ── ALERT BAR ────────────────────────────────────────── */
     .alert-bar {
@@ -1693,14 +1694,14 @@
       <h1>Six Locations. <span>One Standard.</span></h1>
       <p class="hero-desc">For 30 years, OE Utility Services has served Ontario from six Regional Business Units — bringing the same safety credentials, equipment, and 24/7 emergency response to every region. Find the yard nearest your project below.</p>
       <div class="hero-buttons">
-        <a href="/contact" class="btn btn-blue">Request a Quote →</a>
+        <a href="https://www.oeservices.ca/contact" class="btn btn-blue">Request a Quote →</a>
         <a href="tel:4167490005" class="btn btn-ghost">Call 416-749-0005</a>
       </div>
     </div>
     <div class="hero-sidebar">
-      <div class="hero-badge"><div class="bl">Regional Business Units</div><div class="bv">6 Across Ontario</div></div>
+      <a href="#locations-grid" class="hero-badge"><div class="bl">Regional Business Units</div><div class="bv">6 Across Ontario</div></a>
       <div class="hero-badge"><div class="bl">Years in Operation</div><div class="bv">30+ Years</div></div>
-      <div class="hero-badge"><div class="bl">Service Response</div><div class="bv">24/7 Emergency Coverage</div></div>
+      <a href="tel:4167490005" class="hero-badge"><div class="bl">Service Response</div><div class="bv">24/7 Emergency Coverage</div></a>
     </div>
   </div>
 </section>
@@ -1717,7 +1718,7 @@
 </section>
 
 <!-- ALL SIX LOCATIONS -->
-<section class="section gray">
+<section id="locations-grid" class="section gray">
   <div class="wrap">
     <div class="other-locations-grid">
       <a href="/gta/" class="other-loc-card">
