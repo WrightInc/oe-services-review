@@ -59,9 +59,11 @@
   }
   </script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
   <style>
-    /* ── OE OFFICIAL BRAND TOKENS (Brand Guide v1.1) ─────── */
     :root {
       --oe-navy:   #0F2670;
       --oe-blue:   #01ABEE;
@@ -70,122 +72,967 @@
       --oe-border: #D8E4EE;
       --oe-text:   #222222;
       --oe-muted:  #666666;
-      --enb-orange:#E05A00;
+      --oe-green:  #2E7D32;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Nunito Sans', Arial, sans-serif;
       color: var(--oe-text);
       background: var(--oe-white);
-      font-size: 16px;
-      line-height: 1.65;
+      line-height: 1.6;
     }
-    h1,h2,h3,h4,.btn,.step-title,.faq-q,.eyebrow,.stat-num,.tag,.cert-tag {
+    h1, h2, h3, h4, h5 {
       font-family: 'Nunito', Arial, sans-serif;
+      font-weight: 800;
+      line-height: 1.15;
     }
+    a { color: var(--oe-blue); text-decoration: none; }
+    a:hover { color: var(--oe-navy); }
 
-    /* ════════════════════════════════════════════════════════
-       HEADER — matches oeservices.ca exactly
-    ════════════════════════════════════════════════════════ */
-    header {
-      background: var(--oe-white);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 300;
-    }
-    .nav-outer {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 88px;
-      gap: 32px;
-    }
-    .nav-logo img { height: 52px; width: auto; display: block; }
-    .nav-centre {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      list-style: none;
-      flex: 1;
-      justify-content: flex-end;
-      margin-right: 28px;
-    }
-    .nav-centre li { position: relative; }
+    /* ── HEADER ───────────────────────────────────────────── */
+    header { background: var(--oe-white); border-bottom: 1px solid var(--oe-border); position: sticky; top: 0; z-index: 100; }
+    .nav-outer { max-width: 1400px; margin: 0 auto; padding: 14px 30px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo img { height: 56px; display: block; }
+    .nav-centre { list-style: none; display: flex; align-items: center; gap: 28px; flex: 1; justify-content: center; }
+    .nav-centre > li { position: relative; }
     .nav-centre > li > a {
-      display: block;
-      padding: 10px 18px;
       font-family: 'Nunito', Arial, sans-serif;
-      font-size: 14px;
       font-weight: 700;
+      font-size: 14px;
       color: var(--oe-text);
-      text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      transition: color 0.2s;
+      padding: 8px 0;
       white-space: nowrap;
     }
     .nav-centre > li > a:hover { color: var(--oe-blue); }
     .nav-centre > li > a.active { color: var(--oe-blue); border-bottom: 3px solid var(--oe-blue); }
-    .nav-centre .nav-contact > a {
+    .nav-contact > a {
       background: var(--oe-navy);
-      color: var(--oe-white);
-      padding: 10px 20px;
-      border-radius: 3px;
+      color: var(--oe-white) !important;
+      padding: 10px 18px !important;
+      border-radius: 4px;
+      display: inline-block;
+      white-space: nowrap;
     }
-    .nav-centre .nav-contact > a:hover { background: var(--oe-blue); color: var(--oe-navy); }
-    .nav-centre li:hover .dropdown { display: block; }
+    .nav-contact > a:hover { background: var(--oe-blue); color: var(--oe-navy); }
     .dropdown {
       display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
+      position: absolute; top: 100%; left: 0;
       background: var(--oe-white);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      min-width: 220px;
-      z-index: 400;
+      min-width: 260px;
+      box-shadow: 0 4px 18px rgba(15,38,112,0.12);
       border-top: 3px solid var(--oe-blue);
+      z-index: 10;
     }
     .dropdown a {
+      display: block; padding: 12px 18px; font-size: 14px; font-weight: 600;
+      color: var(--oe-text); border-bottom: 1px solid var(--oe-border);
+    }
+    .dropdown a:hover { background: var(--oe-light); color: var(--oe-navy); }
+    .nav-centre > li:hover .dropdown { display: block; }
+
+    /* ── DROPDOWN SUB-MENU ────────────────────────────────── */
+    .dropdown-item { position: relative; }
+    .dropdown-item > a::after { content: ' ▸'; font-size: 11px; opacity: 0.6; }
+    .submenu {
+      display: none;
+      position: absolute;
+      left: 100%; top: 0;
+      background: var(--oe-white);
+      min-width: 280px;
+      box-shadow: 4px 4px 18px rgba(15,38,112,0.12);
+      border-top: 3px solid var(--oe-blue);
+      z-index: 11;
+    }
+    .dropdown-item.has-submenu:hover .submenu { display: block; }
+    .nav-emergency img { height: 44px; }
+
+    /* ── MOBILE NAV (hamburger + tap menu) ────────────────── */
+    .nav-toggle {
+      display: none;               /* shown at <=960px via media query */
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 46px;
+      height: 46px;
+      padding: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .nav-toggle span {
       display: block;
-      padding: 11px 20px;
+      width: 26px;
+      height: 3px;
+      background: var(--oe-navy);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;               /* toggled open via .open at <=960px */
+      border-top: 1px solid var(--oe-border);
+      background: var(--oe-white);
+      max-height: calc(100vh - 90px);
+      overflow-y: auto;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; }
+    .mobile-menu > ul > li { border-bottom: 1px solid var(--oe-border); }
+    .mobile-menu a,
+    .mobile-services-toggle {
+      display: block;
+      width: 100%;
+      padding: 15px 30px;
+      font-family: 'Nunito', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--oe-text);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.active { color: var(--oe-blue); }
+
+    .mobile-services-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mobile-services-toggle::after {
+      content: '+';
+      font-size: 24px;
+      line-height: 1;
+      color: var(--oe-blue);
+      font-weight: 700;
+    }
+    .mobile-services-toggle[aria-expanded="true"]::after { content: '–'; }
+
+    .mobile-submenu { display: none; background: var(--oe-light); }
+    .mobile-submenu.open { display: block; }
+    .mobile-submenu li { border-top: 1px solid var(--oe-border); }
+    .mobile-submenu a {
+      padding: 13px 30px 13px 44px;
       font-size: 13px;
       font-weight: 600;
-      color: var(--oe-text);
-      text-decoration: none;
-      border-bottom: 1px solid var(--oe-border);
-      transition: background 0.15s, color 0.15s;
-    }
-    .dropdown a:last-child { border-bottom: none; }
-    .dropdown a:hover { background: var(--oe-light); color: var(--oe-navy); }
-    .nav-emergency img { height: 44px; width: auto; display: block; }
-
-    /* ════════════════════════════════════════════════════════
-       BREADCRUMBS
-    ════════════════════════════════════════════════════════ */
-    .breadcrumbs {
-      background: var(--oe-light);
-      padding: 12px 40px;
-      border-bottom: 1px solid var(--oe-border);
-    }
-    .breadcrumbs-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      font-size: 13px;
+      text-transform: none;
+      letter-spacing: 0;
       color: var(--oe-muted);
     }
-    .breadcrumbs a {
-      color: var(--oe-navy);
-      text-decoration: none;
+    .mobile-submenu a.active { color: var(--oe-blue); }
+
+    /* Third level — sub-services nested under an expandable service line */
+    .mobile-sub-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 13px 30px 13px 44px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Nunito', Arial, sans-serif;
       font-weight: 600;
+      font-size: 13px;
+      color: var(--oe-text);
     }
+    .mobile-sub-toggle::after {
+      content: '+';
+      font-size: 20px;
+      line-height: 1;
+      color: var(--oe-blue);
+      font-weight: 700;
+    }
+    .mobile-sub-toggle[aria-expanded="true"]::after { content: '–'; }
+
+    .mobile-subsubmenu { display: none; background: var(--oe-border); }
+    .mobile-subsubmenu.open { display: block; }
+    .mobile-subsubmenu li { border-top: 1px solid rgba(15,38,112,0.10); }
+    .mobile-subsubmenu a {
+      padding: 12px 30px 12px 60px;   /* deeper indent than level-two items */
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--oe-muted);
+    }
+    .mobile-subsubmenu a.active { color: var(--oe-blue); }
+
+    .mobile-menu .mobile-contact a {
+      color: var(--oe-white);
+      background: var(--oe-navy);
+    }
+    .mobile-menu .mobile-contact a:hover { background: var(--oe-blue); }
+
+    /* ── BREADCRUMBS ──────────────────────────────────────── */
+    .breadcrumbs { background: var(--oe-light); border-bottom: 1px solid var(--oe-border); }
+    .breadcrumbs-inner { max-width: 1400px; margin: 0 auto; padding: 12px 30px; font-size: 13px; color: var(--oe-muted); }
+    .breadcrumbs a { color: var(--oe-navy); font-weight: 600; }
     .breadcrumbs a:hover { color: var(--oe-blue); }
     .breadcrumbs .sep { margin: 0 8px; color: var(--oe-border); }
     .breadcrumbs .current { color: var(--oe-muted); font-weight: 600; }
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    .hero {
+      background: var(--oe-navy);
+      color: var(--oe-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(1,171,238,0.10));
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1400px; margin: 0 auto; padding: 80px 30px;
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--oe-blue);
+      color: var(--oe-white);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 14px;
+      border-radius: 3px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: 64px;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      line-height: 1.05;
+    }
+    .hero h1 span { color: var(--oe-blue); }
+    .hero-desc { font-size: 18px; line-height: 1.55; margin-bottom: 32px; max-width: 540px; opacity: 0.92; }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 26px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+    .btn-blue { background: var(--oe-blue); color: var(--oe-white); }
+    .btn-blue:hover { background: var(--oe-white); color: var(--oe-navy); }
+    .btn-ghost { border-color: var(--oe-white); color: var(--oe-white); background: transparent; }
+    .btn-ghost:hover { background: var(--oe-white); color: var(--oe-navy); }
+    .btn-navy { background: var(--oe-navy); color: var(--oe-white); }
+    .btn-navy:hover { background: var(--oe-blue); }
+
+    .hero-sidebar { display: flex; flex-direction: column; gap: 14px; }
+    .hero-badge {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-left: 4px solid var(--oe-blue);
+      padding: 18px 22px;
+      border-radius: 4px;
+    }
+    .hero-badge .bl { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 4px; }
+    .hero-badge .bv { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2; }
+
+    /* ── ALERT BAR ────────────────────────────────────────── */
+    .alert-bar {
+      background: var(--oe-blue);
+      color: var(--oe-white);
+      text-align: center;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+    }
+
+    /* ── HERO PHOTO SECTION ───────────────────────────────── */
+    .hero-photo-section { background: var(--oe-light); padding: 0; }
+    .hero-photo-wrap {
+      max-width: 1400px; margin: 0 auto; position: relative;
+    }
+    .hero-photo {
+      width: 100%; height: 460px; object-fit: cover; display: block;
+    }
+    .hero-photo-caption {
+      position: absolute; bottom: 36px; left: 36px;
+      background: rgba(15,38,112,0.92);
+      color: var(--oe-white);
+      padding: 22px 28px;
+      max-width: 460px;
+      border-left: 4px solid var(--oe-blue);
+    }
+    .hero-photo-caption .cap-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--oe-blue); margin-bottom: 6px; }
+    .hero-photo-caption .cap-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.25; }
+
+    /* ── SECTIONS ─────────────────────────────────────────── */
+    .section { padding: 80px 30px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-light { background: var(--oe-light); }
+    .section-navy { background: var(--oe-navy); color: var(--oe-white); }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--oe-blue);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: 40px;
+      color: var(--oe-navy);
+      margin-bottom: 18px;
+      max-width: 760px;
+    }
+    .section-navy .section-title { color: var(--oe-white); }
+    .section-lead {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--oe-muted);
+      max-width: 780px;
+      margin-bottom: 48px;
+    }
+    .section-navy .section-lead { color: rgba(255,255,255,0.85); }
+
+    /* ── INTRO / WHY OE ───────────────────────────────────── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .why-text p { font-size: 17px; line-height: 1.65; color: var(--oe-text); margin-bottom: 16px; }
+    .why-text .lead { font-size: 20px; font-weight: 700; color: var(--oe-navy); line-height: 1.4; margin-bottom: 22px; }
+    .why-image img { width: 100%; height: 420px; object-fit: cover; border-radius: 6px; }
+
+    .why-list { list-style: none; margin-top: 24px; }
+    .why-list li {
+      padding: 14px 0 14px 36px;
+      position: relative;
+      border-bottom: 1px solid var(--oe-border);
+      font-size: 16px;
+    }
+    .why-list li:last-child { border-bottom: none; }
+    .why-list li::before {
+      content: '✓';
+      position: absolute; left: 0; top: 14px;
+      color: var(--oe-blue);
+      font-weight: 900;
+      font-size: 20px;
+    }
+    .why-list li strong { color: var(--oe-navy); }
+
+    /* ── STATS STRIP ──────────────────────────────────────── */
+    .stats-strip {
+      background: var(--oe-navy);
+      padding: 60px 30px;
+    }
+    .stats-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 56px;
+      color: var(--oe-blue);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      color: var(--oe-white);
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ── SERVICES GRID ────────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-top: 4px solid var(--oe-blue);
+      padding: 28px;
+      border-radius: 4px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      color: inherit;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(15,38,112,0.10);
+      border-color: var(--oe-blue);
+    }
+    .service-card:hover .service-read-more { color: var(--oe-navy); }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: var(--oe-light);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-size: 19px;
+      color: var(--oe-navy);
+      margin-bottom: 10px;
+    }
+    .service-card p { font-size: 15px; line-height: 1.55; color: var(--oe-muted); flex-grow: 1; }
+    .service-read-more {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--oe-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .service-read-more:hover { color: var(--oe-navy); }
+
+    /* ── PROCESS / 6 STEPS ────────────────────────────────── */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .process-card {
+      background: var(--oe-white);
+      padding: 32px 28px;
+      border-radius: 6px;
+      position: relative;
+      border: 1px solid var(--oe-border);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: default;
+    }
+    .process-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(15,38,112,0.15);
+      border-color: var(--oe-blue);
+    }
+    .process-num {
+      position: absolute; top: -18px; left: 28px;
+      width: 44px; height: 44px;
+      background: var(--oe-navy);
+      color: var(--oe-white);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+    .process-card:hover .process-num {
+      background: var(--oe-blue);
+      transform: scale(1.08);
+    }
+    .process-card h3 {
+      font-size: 20px;
+      color: var(--oe-navy);
+      margin: 14px 0 10px;
+      transition: color 0.25s ease;
+    }
+    .process-card:hover h3 {
+      color: var(--oe-blue);
+    }
+    .process-card p { font-size: 15px; color: var(--oe-muted); line-height: 1.55; }
+    .process-card ul { list-style: none; margin-top: 12px; }
+    .process-card ul li {
+      font-size: 14px;
+      padding: 5px 0 5px 18px;
+      position: relative;
+      color: var(--oe-text);
+    }
+    .process-card ul li::before {
+      content: '▸';
+      position: absolute; left: 0;
+      color: var(--oe-blue);
+      font-weight: 700;
+    }
+
+    /* ── FLEET FEATURES ───────────────────────────────────── */
+    .fleet-section {
+      background: linear-gradient(135deg, var(--oe-navy) 0%, #1a3580 100%);
+      color: var(--oe-white);
+    }
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .fleet-image img { width: 100%; height: 460px; object-fit: cover; border-radius: 6px; }
+    .fleet-features { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+    .fleet-feature {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 4px;
+    }
+    .fleet-feature .ff-num {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      color: var(--oe-blue);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .fleet-feature .ff-text {
+      font-size: 14px;
+      line-height: 1.4;
+      opacity: 0.92;
+    }
+
+    /* ── INDUSTRIES ───────────────────────────────────────── */
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .industry-tile {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      padding: 24px;
+      border-radius: 4px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .industry-tile:hover {
+      border-color: var(--oe-blue);
+      transform: translateY(-2px);
+    }
+    .industry-icon { font-size: 32px; margin-bottom: 10px; }
+    .industry-tile h4 {
+      font-size: 16px;
+      color: var(--oe-navy);
+      margin-bottom: 6px;
+    }
+    .industry-tile p { font-size: 13px; color: var(--oe-muted); }
+
+    /* ── PROJECT EXAMPLES ─────────────────────────────────── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .project-card {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(15,38,112,0.10);
+    }
+    .project-image { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .project-body { padding: 22px; }
+    .project-tag {
+      display: inline-block;
+      background: var(--oe-light);
+      color: var(--oe-navy);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+    .project-card h4 { font-size: 18px; color: var(--oe-navy); margin-bottom: 8px; }
+    .project-card p { font-size: 14px; color: var(--oe-muted); line-height: 1.55; }
+
+    /* ── TRUST / CERTIFICATIONS ───────────────────────────── */
+    .trust-band {
+      background: var(--oe-white);
+      border-top: 1px solid var(--oe-border);
+      border-bottom: 1px solid var(--oe-border);
+      padding: 40px 30px;
+    }
+    .trust-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center;
+    }
+    .trust-label {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--oe-navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 1.4;
+    }
+    .trust-label span { display: block; color: var(--oe-muted); font-weight: 600; font-size: 12px; margin-top: 4px; }
+    .trust-logos {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .trust-logo {
+      background: var(--oe-light);
+      padding: 14px 22px;
+      border-radius: 4px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--oe-navy);
+      letter-spacing: 0.5px;
+      border: 1px solid var(--oe-border);
+    }
+
+    /* ── COVERAGE / LOCATIONS ─────────────────────────────── */
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .coverage-card {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      padding: 22px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .coverage-card:hover {
+      border-color: var(--oe-blue);
+      background: var(--oe-light);
+    }
+    .coverage-card a { color: var(--oe-navy); display: block; }
+    .coverage-card h4 {
+      font-size: 17px;
+      margin-bottom: 4px;
+      color: var(--oe-navy);
+    }
+    .coverage-card p {
+      font-size: 13px;
+      color: var(--oe-muted);
+    }
+
+    /* ── FAQ ──────────────────────────────────────────────── */
+    .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-radius: 4px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 20px 24px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--oe-navy);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-question::after {
+      content: '+';
+      font-size: 24px;
+      color: var(--oe-blue);
+      font-weight: 700;
+      transition: transform 0.2s;
+    }
+    details[open] .faq-question::after { transform: rotate(45deg); }
+    .faq-answer {
+      padding: 0 24px 22px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--oe-text);
+    }
+
+    /* ── QUOTE FORM ───────────────────────────────────────── */
+    .quote-section { background: var(--oe-light); }
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .quote-info h2 { font-size: 36px; color: var(--oe-navy); margin-bottom: 18px; }
+    .quote-info p { font-size: 17px; color: var(--oe-muted); line-height: 1.6; margin-bottom: 22px; }
+    .quote-contact { background: var(--oe-white); padding: 28px; border-radius: 6px; border: 1px solid var(--oe-border); }
+    .quote-contact h4 {
+      font-size: 14px;
+      color: var(--oe-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .quote-contact-line {
+      font-size: 17px;
+      color: var(--oe-navy);
+      font-weight: 700;
+      line-height: 1.8;
+    }
+    .quote-contact-line a { color: var(--oe-navy); }
+    .quote-contact-line a:hover { color: var(--oe-blue); }
+
+    .quote-form {
+      background: var(--oe-white);
+      padding: 36px;
+      border-radius: 6px;
+      border: 1px solid var(--oe-border);
+    }
+    .quote-form h3 { font-size: 24px; color: var(--oe-navy); margin-bottom: 6px; }
+    .quote-form .form-sub { font-size: 14px; color: var(--oe-muted); margin-bottom: 22px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-field { margin-bottom: 14px; }
+    .form-field label { display: block; font-size: 13px; font-weight: 600; color: var(--oe-text); margin-bottom: 6px; }
+    .form-field input, .form-field textarea, .form-field select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--oe-border);
+      border-radius: 4px;
+      font-family: 'Nunito Sans', Arial, sans-serif;
+      font-size: 15px;
+      background: var(--oe-white);
+    }
+    .form-field input:focus, .form-field textarea:focus {
+      outline: none;
+      border-color: var(--oe-blue);
+      box-shadow: 0 0 0 3px rgba(1,171,238,0.15);
+    }
+    .form-checkboxes { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0 14px; }
+    .form-checkboxes label { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 400; cursor: pointer; }
+    .form-checkboxes input { width: auto; }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--oe-navy);
+      color: var(--oe-white);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--oe-blue); }
+    .form-note { font-size: 12px; color: var(--oe-muted); text-align: center; margin-top: 12px; }
+
+    /* ── STICKY CTA ───────────────────────────────────────── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--oe-blue);
+      color: var(--oe-white);
+      padding: 16px 22px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      box-shadow: 0 6px 20px rgba(15,38,112,0.35);
+      z-index: 50;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sticky-cta:hover {
+      background: var(--oe-green);
+      color: var(--oe-white);
+      transform: translateY(-2px);
+    }
+
+    /* ── MID-PAGE CTA STRIP ───────────────────────────────── */
+    .cta-strip {
+      background: var(--oe-blue);
+      color: var(--oe-white);
+      padding: 50px 30px;
+      text-align: center;
+    }
+    .cta-strip h3 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+    .cta-strip p { font-size: 17px; margin-bottom: 24px; opacity: 0.95; }
+    .cta-strip-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .cta-strip .btn { background: var(--oe-white); color: var(--oe-navy); }
+    .cta-strip .btn:hover { background: var(--oe-navy); color: var(--oe-white); }
+    .cta-strip .btn-ghost { background: transparent; color: var(--oe-white); border-color: var(--oe-white); }
+    .cta-strip .btn-ghost:hover { background: var(--oe-white); color: var(--oe-navy); }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer { background: var(--oe-navy); color: var(--oe-white); }
+    .footer-body { max-width: 1400px; margin: 0 auto; padding: 60px 30px 36px; }
+    .footer-cols { display: flex; flex-direction: column; gap: 36px; }
+    .footer-brand { max-width: 340px; }
+    .footer-links { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; align-items: start; }
+    /* Footer links reflow — explicit even column counts per breakpoint */
+    @media (max-width: 1100px) { .footer-links { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 960px)  { .footer-links { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
+    @media (max-width: 540px)  { .footer-links { grid-template-columns: 1fr; } }
+    .footer-col h5 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      color: var(--oe-white);
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: rgba(255,255,255,0.8); font-size: 14px; }
+    .footer-col a:hover { color: var(--oe-blue); }
+    .footer-logo img { height: 56px; margin-bottom: 16px; }
+    .footer-tagline { font-size: 14px; line-height: 1.6; opacity: 0.8; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 22px 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    /* ── FULL SERVICE GRID (other OE services) ─────────────── */
+    .full-service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .full-service-card {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-radius: 6px;
+      padding: 24px 22px;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .full-service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(15,38,112,0.12);
+      border-color: var(--oe-blue);
+    }
+    .full-service-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .full-service-card h4 {
+      font-size: 17px;
+      color: var(--oe-navy);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .full-service-card p {
+      font-size: 14px;
+      color: var(--oe-muted);
+      line-height: 1.55;
+      flex-grow: 1;
+    }
+    .full-service-card .fs-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--oe-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-top: 14px;
+      display: inline-block;
+    }
+    .full-service-card:hover .fs-link {
+      color: var(--oe-navy);
+    }
+    .coming-soon-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--oe-light);
+      color: var(--oe-navy);
+      font-family: 'Nunito', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 8px;
+      border-radius: 3px;
+      border: 1px solid var(--oe-border);
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .why-grid, .quote-grid, .fleet-grid { grid-template-columns: 1fr; }
+      .services-grid, .process-grid, .project-grid, .industries-grid, .coverage-grid { grid-template-columns: 1fr 1fr; }
+      .full-service-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .hero-photo { height: 360px; }
+    }
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .nav-centre { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-emergency img { height: 36px; }
+      .hero h1 { font-size: 48px; }
+      .trust-inner { grid-template-columns: 1fr; gap: 20px; }
+      .sticky-cta { bottom: 14px; right: 14px; padding: 12px 18px; font-size: 13px; }
+    }
+    @media (max-width: 540px) {
+      .services-grid, .process-grid, .project-grid, .industries-grid, .coverage-grid, .stats-grid, .full-service-grid { grid-template-columns: 1fr; }
+      .section { padding: 56px 20px; }
+      .footer-body { padding: 40px 20px 28px; }
+      .form-row, .form-checkboxes { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 40px; }
+      .section-title { font-size: 30px; }
+      .fleet-features { grid-template-columns: 1fr; }
+      .full-service-card { min-height: auto; }
+    }
+
+    /* ════════════════════════════════════════════════════════
+       PAGE BODY STYLES (ported from the locations template —
+       hero, content sections, location grid, CTA). These do not
+       touch the shared header / nav / footer / breadcrumb rules.
+    ════════════════════════════════════════════════════════ */
+    /* Body heading-like classes need the Nunito display face
+       (shell base only covers h1–h5). */
+    .btn, .eyebrow, .stat-num, .cert-tag { font-family: 'Nunito', Arial, sans-serif; }
 
     /* ════════════════════════════════════════════════════════
        HERO — Location-specific
@@ -659,69 +1506,24 @@
       font-size: 12px; color: var(--oe-muted);
     }
 
-    /* ════════════════════════════════════════════════════════
-       FOOTER — matches oeservices.ca exactly
-    ════════════════════════════════════════════════════════ */
-    .footer-body { background: var(--oe-navy); padding: 56px 40px 40px; }
-    .footer-inner { max-width: 1280px; margin: 0 auto; }
-    .footer-logo-row { margin-bottom: 44px; display: flex; align-items: center; gap: 20px; }
-    .footer-logo-row img { height: 52px; width: auto; display: block; }
-    .footer-cols {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 32px;
-      padding-top: 36px;
-      border-top: 1px solid rgba(255,255,255,0.12);
-    }
-    .footer-col h4 {
-      font-family: 'Nunito', sans-serif;
-      font-size: 12px; font-weight: 800;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 16px;
-    }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 10px; }
-    .footer-col a {
-      font-size: 14px;
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-col a:hover { color: var(--oe-blue); }
-    .footer-bottom {
-      background: #08153E;
-      text-align: center;
-      padding: 14px 40px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.38);
-    }
-    .footer-bottom a { color: rgba(255,255,255,0.45); text-decoration: none; margin: 0 8px; }
-    .footer-bottom a:hover { color: var(--oe-blue); }
 
-    /* ── RESPONSIVE ───────────────────────────────────────── */
+    /* ── RESPONSIVE (body only; nav & footer handled by the shell) ─ */
     @media (max-width: 1100px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
       .project-grid { grid-template-columns: 1fr 1fr; }
       .other-locations-grid { grid-template-columns: repeat(3, 1fr); }
-      .footer-cols { grid-template-columns: repeat(3, 1fr); }
       .location-photo { height: 340px; }
     }
     @media (max-width: 960px) {
       .hero-inner, .two-col, .map-contact-grid { grid-template-columns: 1fr; }
       .services-grid, .project-grid { grid-template-columns: 1fr 1fr; }
       .other-locations-grid { grid-template-columns: 1fr 1fr; }
-      .footer-cols { grid-template-columns: 1fr 1fr; gap: 28px; }
-      .nav-centre { display: none; }
-      .nav-emergency img { height: 36px; }
       .location-photo { height: 280px; }
       .location-photo-caption { left: 20px; right: 20px; bottom: 20px; max-width: none; }
     }
     @media (max-width: 540px) {
       .stat-grid, .services-grid, .project-grid, .other-locations-grid { grid-template-columns: 1fr; }
       .section { padding: 48px 20px; }
-      .footer-body { padding: 40px 20px 28px; }
-      .footer-cols { grid-template-columns: 1fr 1fr; }
       .lead-card { grid-template-columns: 1fr; text-align: center; }
       .lead-headshot { margin: 0 auto; }
     }
@@ -734,35 +1536,147 @@
 ══════════════════════════════════════════════════════════ -->
 <header>
   <div class="nav-outer">
-    <a href="/" class="nav-logo">
+    <a href="https://www.oeservices.ca" class="nav-logo">
       <img src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE-main-fullcolor-logo-1920w.png" alt="OE Utility Services" />
     </a>
     <ul class="nav-centre">
-      <li><a href="/">Home</a></li>
+      <li><a href="https://www.oeservices.ca">Home</a></li>
       <li>
-        <a href="/services">Services ▾</a>
+        <a href="https://www.oeservices.ca/services">Services ▾</a>
         <div class="dropdown">
-          <a href="/hydrovac/">Hydrovac Trucks</a>
-          <a href="/u-fill/">U-Fill (Unshrinkable Concrete Trucks)</a>
-          <a href="/material-slinger/">Material Slinger Trucks</a>
-          <a href="/coring/">Coring Trucks</a>
+          <div class="dropdown-item has-submenu">
+            <a href="/hydrovac/">Hydrovac Trucks</a>
+            <div class="submenu">
+              <a href="/hydrovac/daylighting-utility-exposure/">Daylighting / Utility Exposure</a>
+              <a href="/hydrovac/slot-trenching/">Slot Trenching / Narrow Trenching</a>
+              <a href="/hydrovac/utility-pole-holes/">Utility Pole Holes</a>
+              <a href="/hydrovac/anode-installation/">Anode Installation</a>
+              <a href="/hydrovac/power-distribution-excavation/">Power Distribution Excavation</a>
+              <a href="/hydrovac/culvert-catch-basin-cleaning/">Culvert & Catch Basin Cleaning</a>
+              <a href="/hydrovac/remote-long-reach-excavation/">Remote / Long-Reach Excavation</a>
+              <a href="/hydrovac/tree-root-sensitive-area/">Tree Root / Sensitive Area Excavation</a>
+              <a href="/hydrovac/contaminated-soil-removal/">Contaminated Soil Removal</a>
+              <a href="/hydrovac/subsurface-utility-engineering/">Subsurface Utility Engineering (SUE) / Level A Support</a>
+            </div>
+          </div>
+          <div class="dropdown-item has-submenu">
+            <a href="/u-fill/">U-Fill (Unshrinkable Concrete Trucks)</a>
+            <div class="submenu">
+              <a href="/u-fill/controlled-low-strength-material/">Controlled Low Strength Material</a>
+              <a href="/u-fill/flowable-fill/">Flowable Fill</a>
+            </div>
+          </div>
+          <div class="dropdown-item has-submenu">
+            <a href="/material-slinger/">Material Slinger Trucks</a>
+            <div class="submenu">
+              <a href="/material-slinger/stone-gravel-placement/">Stone / Gravel Placement</a>
+              <a href="/material-slinger/controlled-precisioned-material-placement/">Controlled / Precisioned Material Placement</a>
+            </div>
+          </div>
+          <div class="dropdown-item has-submenu">
+            <a href="/coring/">Coring Trucks</a>
+            <div class="submenu">
+              <a href="/coring/concrete-asphalt-coring/">Concrete and Asphalt Coring</a>
+              <a href="/coring/concrete-restoration/">Concrete Restoration</a>
+            </div>
+          </div>
           <a href="/traffic-control/">Traffic Control</a>
-          <a href="/turnkey-sue/">Turnkey SUE — Level A</a>
+          <div class="dropdown-item has-submenu">
+            <a href="/turnkey-sue/">Turnkey SUE — Level A</a>
+            <div class="submenu">
+              <a href="/turnkey-sue/project-coordination/">Project Coordination</a>
+            </div>
+          </div>
           <a href="/soil-recycling/">Soil Recycling</a>
-          <a href="/additional-services/">Additional Services</a>
+          <div class="dropdown-item has-submenu">
+            <a href="/additional-services/">Additional Services</a>
+            <div class="submenu">
+              <a href="/additional-services/dump-trucks/">Dump Trucks</a>
+              <a href="/additional-services/soft-services/">Soft Services</a>
+            </div>
+          </div>
         </div>
       </li>
-      <li><a href="/sustainability">Sustainability</a></li>
-      <li><a href="/about-us">About Us</a></li>
-      <li><a href="/locations" class="active">Locations</a></li>
-      <li class="nav-contact"><a href="/contact">Contact • Estimate</a></li>
+      <li><a href="https://www.oeservices.ca/sustainability">Sustainability</a></li>
+      <li><a href="https://www.oeservices.ca/about-us">About Us</a></li>
+      <li><a href="https://www.oeservices.ca/locations" class="active">Locations</a></li>
+      <li class="nav-contact"><a href="https://www.oeservices.ca/contact">Contact • Estimate</a></li>
     </ul>
     <a href="tel:4167490005" class="nav-emergency">
       <img src="https://irp.cdn-website.com/7f93686c/dms3rep/multi/Emergency-full.svg" alt="24/7 Emergency Number 416.749.0005" />
     </a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</header>
 
+  <!-- MOBILE MENU — mirrors desktop nav, tap-driven -->
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <ul>
+      <li><a href="https://www.oeservices.ca">Home</a></li>
+      <li>
+        <button class="mobile-services-toggle" type="button" aria-controls="mobileServices" aria-expanded="false">Services</button>
+        <ul class="mobile-submenu" id="mobileServices">
+          <li>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileHydrovac" aria-expanded="false">Hydrovac Trucks</button>
+            <ul class="mobile-subsubmenu" id="mobileHydrovac">
+              <li><a href="/hydrovac/daylighting-utility-exposure/">Daylighting / Utility Exposure</a></li>
+              <li><a href="/hydrovac/slot-trenching/">Slot Trenching / Narrow Trenching</a></li>
+              <li><a href="/hydrovac/utility-pole-holes/">Utility Pole Holes</a></li>
+              <li><a href="/hydrovac/anode-installation/">Anode Installation</a></li>
+              <li><a href="/hydrovac/power-distribution-excavation/">Power Distribution Excavation</a></li>
+              <li><a href="/hydrovac/culvert-catch-basin-cleaning/">Culvert &amp; Catch Basin Cleaning</a></li>
+              <li><a href="/hydrovac/remote-long-reach-excavation/">Remote / Long-Reach Excavation</a></li>
+              <li><a href="/hydrovac/tree-root-sensitive-area/">Tree Root / Sensitive Area Excavation</a></li>
+              <li><a href="/hydrovac/contaminated-soil-removal/">Contaminated Soil Removal</a></li>
+              <li><a href="/hydrovac/subsurface-utility-engineering/">Subsurface Utility Engineering (SUE) / Level A Support</a></li>
+            </ul>
+          </li>
+          <li>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileUfill" aria-expanded="false">U-Fill (Unshrinkable Concrete Trucks)</button>
+            <ul class="mobile-subsubmenu" id="mobileUfill">
+              <li><a href="/u-fill/controlled-low-strength-material/">Controlled Low Strength Material</a></li>
+              <li><a href="/u-fill/flowable-fill/">Flowable Fill</a></li>
+            </ul>
+          </li>
+          <li>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileSlinger" aria-expanded="false">Material Slinger Trucks</button>
+            <ul class="mobile-subsubmenu" id="mobileSlinger">
+              <li><a href="/material-slinger/stone-gravel-placement/">Stone / Gravel Placement</a></li>
+              <li><a href="/material-slinger/controlled-precisioned-material-placement/">Controlled / Precisioned Material Placement</a></li>
+            </ul>
+          </li>
+          <li>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileCoring" aria-expanded="false">Coring Trucks</button>
+            <ul class="mobile-subsubmenu" id="mobileCoring">
+              <li><a href="/coring/concrete-asphalt-coring/">Concrete and Asphalt Coring</a></li>
+              <li><a href="/coring/concrete-restoration/">Concrete Restoration</a></li>
+            </ul>
+          </li>
+          <li><a href="/traffic-control/">Traffic Control</a></li>
+          <li>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileTurnkey" aria-expanded="false">Turnkey SUE — Level A</button>
+            <ul class="mobile-subsubmenu" id="mobileTurnkey">
+              <li><a href="/turnkey-sue/project-coordination/">Project Coordination</a></li>
+            </ul>
+          </li>
+          <li><a href="/soil-recycling/">Soil Recycling</a></li>
+          <li>
+            <button class="mobile-sub-toggle" type="button" aria-controls="mobileAdditional" aria-expanded="false">Additional Services</button>
+            <ul class="mobile-subsubmenu" id="mobileAdditional">
+              <li><a href="/additional-services/dump-trucks/">Dump Trucks</a></li>
+              <li><a href="/additional-services/soft-services/">Soft Services</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="https://www.oeservices.ca/sustainability">Sustainability</a></li>
+      <li><a href="https://www.oeservices.ca/about-us">About Us</a></li>
+      <li><a href="https://www.oeservices.ca/locations" class="active">Locations</a></li>
+      <li class="mobile-contact"><a href="https://www.oeservices.ca/contact">Contact • Estimate</a></li>
+    </ul>
+  </nav>
+</header>
 <!-- BREADCRUMBS -->
 <div class="breadcrumbs">
   <div class="breadcrumbs-inner">
@@ -771,7 +1685,6 @@
     <span class="current">Locations</span>
   </div>
 </div>
-
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
@@ -853,71 +1766,99 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     FOOTER — matches oeservices.ca exactly (with Locations column)
+     FOOTER
 ══════════════════════════════════════════════════════════ -->
-<div class="footer-body">
-  <div class="footer-inner">
-    <div class="footer-logo-row">
-      <img src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE_logo_30th_RGB_rev-1920w.png" alt="OE Utility Services — 30 Years" />
-    </div>
+<footer>
+  <div class="footer-body">
     <div class="footer-cols">
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="/news">News</a></li>
-          <li><a href="/cost-calculator">Cost Calculator</a></li>
-          <li><a href="/privacy-policy">Privacy Policy</a></li>
-          <li><a href="/accessibility">Accessibility</a></li>
-        </ul>
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE_logo_30th_RGB_rev-1920w.png" alt="OE Utility Services" />
+        </div>
+        <p class="footer-tagline">Integrated utility infrastructure services across Ontario for 30 years. One call. One team. Get more out.</p>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/hydrovac/">Hydrovac Trucks</a></li>
-          <li><a href="/u-fill/">U-Fill (Unshrinkable Concrete Trucks)</a></li>
-          <li><a href="/material-slinger/">Material Slinger Trucks</a></li>
-          <li><a href="/coring/">Coring Trucks</a></li>
-          <li><a href="/traffic-control/">Traffic Control</a></li>
-          <li><a href="/turnkey-sue/">Turnkey SUE — Level A</a></li>
-          <li><a href="/soil-recycling/">Soil Recycling</a></li>
-          <li><a href="/additional-services/">Additional Services</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Locations</h4>
-        <ul>
-          <li><a href="/gta/">Greater Toronto Area</a></li>
-          <li><a href="/ottawa/">Ottawa</a></li>
-          <li><a href="/durham/">Durham</a></li>
-          <li><a href="/london/">London</a></li>
-          <li><a href="/barrie/">Barrie</a></li>
-          <li><a href="/hamilton/">Hamilton</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about-us">About Us</a></li>
-          <li><a href="/careers">Careers</a></li>
-          <li><a href="/sustainability">Sustainability</a></li>
-          <li><a href="/contact">Contact • Estimate</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Committed to Safety</h4>
-        <ul>
-          <li><a href="/safety">Safety</a></li>
-          <li><a href="/safety_certificates">Safety Certificates</a></li>
-        </ul>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="/hydrovac/">Hydrovac Trucks</a></li>
+            <li><a href="/u-fill/">U-Fill (Unshrinkable Concrete Trucks)</a></li>
+            <li><a href="/material-slinger/">Material Slinger Trucks</a></li>
+            <li><a href="/coring/">Coring Trucks</a></li>
+            <li><a href="/traffic-control/">Traffic Control</a></li>
+            <li><a href="/turnkey-sue/">Turnkey SUE — Level A</a></li>
+            <li><a href="/soil-recycling/">Soil Recycling</a></li>
+            <li><a href="/additional-services/">Additional Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Committed to Safety</h5>
+          <ul>
+            <li><a href="https://www.oeservices.ca/safety">Safety</a></li>
+            <li><a href="https://www.oeservices.ca/safety_certificates">Safety Certificates</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="https://www.oeservices.ca/about-us">About Us</a></li>
+            <li><a href="https://www.oeservices.ca/locations">Locations</a></li>
+            <li><a href="https://www.oeservices.ca/sustainability">Sustainability</a></li>
+            <li><a href="https://www.oeservices.ca/careers">Careers</a></li>
+            <li><a href="https://www.oeservices.ca/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="https://www.oeservices.ca/news">News</a></li>
+            <li><a href="https://www.oeservices.ca/cost-calculator">Cost Calculator</a></li>
+            <li><a href="https://www.oeservices.ca/amp-program">AMP Program</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:4167490005">416.749.0005</a></li>
+            <li><a href="mailto:sales@oeservices.ca">sales@oeservices.ca</a></li>
+            <li><a href="https://www.oeservices.ca">oeservices.ca</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="footer-bottom">
-  © 2026 OE Utility Services. All Rights Reserved.
-  <a href="/privacy-policy">Privacy Policy</a>
-  <a href="/accessibility">Accessibility</a>
-</div>
+  <div class="footer-bottom">
+    © 2026 OE Utility Services. All Rights Reserved. &nbsp; · &nbsp;
+    <a href="https://www.oeservices.ca/privacy-policy">Privacy Policy</a> &nbsp; · &nbsp;
+    <a href="https://www.oeservices.ca/accessibility">Accessibility</a>
+  </div>
+</footer>
+
+<!-- Mobile nav: hamburger toggle + tap-to-expand Services -->
+<script>
+  (function () {
+    var navToggle = document.getElementById('navToggle');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (navToggle && mobileMenu) {
+      navToggle.addEventListener('click', function () {
+        var isOpen = mobileMenu.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+    }
+
+    // Every accordion toggle controls the list named in its aria-controls
+    var toggles = document.querySelectorAll('.mobile-services-toggle, .mobile-sub-toggle');
+    Array.prototype.forEach.call(toggles, function (btn) {
+      var target = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!target) return;
+      btn.addEventListener('click', function () {
+        var isOpen = target.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
