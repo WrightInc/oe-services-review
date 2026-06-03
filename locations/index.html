@@ -1451,24 +1451,29 @@
     .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
     /* Other locations */
+    #locations-grid { background: var(--oe-white); }
     .other-locations-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
     .other-loc-card {
-      background: var(--oe-white);
+      background: var(--oe-light);
       padding: 44px 30px 38px;
       text-align: center;
       text-decoration: none;
       color: inherit;
+      border: 1px solid var(--oe-border);
+      border-radius: 4px;
       border-top: 3px solid transparent;
-      transition: border-top-color 0.2s, transform 0.15s;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s, border-color 0.2s;
       position: relative;
     }
     .other-loc-card:hover {
+      background: var(--oe-white);
       border-top-color: var(--oe-blue);
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(15,38,112,0.12);
     }
     .other-loc-card.current-location {
       background: var(--oe-navy);
