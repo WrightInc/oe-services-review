@@ -1033,6 +1033,33 @@
       .fleet-features { grid-template-columns: 1fr; }
       .full-service-card { min-height: auto; }
     }
+    /* ── BUTTONS — locked OE brand standard (shared shell) ───────
+       Every button variant renders the approved style:
+       default = blue fill / white text; hover AND focus = white fill /
+       navy text. Colour + hover/focus behaviour only — sizing, font,
+       border-radius, transitions and arrow glyphs are left untouched.
+       Supersedes the divergent .btn-ghost / .btn-navy / .cta-strip /
+       sticky-cta hover declarations above; palette tokens only. */
+    .btn-blue, .btn-ghost, .btn-navy, .sticky-cta,
+    .cta-strip .btn, .cta-strip .btn-ghost,
+    .hero .btn-blue, .hero .btn-ghost {
+      background: var(--oe-blue);
+      color: var(--oe-white);
+      border-color: transparent;
+    }
+    .btn-blue:hover, .btn-blue:focus-visible,
+    .btn-ghost:hover, .btn-ghost:focus-visible,
+    .btn-navy:hover, .btn-navy:focus-visible,
+    .sticky-cta:hover, .sticky-cta:focus-visible,
+    .cta-strip .btn:hover, .cta-strip .btn:focus-visible,
+    .cta-strip .btn-ghost:hover, .cta-strip .btn-ghost:focus-visible,
+    .hero .btn-blue:hover, .hero .btn-blue:focus-visible,
+    .hero .btn-ghost:hover, .hero .btn-ghost:focus-visible {
+      background: var(--oe-white);
+      color: var(--oe-navy);
+      border-color: transparent;
+    }
+
   </style>
 </head>
 <body>
