@@ -1489,18 +1489,26 @@
       .lead-headshot { margin: 0 auto; }
     }
     /* ── BUTTONS — locked OE brand standard (shared shell) ───────
-       Every button variant renders the approved style:
-       default = blue fill / white text; hover AND focus = white fill /
-       navy text. Colour + hover/focus behaviour only — sizing, font,
-       border-radius, transitions and arrow glyphs are left untouched.
-       Supersedes the divergent .btn-ghost / .btn-navy / .cta-strip /
-       sticky-cta hover declarations above; palette tokens only. */
-    .btn-blue, .btn-ghost, .btn-navy, .sticky-cta,
-    .cta-strip .btn, .cta-strip .btn-ghost,
-    .hero .btn-blue, .hero .btn-ghost {
+       Primary .btn-blue, .btn-navy, .sticky-cta and the cta-strip solid
+       button: default = blue fill / white text. Secondary .btn-ghost
+       ("Call …") keeps its transparent / white-outline look. Every
+       button inverts to white fill / navy text on hover AND focus.
+       Colour + hover/focus only; sizing, font, radius, transitions and
+       arrow glyphs untouched. Palette tokens only. */
+    .btn-blue, .btn-navy, .sticky-cta,
+    .cta-strip .btn,
+    .hero .btn-blue {
       background: var(--oe-blue);
       color: var(--oe-white);
       border-color: transparent;
+    }
+    /* Secondary "Call …" outline button — distinct from the solid primary. */
+    .btn-ghost,
+    .cta-strip .btn-ghost,
+    .hero .btn-ghost {
+      background: transparent;
+      color: var(--oe-white);
+      border-color: var(--oe-white);
     }
     .btn-blue:hover, .btn-blue:focus-visible,
     .btn-ghost:hover, .btn-ghost:focus-visible,
