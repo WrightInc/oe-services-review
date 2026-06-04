@@ -34,28 +34,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Locations | OE Utility Services</title>
-  <meta name="description" content="OE Utility Services operates from six Regional Business Units across Ontario — the Greater Toronto Area, Durham, Hamilton, Barrie, London, and Ottawa — bringing the same standards, certifications, and 24/7 response to every region we serve." />
+  <meta name="description" content="OE Utility Services covers Ontario from six Regional Business Units — GTA, Durham, Hamilton, Barrie, London, and Ottawa — one standard, 24/7 response." />
 
-  <!-- Local Business Schema for SEO -->
+  <link rel="canonical" href="https://www.oeservices.ca/locations/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Our Locations | OE Utility Services" />
+  <meta property="og:description" content="OE Utility Services covers Ontario from six Regional Business Units — GTA, Durham, Hamilton, Barrie, London, and Ottawa — one standard, 24/7 response." />
+  <meta property="og:url" content="https://www.oeservices.ca/locations/" />
+  <!-- TODO: og:image is a PLACEHOLDER — a unique Ontario-coverage/locations image is needed for this page. No asset exists at this URL yet. -->
+  <meta property="og:image" content="https://www.oeservices.ca/og/locations.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Locations | OE Utility Services" />
+  <meta name="twitter:description" content="OE Utility Services covers Ontario from six Regional Business Units — GTA, Durham, Hamilton, Barrie, London, and Ottawa — one standard, 24/7 response." />
+  <meta name="twitter:image" content="https://www.oeservices.ca/og/locations.jpg" />
+
+  <!-- Organization schema for the Locations landing page -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "OE Utility Services — Greater Toronto Area",
+    "@type": "Organization",
+    "name": "OE Utility Services",
     "image": "https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE-main-fullcolor-logo-1920w.png",
-    "url": "https://www.oeservices.ca/gta/",
+    "url": "https://www.oeservices.ca/locations/",
     "telephone": "+1-416-749-0005",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "[OFFICE_ADDRESS_LINE_1]",
-      "addressLocality": "Toronto",
-      "addressRegion": "ON",
-      "postalCode": "[POSTAL_CODE]",
-      "addressCountry": "CA"
-    },
-    "areaServed": "Greater Toronto Area, Ontario",
-    "openingHours": "Mo-Fr 07:00-17:00",
-    "priceRange": "$$"
+    "areaServed": "Ontario, Canada"
   }
   </script>
 
@@ -89,6 +95,18 @@
     }
     a { color: var(--oe-blue); text-decoration: none; }
     a:hover { color: var(--oe-navy); }
+
+    /* Visible keyboard focus (WCAG 2.4.7) */
+    a:focus-visible,
+    button:focus-visible,
+    .service-card:focus-visible,
+    .nav-toggle:focus-visible,
+    .mobile-services-toggle:focus-visible,
+    .mobile-sub-toggle:focus-visible {
+      outline: 2px solid var(--oe-navy);
+      outline-offset: 2px;
+    }
+
 
     /* ── HEADER ───────────────────────────────────────────── */
     header { background: var(--oe-white); border-bottom: 1px solid var(--oe-border); position: sticky; top: 0; z-index: 100; }
