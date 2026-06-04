@@ -368,6 +368,8 @@
       background: rgba(255,255,255,0.14);
       border-color: var(--oe-blue);
     }
+    .hero-badge-link { display: block; color: inherit; text-decoration: none; }
+    .hero-badge-link:focus-visible { outline: 2px solid var(--oe-blue); outline-offset: 2px; }
 
 
     /* ── ALERT BAR ────────────────────────────────────────── */
@@ -1720,7 +1722,7 @@
       </div>
     </div>
     <div class="hero-sidebar">
-      <div class="hero-badge"><div class="bl">Headquartered In</div><div class="bv">Greater Toronto Area</div></div>
+      <a href="#contact" class="hero-badge-link" aria-label="Jump to GTA office section"><div class="hero-badge"><div class="bl">Headquartered In</div><div class="bv">Greater Toronto Area</div></div></a>
       <div class="hero-badge"><div class="bl">Years Serving the GTA</div><div class="bv">30+ Years</div></div>
       <div class="hero-badge"><div class="bl">Service Response</div><div class="bv">24/7 Emergency Coverage</div></div>
     </div>
