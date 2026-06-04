@@ -83,6 +83,18 @@
     a { color: var(--oe-blue); text-decoration: none; }
     a:hover { color: var(--oe-navy); }
 
+    /* Visible keyboard focus (WCAG 2.4.7) */
+    a:focus-visible,
+    button:focus-visible,
+    .service-card:focus-visible,
+    .nav-toggle:focus-visible,
+    .mobile-services-toggle:focus-visible,
+    .mobile-sub-toggle:focus-visible {
+      outline: 2px solid var(--oe-navy);
+      outline-offset: 2px;
+    }
+
+
     /* ── HEADER ───────────────────────────────────────────── */
     header { background: var(--oe-white); border-bottom: 1px solid var(--oe-border); position: sticky; top: 0; z-index: 100; }
     .nav-outer { max-width: 1400px; margin: 0 auto; padding: 14px 30px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }

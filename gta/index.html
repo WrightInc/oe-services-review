@@ -34,7 +34,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Greater Toronto Area Utility Services | OE Utility Services</title>
-  <meta name="description" content="OE Utility Services delivers hydrovac excavation, gas and water distribution, subsurface utility engineering, and restoration across the Greater Toronto Area. 30 years serving the GTA!" />
+  <meta name="description" content="Hydrovac excavation, gas and water distribution, utility locating, and restoration across the Greater Toronto Area — 30 years serving the GTA, with 24/7 response." />
+
+  <link rel="canonical" href="https://www.oeservices.ca/gta/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Greater Toronto Area Utility Services | OE Utility Services" />
+  <meta property="og:description" content="Hydrovac excavation, gas and water distribution, utility locating, and restoration across the Greater Toronto Area — 30 years serving the GTA, with 24/7 response." />
+  <meta property="og:url" content="https://www.oeservices.ca/gta/" />
+  <!-- TODO: og:image is a PLACEHOLDER — a unique GTA office/crew photo is needed for this page. No asset exists at this URL yet. -->
+  <meta property="og:image" content="https://www.oeservices.ca/og/gta.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Greater Toronto Area Utility Services | OE Utility Services" />
+  <meta name="twitter:description" content="Hydrovac excavation, gas and water distribution, utility locating, and restoration across the Greater Toronto Area — 30 years serving the GTA, with 24/7 response." />
+  <meta name="twitter:image" content="https://www.oeservices.ca/og/gta.jpg" />
 
   <!-- Local Business Schema for SEO -->
   <script type="application/ld+json">
@@ -47,10 +63,10 @@
     "telephone": "+1-416-749-0005",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "[OFFICE_ADDRESS_LINE_1]",
-      "addressLocality": "Toronto",
+      "streetAddress": "550 Bowes Road",
+      "addressLocality": "Vaughan",
       "addressRegion": "ON",
-      "postalCode": "[POSTAL_CODE]",
+      "postalCode": "L4K 1K2",
       "addressCountry": "CA"
     },
     "areaServed": "Greater Toronto Area, Ontario",
@@ -89,6 +105,18 @@
     }
     a { color: var(--oe-blue); text-decoration: none; }
     a:hover { color: var(--oe-navy); }
+
+    /* Visible keyboard focus (WCAG 2.4.7) */
+    a:focus-visible,
+    button:focus-visible,
+    .service-card:focus-visible,
+    .nav-toggle:focus-visible,
+    .mobile-services-toggle:focus-visible,
+    .mobile-sub-toggle:focus-visible {
+      outline: 2px solid var(--oe-navy);
+      outline-offset: 2px;
+    }
+
 
     /* ── HEADER ───────────────────────────────────────────── */
     header { background: var(--oe-white); border-bottom: 1px solid var(--oe-border); position: sticky; top: 0; z-index: 100; }
