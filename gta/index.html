@@ -353,17 +353,18 @@
     }
     .hero-badge .bl { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 4px; }
     .hero-badge .bv { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2; }
-    /* Hero stat cards — unified hover/focus: brighten the background and
-       border (brand blue) while card text stays light and legible in
-       every state. Hover/focus appearance only — links are untouched.
-       Selectors cover mouse hover on every card plus keyboard focus
-       whether the badge is the link (locations), is wrapped by a link
-       (hydrovac), or is a plain card (gta). */
+    /* Hero stat cards — shared base look. ONLY the linked card highlights
+       on hover / keyboard focus; plain non-linked cards do not react.
+       Text stays light and legible in every state. Covers both link
+       shapes: the badge wrapped by a link (hydrovac, .hero-badge-link)
+       and the badge that is itself the link (locations, a.hero-badge).
+       gta has no linked card, so nothing highlights there. */
     .hero-badge { transition: background 0.15s, border-color 0.15s; }
     .hero-badge .bl, .hero-badge .bv { color: var(--oe-white); }
-    .hero-badge:hover,
-    .hero-badge:focus-visible,
-    .hero-badge-link:focus-visible .hero-badge {
+    .hero-badge-link:hover .hero-badge,
+    .hero-badge-link:focus-visible .hero-badge,
+    a.hero-badge:hover,
+    a.hero-badge:focus-visible {
       background: rgba(255,255,255,0.14);
       border-color: var(--oe-blue);
     }
