@@ -12,7 +12,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daylighting / Utility Exposure | OE Utility Services</title>
-  <meta name="description" content="Non-destructive hydrovac daylighting and utility exposure across Ontario. OE manages Ontario One Call submissions, exposes buried utilities safely, and stays on site for repair, restoration, and disposal — one call, one team." />
+  <meta name="description" content="Non-destructive hydrovac daylighting and utility exposure across Ontario. OE exposes buried utilities safely, then handles repair, restoration, and disposal." />
+
+  <link rel="canonical" href="https://www.oeservices.ca/hydrovac/daylighting-utility-exposure/" />
+
+  <!-- Open Graph -->
+  <!-- TODO: og:image is a PLACEHOLDER path — no asset exists at this URL yet.
+       Add a real daylighting image at /og/daylighting.jpg before launch. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hydrovac Daylighting & Utility Exposure in Ontario | OE Utility Services" />
+  <meta property="og:description" content="Non-destructive hydrovac daylighting across Ontario — OE exposes buried utilities safely, then stays on site for repair, restoration, and disposal." />
+  <meta property="og:url" content="https://www.oeservices.ca/hydrovac/daylighting-utility-exposure/" />
+  <meta property="og:image" content="https://www.oeservices.ca/og/daylighting.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hydrovac Daylighting & Utility Exposure in Ontario | OE Utility Services" />
+  <meta name="twitter:description" content="Non-destructive hydrovac daylighting across Ontario — OE exposes buried utilities safely, then stays on site for repair, restoration, and disposal." />
+  <meta name="twitter:image" content="https://www.oeservices.ca/og/daylighting.jpg" />
 
   <!-- LocalBusiness schema -->
   <script type="application/ld+json">
@@ -62,6 +79,17 @@
     }
     a { color: var(--oe-blue); text-decoration: none; }
     a:hover { color: var(--oe-navy); }
+
+    /* Visible keyboard focus (WCAG 2.4.7) */
+    a:focus-visible,
+    button:focus-visible,
+    .service-card:focus-visible,
+    .nav-toggle:focus-visible,
+    .mobile-services-toggle:focus-visible,
+    .mobile-sub-toggle:focus-visible {
+      outline: 2px solid var(--oe-navy);
+      outline-offset: 2px;
+    }
 
     /* ── HEADER ───────────────────────────────────────────── */
     header { background: var(--oe-white); border-bottom: 1px solid var(--oe-border); position: sticky; top: 0; z-index: 100; }
@@ -144,7 +172,7 @@
       color: var(--oe-text);
     }
     .sibling-icon { font-size: 28px; margin-bottom: 12px; }
-    .sibling-card h4 { font-size: 15px; color: var(--oe-navy); line-height: 1.4; }
+    .sibling-card h3 { font-size: 15px; color: var(--oe-navy); line-height: 1.4; }
     .nav-emergency img { height: 44px; }
 
     /* ── MOBILE NAV (hamburger + tap menu) ────────────────── */
@@ -430,7 +458,7 @@
       font-size: 28px;
       margin-bottom: 12px;
     }
-    .application-card h4 {
+    .application-card h3 {
       font-size: 15px;
       color: var(--oe-navy);
       line-height: 1.4;
@@ -834,35 +862,35 @@
     <div class="applications-grid">
       <div class="application-card">
         <div class="application-icon">🎯</div>
-        <h4>Visual confirmation of buried utilities prior to mechanical excavation</h4>
+        <h3>Visual confirmation of buried utilities prior to mechanical excavation</h3>
       </div>
       <div class="application-card">
         <div class="application-icon">🛠️</div>
-        <h4>Directional drilling test holes</h4>
+        <h3>Directional drilling test holes</h3>
       </div>
       <div class="application-card">
         <div class="application-icon">⚙️</div>
-        <h4>Sacrificial anode installation locations</h4>
+        <h3>Sacrificial anode installation locations</h3>
       </div>
       <div class="application-card">
         <div class="application-icon">🔀</div>
-        <h4>Pipeline and utility crossings</h4>
+        <h3>Pipeline and utility crossings</h3>
       </div>
       <div class="application-card">
         <div class="application-icon">📐</div>
-        <h4>Subsurface Utility Engineering (S.U.E.) test holes</h4>
+        <h3>Subsurface Utility Engineering (SUE) test holes</h3>
       </div>
       <div class="application-card">
         <div class="application-icon">🏗️</div>
-        <h4>Pre-construction utility verification on ICI and municipal sites</h4>
+        <h3>Pre-construction utility verification on ICI and municipal sites</h3>
       </div>
       <div class="application-card">
         <div class="application-icon">📍</div>
-        <h4>Locate validation in congested urban corridors</h4>
+        <h3>Locate validation in congested urban corridors</h3>
       </div>
       <div class="application-card">
         <div class="application-icon">🌳</div>
-        <h4>Daylighting around mature trees and other sensitive ground</h4>
+        <h3>Daylighting around mature trees and other sensitive ground</h3>
       </div>
     </div>
   </div>
@@ -893,7 +921,7 @@
 
     <div class="project-highlight">
       <!-- STOCK PLACEHOLDER — REPLACE with OE gas main daylighting photo -->
-      <img class="project-highlight-image" src="https://placehold.co/800x500/0F2670/01ABEE/png?text=GAS+MAIN+DAYLIGHTING%0A%5BReplace+with+real+photo%5D" alt="Gas main daylighting project" />
+      <img class="project-highlight-image" src="https://placehold.co/800x500/0F2670/01ABEE/png?text=GAS+MAIN+DAYLIGHTING%0A%5BReplace+with+real+photo%5D" alt="Gas main daylighting project" loading="lazy" />
       <div class="project-highlight-body">
         <span class="project-tag">Utility · Gas</span>
         <h3>High-Risk Gas Main Daylighting</h3>
@@ -935,39 +963,39 @@
     <div class="siblings-grid">
       <a href="../slot-trenching/" class="sibling-card">
         <div class="sibling-icon">📏</div>
-        <h4>Slot Trenching / Narrow Trenching</h4>
+        <h3>Slot Trenching / Narrow Trenching</h3>
       </a>
       <a href="../utility-pole-holes/" class="sibling-card">
         <div class="sibling-icon">🪜</div>
-        <h4>Utility Pole Holes</h4>
+        <h3>Utility Pole Holes</h3>
       </a>
       <a href="../anode-installation/" class="sibling-card">
         <div class="sibling-icon">⚙️</div>
-        <h4>Anode Installation</h4>
+        <h3>Anode Installation</h3>
       </a>
       <a href="../power-distribution-excavation/" class="sibling-card">
         <div class="sibling-icon">⚡</div>
-        <h4>Power Distribution Excavation</h4>
+        <h3>Power Distribution Excavation</h3>
       </a>
       <a href="../culvert-catch-basin-cleaning/" class="sibling-card">
         <div class="sibling-icon">🚧</div>
-        <h4>Culvert & Catch Basin Cleaning</h4>
+        <h3>Culvert & Catch Basin Cleaning</h3>
       </a>
       <a href="../remote-long-reach-excavation/" class="sibling-card">
         <div class="sibling-icon">📡</div>
-        <h4>Remote / Long-Reach Excavation</h4>
+        <h3>Remote / Long-Reach Excavation</h3>
       </a>
       <a href="../tree-root-sensitive-area/" class="sibling-card">
         <div class="sibling-icon">🌳</div>
-        <h4>Tree Root / Sensitive Area Excavation</h4>
+        <h3>Tree Root / Sensitive Area Excavation</h3>
       </a>
       <a href="../contaminated-soil-removal/" class="sibling-card">
         <div class="sibling-icon">⚠️</div>
-        <h4>Contaminated Soil Removal</h4>
+        <h3>Contaminated Soil Removal</h3>
       </a>
       <a href="../subsurface-utility-engineering/" class="sibling-card">
         <div class="sibling-icon">🔍</div>
-        <h4>Subsurface Utility Engineering (SUE) / Level A Support</h4>
+        <h3>Subsurface Utility Engineering (SUE) / Level A Support</h3>
       </a>
     </div>
   </div>
