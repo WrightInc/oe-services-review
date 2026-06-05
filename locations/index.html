@@ -1449,13 +1449,14 @@
     }
     .other-loc-card {
       background: var(--oe-light);
-      padding: 44px 30px 38px;
+      padding: 0;
       text-align: center;
       text-decoration: none;
       color: inherit;
       border: 1px solid var(--oe-border);
       border-radius: 4px;
       border-top: 3px solid transparent;
+      overflow: hidden;
       transition: background 0.2s, transform 0.15s, box-shadow 0.2s, border-color 0.2s;
       position: relative;
     }
@@ -1465,6 +1466,26 @@
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(15,38,112,0.12);
     }
+    .other-loc-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,120,210,0.15);
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+      border-radius: inherit;
+    }
+    .other-loc-card:hover::after { opacity: 1; }
+    .loc-card-map img {
+      width: 100%; height: 150px; object-fit: cover; display: block;
+    }
+    .loc-card-body {
+      padding: 28px 24px 30px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
     .other-loc-card.current-location {
       background: var(--oe-navy);
       border-top: 3px solid var(--oe-blue);
@@ -1473,9 +1494,8 @@
     .other-loc-card.current-location:hover {
       transform: none;
     }
-    .other-loc-card.current-location h4 { color: var(--oe-white); }
-    .other-loc-card.current-location p { color: rgba(255,255,255,0.7); }
-    .other-loc-card.current-location .pin-icon { color: var(--oe-blue); }
+    .other-loc-card.current-location .loc-card-body h4 { color: var(--oe-white); }
+    .other-loc-card.current-location .loc-card-body p { color: rgba(255,255,255,0.7); }
     .current-badge {
       position: absolute;
       top: 10px;
@@ -1489,9 +1509,6 @@
       text-transform: uppercase;
       padding: 3px 7px;
       border-radius: 2px;
-    }
-    .other-loc-card .pin-icon {
-      font-size: 30px; color: var(--oe-blue); margin-bottom: 12px;
     }
     .other-loc-card h4 {
       font-size: 18px; font-weight: 800;
@@ -1760,34 +1777,46 @@
   <div class="wrap">
     <div class="other-locations-grid">
       <a href="/gta/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Greater Toronto Area</h4>
-        <p>550 Bowes Road, Vaughan</p>
+        <div class="loc-card-map"><img src="/locations/maps/oe-yard-gta.png" alt="Map of OE Utility Services yard in Vaughan"></div>
+        <div class="loc-card-body">
+          <h4>Greater Toronto Area</h4>
+          <p>550 Bowes Rd, Vaughan ON L4K 1K2</p>
+        </div>
       </a>
       <a href="/durham/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Durham &amp; Area</h4>
-        <p>19 Courtice Ct, Courtice</p>
+        <div class="loc-card-map"><img src="/locations/maps/oe-yard-durham.png" alt="Map of OE Utility Services yard in Courtice"></div>
+        <div class="loc-card-body">
+          <h4>Durham &amp; Area</h4>
+          <p>19 Courtice Ct, Courtice ON L1E 2T4</p>
+        </div>
       </a>
       <a href="/hamilton/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Hamilton &amp; Area</h4>
-        <p>450 Sherman Ave. North, Hamilton</p>
+        <div class="loc-card-map"><img src="/locations/maps/oe-yard-hamilton.png" alt="Map of OE Utility Services yard in Hamilton"></div>
+        <div class="loc-card-body">
+          <h4>Hamilton &amp; Area</h4>
+          <p>450 Sherman Ave. North, Hamilton ON L8L 8J6</p>
+        </div>
       </a>
       <a href="/barrie/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Barrie &amp; Area</h4>
-        <p>72 Sluse Rd, Holland Landing</p>
+        <div class="loc-card-map"><img src="/locations/maps/oe-yard-barrie.png" alt="Map of OE Utility Services yard in Holland Landing"></div>
+        <div class="loc-card-body">
+          <h4>Barrie &amp; Area</h4>
+          <p>72 Sluse Rd, Holland Landing, Barrie ON L9N 1G8</p>
+        </div>
       </a>
       <a href="/london/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>London &amp; Area</h4>
-        <p>181 Donnybrook Dr, Thames Centre</p>
+        <div class="loc-card-map"><img src="/locations/maps/oe-yard-london.png" alt="Map of OE Utility Services yard in Thames Centre"></div>
+        <div class="loc-card-body">
+          <h4>London &amp; Area</h4>
+          <p>181 Donnybrook Dr, Thames Centre ON N0L 1G5</p>
+        </div>
       </a>
       <a href="/ottawa/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Ottawa &amp; Area</h4>
-        <p>950 Moodie Dr, Nepean</p>
+        <div class="loc-card-map"><img src="/locations/maps/oe-yard-ottawa.png" alt="Map of OE Utility Services yard in Nepean"></div>
+        <div class="loc-card-body">
+          <h4>Ottawa &amp; Area</h4>
+          <p>950 Moodie Dr, Nepean ON K2R 1H3</p>
+        </div>
       </a>
     </div>
   </div>
