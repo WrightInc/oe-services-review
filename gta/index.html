@@ -1293,6 +1293,21 @@
       background: var(--oe-white);
       min-height: 420px;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .map-wrap .map-img {
+      width: 100%; flex: 1; min-height: 0;
+      object-fit: cover; display: block;
+    }
+    .map-wrap .map-caption {
+      padding: 14px 18px;
+      text-align: center;
+      font-size: 14px; font-weight: 700;
+      color: var(--oe-navy);
+      background: var(--oe-white);
     }
     .map-wrap iframe {
       width: 100%; height: 100%; min-height: 420px;
@@ -1963,30 +1978,15 @@
     <div class="blue-rule"></div>
     <div class="map-contact-grid">
       <div class="map-wrap">
-        <!-- Replace placeholder below with Google Maps embed iframe for the actual GTA office.
-             From Google Maps: Share → Embed a map → copy the <iframe src="..."> URL. -->
-        <div class="map-placeholder">
-          <div class="pin">📍</div>
-          <strong style="color:var(--oe-navy); font-size:16px; margin-bottom:6px;">[OFFICE_ADDRESS_LINE_1]</strong>
-          <span>[OFFICE_ADDRESS_LINE_2]</span>
-          <span style="margin-top:14px; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--oe-blue); font-weight:800;">Replace with Google Maps embed</span>
-        </div>
-        <!--
-        <iframe
-          src="[GOOGLE_MAPS_EMBED_URL]"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-        -->
+        <img class="map-img" src="/locations/maps/oe-yard-gta.png" alt="Map of OE Utility Services Greater Toronto Area yard in Vaughan" />
+        <div class="map-caption">550 Bowes Road, Vaughan ON L4K 1K2</div>
       </div>
       <div class="contact-wrap">
         <h3>Office Details</h3>
         <div class="c-line">
           <div class="icon">📍</div>
           <span>
-            <strong style="color:var(--oe-navy);display:block;margin-bottom:2px;">[OFFICE_ADDRESS_LINE_1]</strong>
-            [OFFICE_ADDRESS_LINE_2]
+            <strong style="color:var(--oe-navy);display:block;">550 Bowes Road, Vaughan ON L4K 1K2</strong>
           </span>
         </div>
         <div class="c-line">
