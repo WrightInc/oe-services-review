@@ -629,24 +629,29 @@
     .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
     /* Other locations */
+    #locations-grid { background: var(--oe-white); }
     .other-locations-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 3px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
     .other-loc-card {
-      background: var(--oe-white);
-      padding: 26px 18px 22px;
+      background: var(--oe-light);
+      padding: 44px 30px 38px;
       text-align: center;
       text-decoration: none;
       color: inherit;
+      border: 1px solid var(--oe-border);
+      border-radius: 4px;
       border-top: 3px solid transparent;
-      transition: border-top-color 0.2s, transform 0.15s;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s, border-color 0.2s;
       position: relative;
     }
     .other-loc-card:hover {
+      background: var(--oe-white);
       border-top-color: var(--oe-blue);
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(15,38,112,0.12);
     }
     .other-loc-card.current-location {
       background: var(--oe-navy);
@@ -674,15 +679,15 @@
       border-radius: 2px;
     }
     .other-loc-card .pin-icon {
-      font-size: 24px; color: var(--oe-blue); margin-bottom: 8px;
+      font-size: 30px; color: var(--oe-blue); margin-bottom: 12px;
     }
     .other-loc-card h4 {
-      font-size: 14px; font-weight: 800;
+      font-size: 18px; font-weight: 800;
       text-transform: uppercase; letter-spacing: 0.5px;
-      color: var(--oe-navy); margin-bottom: 4px;
+      color: var(--oe-navy); margin-bottom: 7px;
     }
     .other-loc-card p {
-      font-size: 12px; color: var(--oe-muted);
+      font-size: 14px; color: var(--oe-muted);
     }
 
     /* ════════════════════════════════════════════════════════
@@ -729,7 +734,7 @@
     @media (max-width: 1100px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
       .project-grid { grid-template-columns: 1fr 1fr; }
-      .other-locations-grid { grid-template-columns: repeat(3, 1fr); }
+      .other-locations-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-cols { grid-template-columns: repeat(3, 1fr); }
       .location-photo { height: 340px; }
     }
@@ -1068,7 +1073,7 @@
 </section>
 
 <!-- ALL SIX LOCATIONS -->
-<section class="section">
+<section id="locations-grid" class="section gray">
   <div class="wrap">
     <div class="eyebrow">Our Ontario Locations</div>
     <h2 class="stitle">Six Locations Serving Ontario</h2>
