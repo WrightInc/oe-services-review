@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <!--
 ═══════════════════════════════════════════════════════════════════════════════
-  OE UTILITY SERVICES — DURHAM & AREA RBU PAGE  (/durham/)
-  Shell duplicated verbatim from /gta/ (header, footer, hero, design system).
-
-  FLAGGED PLACEHOLDERS — confirm before publish:
-    [PLACEHOLDER_LOCATION_PHOTO]  Unique Durham/Courtice yard photo (banner)
-    [PLACEHOLDER_HEADSHOT]        Branch-lead headshot
-    [BRANCH_LEAD_NAME/TITLE/BIO]  Durham RBU lead details
-    [PROJECT_1..3]                Durham project highlights (proof before promotion)
-    og:image                      https://www.oeservices.ca/og/durham.jpg (confirm exists)
-    Areas-served chip list        Confirm municipalities
-    Office hours                  Defaulted to GTA pattern — confirm
-    geo coords                    Courtice ~43.918, -78.770 — confirm/round
+  OE UTILITY SERVICES — LOCATIONS PAGE TEMPLATE
+  Example: Greater Toronto Area (GTA)
+  
+  USE THIS TEMPLATE FOR ALL SIX RBU PAGES.
+  Replace the bracketed placeholders below with location-specific content:
+  
+    [LOCATION_NAME]              e.g. "Greater Toronto Area" / "Hamilton" / "Ottawa"
+    [LOCATION_SHORT]             e.g. "GTA" / "Hamilton" / "Ottawa"
+    [OFFICE_ADDRESS_LINE_1]      Street address
+    [OFFICE_ADDRESS_LINE_2]      City, Province, Postal Code
+    [OFFICE_PHONE]               Local branch line if different from HQ
+    [OFFICE_EMAIL]               Branch email if different
+    [LOCATION_PHOTO_URL]         Hero photo of the office / yard / building
+    [BRANCH_LEAD_NAME]           RBU Manager name (e.g. "Todd Desjardins")
+    [HEADSHOT_URL]               URL to the manager's headshot photo
+    [GOOGLE_MAPS_EMBED_URL]      Embed src URL from Google Maps
+    [SERVICE_AREA_LIST]          Cities / regions served from this RBU
+    [PROJECT_1] / [PROJECT_2]    2–3 representative local projects
+    [CLIENT_LIST]                Notable municipal / ICI clients in region
+  
+  IMPORTANT: For each RBU page:
+  1. Update the "Six Locations Serving Ontario" section to highlight 
+     the CURRENT page as `current-location` with "You are here" badge,
+     and convert that page's link from <a> to a <div> (no link).
+  2. Update breadcrumbs and page title to match the location.
+  3. Update LocalBusiness schema to match the location's address.
 ═══════════════════════════════════════════════════════════════════════════════
 -->
 <html lang="en">
@@ -21,24 +35,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Utility Contractor Durham Region | OE Utility Services</title>
   <meta name="description" content="Hydrovac excavation, gas and water distribution, utility locating, and soil management across Durham Region — Oshawa, Whitby, Ajax, Pickering, Clarington — with 24/7 response." />
+
   <link rel="canonical" href="https://www.oeservices.ca/durham/" />
 
   <!-- Open Graph -->
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="Utility Contractor Durham Region | OE Utility Services" />
   <meta property="og:description" content="Hydrovac excavation, gas and water distribution, utility locating, and soil management across Durham Region — Oshawa, Whitby, Ajax, Pickering, Clarington — with 24/7 response." />
-  <!-- FLAG: confirm a unique Durham OG image exists at this path -->
-  <meta property="og:image" content="https://www.oeservices.ca/og/durham.jpg" />
   <meta property="og:url" content="https://www.oeservices.ca/durham/" />
-  <meta property="og:type" content="website" />
+  <!-- TODO: og:image is a PLACEHOLDER — a unique GTA office/crew photo is needed for this page. No asset exists at this URL yet. -->
+  <meta property="og:image" content="https://www.oeservices.ca/og/durham.jpg" />
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Utility Contractor Durham Region | OE Utility Services" />
   <meta name="twitter:description" content="Hydrovac excavation, gas and water distribution, utility locating, and soil management across Durham Region — Oshawa, Whitby, Ajax, Pickering, Clarington — with 24/7 response." />
-  <!-- FLAG: confirm a unique Durham OG image exists at this path -->
   <meta name="twitter:image" content="https://www.oeservices.ca/og/durham.jpg" />
 
-  <!-- Local Business Schema for SEO — Durham's own values -->
+  <!-- Local Business Schema for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,9 +84,11 @@
   }
   </script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
   <style>
-    /* ── OE OFFICIAL BRAND TOKENS (Brand Guide v1.1) ─────── */
     :root {
       --oe-navy:   #0F2670;
       --oe-navy-dark: #0A1B4D;
@@ -83,20 +99,33 @@
       --oe-text:   #222222;
       --oe-muted:  #666666;
       --oe-green:  #2E7D32;
-      --enb-orange:#E05A00;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Nunito Sans', Arial, sans-serif;
       color: var(--oe-text);
       background: var(--oe-white);
-      font-size: 16px;
-      line-height: 1.65;
+      line-height: 1.6;
     }
-    h1,h2,h3,h4,.btn,.step-title,.faq-q,.eyebrow,.stat-num,.tag,.cert-tag {
+    h1, h2, h3, h4, h5 {
       font-family: 'Nunito', Arial, sans-serif;
+      font-weight: 800;
+      line-height: 1.15;
     }
+    a { color: var(--oe-blue); text-decoration: none; }
+    a:hover { color: var(--oe-navy); }
+
+    /* Visible keyboard focus (WCAG 2.4.7) */
+    a:focus-visible,
+    button:focus-visible,
+    .service-card:focus-visible,
+    .nav-toggle:focus-visible,
+    .mobile-services-toggle:focus-visible,
+    .mobile-sub-toggle:focus-visible {
+      outline: 2px solid var(--oe-navy);
+      outline-offset: 2px;
+    }
+
 
     /* ── HEADER ───────────────────────────────────────────── */
     header { background: var(--oe-white); border-bottom: 1px solid var(--oe-border); position: sticky; top: 0; z-index: 100; }
@@ -291,64 +320,783 @@
     .breadcrumbs .sep { margin: 0 8px; color: var(--oe-border); }
     .breadcrumbs .current { color: var(--oe-muted); font-weight: 600; }
 
-    /* ════════════════════════════════════════════════════════
-       HERO — Location-specific
-    ════════════════════════════════════════════════════════ */
+    /* ── HERO ─────────────────────────────────────────────── */
     .hero {
       background: var(--oe-navy);
-      padding: 72px 40px 68px;
+      color: var(--oe-white);
       position: relative;
       overflow: hidden;
     }
-    .hero::after {
+    .hero::before {
       content: '';
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      width: 40%;
+      position: absolute; inset: 0;
       background: linear-gradient(135deg, transparent, rgba(1,171,238,0.10));
       pointer-events: none;
     }
     .hero-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 60px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
+      max-width: 1400px; margin: 0 auto; padding: 80px 30px;
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center;
+      position: relative; z-index: 1;
     }
     .hero-eyebrow {
       display: inline-block;
       background: var(--oe-blue);
       color: var(--oe-white);
       font-family: 'Nunito', sans-serif;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 2.5px;
+      font-weight: 700;
+      font-size: 12px;
       text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 2px;
-      margin-bottom: 20px;
+      letter-spacing: 1.5px;
+      padding: 6px 14px;
+      border-radius: 3px;
+      margin-bottom: 22px;
     }
     .hero h1 {
-      font-size: clamp(34px, 4.5vw, 56px);
-      font-weight: 800;
-      color: var(--oe-white);
-      line-height: 1.06;
+      font-size: 64px;
       letter-spacing: -1px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 24px;
+      line-height: 1.05;
     }
     .hero h1 span { color: var(--oe-blue); }
-    .hero-desc {
-      font-size: 17px;
-      color: rgba(255,255,255,0.62);
-      max-width: 540px;
-      line-height: 1.75;
-      margin-bottom: 30px;
+    .hero-desc { font-size: 18px; line-height: 1.55; margin-bottom: 32px; max-width: 540px; opacity: 0.92; }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 26px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+      cursor: pointer;
     }
-    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-blue { background: var(--oe-blue); color: var(--oe-white); }
+    .btn-blue:hover { background: var(--oe-white); color: var(--oe-navy); }
+    .btn-ghost { border-color: var(--oe-white); color: var(--oe-white); background: transparent; }
+    .btn-ghost:hover { background: var(--oe-white); color: var(--oe-navy); }
+    .btn-navy { background: var(--oe-navy); color: var(--oe-white); }
+    .btn-navy:hover { background: var(--oe-blue); }
+
+    .hero-sidebar { display: flex; flex-direction: column; gap: 14px; }
+    .hero-badge {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-left: 4px solid var(--oe-blue);
+      padding: 18px 22px;
+      border-radius: 4px;
+    }
+    .hero-badge .bl { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 4px; }
+    .hero-badge .bv { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2; }
+    /* Hero stat cards — shared base look. ONLY the linked card highlights
+       on hover / keyboard focus; plain non-linked cards do not react.
+       Text stays light and legible in every state. Covers both link
+       shapes: the badge wrapped by a link (hydrovac, .hero-badge-link)
+       and the badge that is itself the link (locations, a.hero-badge).
+       gta has no linked card, so nothing highlights there. */
+    .hero-badge { transition: background 0.15s, border-color 0.15s; }
+    .hero-badge .bl, .hero-badge .bv { color: var(--oe-white); }
+    .hero-badge-link:hover .hero-badge,
+    .hero-badge-link:focus-visible .hero-badge,
+    a.hero-badge:hover,
+    a.hero-badge:focus-visible {
+      background: rgba(255,255,255,0.14);
+      border-color: var(--oe-blue);
+    }
+    .hero-badge-link { display: block; color: inherit; text-decoration: none; }
+    .hero-badge-link:focus-visible { outline: 2px solid var(--oe-blue); outline-offset: 2px; }
+
+
+    /* ── ALERT BAR ────────────────────────────────────────── */
+    .alert-bar {
+      background: var(--oe-blue);
+      color: var(--oe-white);
+      text-align: center;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+    }
+
+    /* ── HERO PHOTO SECTION ───────────────────────────────── */
+    .hero-photo-section { background: var(--oe-light); padding: 0; }
+    .hero-photo-wrap {
+      max-width: 1400px; margin: 0 auto; position: relative;
+    }
+    .hero-photo {
+      width: 100%; height: 460px; object-fit: cover; display: block;
+    }
+    .hero-photo-caption {
+      position: absolute; bottom: 36px; left: 36px;
+      background: rgba(15,38,112,0.92);
+      color: var(--oe-white);
+      padding: 22px 28px;
+      max-width: 460px;
+      border-left: 4px solid var(--oe-blue);
+    }
+    .hero-photo-caption .cap-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--oe-blue); margin-bottom: 6px; }
+    .hero-photo-caption .cap-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.25; }
+
+    /* ── SECTIONS ─────────────────────────────────────────── */
+    .section { padding: 80px 30px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-light { background: var(--oe-light); }
+    .section-navy { background: var(--oe-navy); color: var(--oe-white); }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--oe-blue);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: 40px;
+      color: var(--oe-navy);
+      margin-bottom: 18px;
+      max-width: 760px;
+    }
+    .section-navy .section-title { color: var(--oe-white); }
+    .section-lead {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--oe-muted);
+      max-width: 780px;
+      margin-bottom: 48px;
+    }
+    .section-navy .section-lead { color: rgba(255,255,255,0.85); }
+
+    /* ── INTRO / WHY OE ───────────────────────────────────── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .why-text p { font-size: 17px; line-height: 1.65; color: var(--oe-text); margin-bottom: 16px; }
+    .why-text .lead { font-size: 20px; font-weight: 700; color: var(--oe-navy); line-height: 1.4; margin-bottom: 22px; }
+    .why-image img { width: 100%; height: 420px; object-fit: cover; border-radius: 6px; }
+
+    .why-list { list-style: none; margin-top: 24px; }
+    .why-list li {
+      padding: 14px 0 14px 36px;
+      position: relative;
+      border-bottom: 1px solid var(--oe-border);
+      font-size: 16px;
+    }
+    .why-list li:last-child { border-bottom: none; }
+    .why-list li::before {
+      content: '✓';
+      position: absolute; left: 0; top: 14px;
+      color: var(--oe-blue);
+      font-weight: 900;
+      font-size: 20px;
+    }
+    .why-list li strong { color: var(--oe-navy); }
+
+    /* ── STATS STRIP ──────────────────────────────────────── */
+    .stats-strip {
+      background: var(--oe-navy);
+      padding: 60px 30px;
+    }
+    .stats-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 56px;
+      color: var(--oe-blue);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      color: var(--oe-white);
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ── SERVICES GRID ────────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-top: 4px solid var(--oe-blue);
+      padding: 28px;
+      border-radius: 4px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      color: inherit;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(15,38,112,0.10);
+      border-color: var(--oe-blue);
+    }
+    .service-card:hover .service-read-more { color: var(--oe-navy); }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: var(--oe-light);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-size: 19px;
+      color: var(--oe-navy);
+      margin-bottom: 10px;
+    }
+    .service-card p { font-size: 15px; line-height: 1.55; color: var(--oe-muted); flex-grow: 1; }
+    .service-read-more {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--oe-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .service-read-more:hover { color: var(--oe-navy); }
+
+    /* ── PROCESS / 6 STEPS ────────────────────────────────── */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .process-card {
+      background: var(--oe-white);
+      padding: 32px 28px;
+      border-radius: 6px;
+      position: relative;
+      border: 1px solid var(--oe-border);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: default;
+    }
+    .process-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(15,38,112,0.15);
+      border-color: var(--oe-blue);
+    }
+    .process-num {
+      position: absolute; top: -18px; left: 28px;
+      width: 44px; height: 44px;
+      background: var(--oe-navy);
+      color: var(--oe-white);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+    .process-card:hover .process-num {
+      background: var(--oe-blue);
+      transform: scale(1.08);
+    }
+    .process-card h3 {
+      font-size: 20px;
+      color: var(--oe-navy);
+      margin: 14px 0 10px;
+      transition: color 0.25s ease;
+    }
+    .process-card:hover h3 {
+      color: var(--oe-blue);
+    }
+    .process-card p { font-size: 15px; color: var(--oe-muted); line-height: 1.55; }
+    .process-card ul { list-style: none; margin-top: 12px; }
+    .process-card ul li {
+      font-size: 14px;
+      padding: 5px 0 5px 18px;
+      position: relative;
+      color: var(--oe-text);
+    }
+    .process-card ul li::before {
+      content: '▸';
+      position: absolute; left: 0;
+      color: var(--oe-blue);
+      font-weight: 700;
+    }
+
+    /* ── FLEET FEATURES ───────────────────────────────────── */
+    .fleet-section {
+      background: linear-gradient(135deg, var(--oe-navy) 0%, #1a3580 100%);
+      color: var(--oe-white);
+    }
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .fleet-image img { width: 100%; height: 460px; object-fit: cover; border-radius: 6px; }
+    .fleet-features { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+    .fleet-feature {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 4px;
+    }
+    .fleet-feature .ff-num {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      color: var(--oe-blue);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .fleet-feature .ff-text {
+      font-size: 14px;
+      line-height: 1.4;
+      opacity: 0.92;
+    }
+
+    /* ── INDUSTRIES ───────────────────────────────────────── */
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .industry-tile {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      padding: 24px;
+      border-radius: 4px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .industry-tile:hover {
+      border-color: var(--oe-blue);
+      transform: translateY(-2px);
+    }
+    .industry-icon { font-size: 32px; margin-bottom: 10px; }
+    .industry-tile h4 {
+      font-size: 16px;
+      color: var(--oe-navy);
+      margin-bottom: 6px;
+    }
+    .industry-tile p { font-size: 13px; color: var(--oe-muted); }
+
+    /* ── PROJECT EXAMPLES ─────────────────────────────────── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .project-card {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(15,38,112,0.10);
+    }
+    .project-image { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .project-body { padding: 22px; }
+    .project-tag {
+      display: inline-block;
+      background: var(--oe-light);
+      color: var(--oe-navy);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+    .project-card h4 { font-size: 18px; color: var(--oe-navy); margin-bottom: 8px; }
+    .project-card p { font-size: 14px; color: var(--oe-muted); line-height: 1.55; }
+
+    /* ── TRUST / CERTIFICATIONS ───────────────────────────── */
+    .trust-band {
+      background: var(--oe-white);
+      border-top: 1px solid var(--oe-border);
+      border-bottom: 1px solid var(--oe-border);
+      padding: 40px 30px;
+    }
+    .trust-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center;
+    }
+    .trust-label {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--oe-navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 1.4;
+    }
+    .trust-label span { display: block; color: var(--oe-muted); font-weight: 600; font-size: 12px; margin-top: 4px; }
+    .trust-logos {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .trust-logo {
+      background: var(--oe-light);
+      padding: 14px 22px;
+      border-radius: 4px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--oe-navy);
+      letter-spacing: 0.5px;
+      border: 1px solid var(--oe-border);
+    }
+
+    /* ── COVERAGE / LOCATIONS ─────────────────────────────── */
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .coverage-card {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      padding: 22px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .coverage-card:hover {
+      border-color: var(--oe-blue);
+      background: var(--oe-light);
+    }
+    .coverage-card a { color: var(--oe-navy); display: block; }
+    .coverage-card h4 {
+      font-size: 17px;
+      margin-bottom: 4px;
+      color: var(--oe-navy);
+    }
+    .coverage-card p {
+      font-size: 13px;
+      color: var(--oe-muted);
+    }
+
+    /* ── FAQ ──────────────────────────────────────────────── */
+    .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-radius: 4px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 20px 24px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--oe-navy);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-question::after {
+      content: '+';
+      font-size: 24px;
+      color: var(--oe-blue);
+      font-weight: 700;
+      transition: transform 0.2s;
+    }
+    details[open] .faq-question::after { transform: rotate(45deg); }
+    .faq-answer {
+      padding: 0 24px 22px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--oe-text);
+    }
+
+    /* ── QUOTE FORM ───────────────────────────────────────── */
+    .quote-section { background: var(--oe-light); }
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .quote-info h2 { font-size: 36px; color: var(--oe-navy); margin-bottom: 18px; }
+    .quote-info p { font-size: 17px; color: var(--oe-muted); line-height: 1.6; margin-bottom: 22px; }
+    .quote-contact { background: var(--oe-white); padding: 28px; border-radius: 6px; border: 1px solid var(--oe-border); }
+    .quote-contact h4 {
+      font-size: 14px;
+      color: var(--oe-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .quote-contact-line {
+      font-size: 17px;
+      color: var(--oe-navy);
+      font-weight: 700;
+      line-height: 1.8;
+    }
+    .quote-contact-line a { color: var(--oe-navy); }
+    .quote-contact-line a:hover { color: var(--oe-blue); }
+
+    .quote-form {
+      background: var(--oe-white);
+      padding: 36px;
+      border-radius: 6px;
+      border: 1px solid var(--oe-border);
+    }
+    .quote-form h3 { font-size: 24px; color: var(--oe-navy); margin-bottom: 6px; }
+    .quote-form .form-sub { font-size: 14px; color: var(--oe-muted); margin-bottom: 22px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-field { margin-bottom: 14px; }
+    .form-field label { display: block; font-size: 13px; font-weight: 600; color: var(--oe-text); margin-bottom: 6px; }
+    .form-field input, .form-field textarea, .form-field select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--oe-border);
+      border-radius: 4px;
+      font-family: 'Nunito Sans', Arial, sans-serif;
+      font-size: 15px;
+      background: var(--oe-white);
+    }
+    .form-field input:focus, .form-field textarea:focus {
+      outline: none;
+      border-color: var(--oe-blue);
+      box-shadow: 0 0 0 3px rgba(1,171,238,0.15);
+    }
+    .form-checkboxes { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0 14px; }
+    .form-checkboxes label { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 400; cursor: pointer; }
+    .form-checkboxes input { width: auto; }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--oe-navy);
+      color: var(--oe-white);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--oe-blue); }
+    .form-note { font-size: 12px; color: var(--oe-muted); text-align: center; margin-top: 12px; }
+
+    /* ── STICKY CTA ───────────────────────────────────────── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--oe-blue);
+      color: var(--oe-white);
+      padding: 16px 22px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      box-shadow: 0 6px 20px rgba(15,38,112,0.35);
+      z-index: 50;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sticky-cta:hover {
+      background: var(--oe-green);
+      color: var(--oe-white);
+      transform: translateY(-2px);
+    }
+
+    /* ── MID-PAGE CTA STRIP ───────────────────────────────── */
+    .cta-strip {
+      background: var(--oe-blue);
+      color: var(--oe-white);
+      padding: 50px 30px;
+      text-align: center;
+    }
+    .cta-strip h3 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+    .cta-strip p { font-size: 17px; margin-bottom: 24px; opacity: 0.95; }
+    .cta-strip-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .cta-strip .btn { background: var(--oe-white); color: var(--oe-navy); }
+    .cta-strip .btn:hover { background: var(--oe-navy); color: var(--oe-white); }
+    .cta-strip .btn-ghost { background: transparent; color: var(--oe-white); border-color: var(--oe-white); }
+    .cta-strip .btn-ghost:hover { background: var(--oe-white); color: var(--oe-navy); }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer { background: var(--oe-navy-dark); color: var(--oe-white); }
+    .footer-body { max-width: 1400px; margin: 0 auto; padding: 60px 30px 36px; }
+    .footer-cols { display: flex; flex-direction: column; gap: 36px; }
+    .footer-brand { max-width: 340px; }
+    .footer-links { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; align-items: start; }
+    /* Footer links reflow — explicit even column counts per breakpoint */
+    @media (max-width: 1100px) { .footer-links { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 960px)  { .footer-links { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
+    @media (max-width: 540px)  { .footer-links { grid-template-columns: 1fr; } }
+    .footer-col h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      color: var(--oe-white);
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: rgba(255,255,255,0.8); font-size: 14px; }
+    .footer-col a:hover { color: var(--oe-blue); }
+    .footer-logo img { height: 56px; margin-bottom: 16px; }
+    .footer-tagline { font-size: 14px; line-height: 1.6; opacity: 0.8; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 22px 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    /* ── FULL SERVICE GRID (other OE services) ─────────────── */
+    .full-service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .full-service-card {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-radius: 6px;
+      padding: 24px 22px;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .full-service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(15,38,112,0.12);
+      border-color: var(--oe-blue);
+    }
+    .full-service-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .full-service-card h4 {
+      font-size: 17px;
+      color: var(--oe-navy);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .full-service-card p {
+      font-size: 14px;
+      color: var(--oe-muted);
+      line-height: 1.55;
+      flex-grow: 1;
+    }
+    .full-service-card .fs-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--oe-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-top: 14px;
+      display: inline-block;
+    }
+    .full-service-card:hover .fs-link {
+      color: var(--oe-navy);
+    }
+    .coming-soon-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--oe-light);
+      color: var(--oe-navy);
+      font-family: 'Nunito', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 8px;
+      border-radius: 3px;
+      border: 1px solid var(--oe-border);
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .why-grid, .quote-grid, .fleet-grid { grid-template-columns: 1fr; }
+      .services-grid, .process-grid, .project-grid, .industries-grid, .coverage-grid { grid-template-columns: 1fr 1fr; }
+      .full-service-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .hero-photo { height: 360px; }
+    }
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .nav-centre { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-emergency img { height: 36px; }
+      .hero h1 { font-size: 48px; }
+      .trust-inner { grid-template-columns: 1fr; gap: 20px; }
+      .sticky-cta { bottom: 14px; right: 14px; padding: 12px 18px; font-size: 13px; }
+    }
+    @media (max-width: 540px) {
+      .services-grid, .process-grid, .project-grid, .industries-grid, .coverage-grid, .stats-grid, .full-service-grid { grid-template-columns: 1fr; }
+      .section { padding: 56px 20px; }
+      .footer-body { padding: 40px 20px 28px; }
+      .form-row, .form-checkboxes { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 40px; }
+      .section-title { font-size: 30px; }
+      .fleet-features { grid-template-columns: 1fr; }
+      .full-service-card { min-height: auto; }
+    }
+
+    /* ════════════════════════════════════════════════════════
+       PAGE BODY STYLES (ported from the locations template —
+       hero, content sections, location grid, CTA). These do not
+       touch the shared header / nav / footer / breadcrumb rules.
+    ════════════════════════════════════════════════════════ */
+    /* Body heading-like classes need the Nunito display face
+       (shell base only covers h1–h5). */
+    .btn, .eyebrow, .stat-num, .cert-tag { font-family: 'Nunito', Arial, sans-serif; }
+
+    /* ════════════════════════════════════════════════════════
+       HERO — Location-specific
+    ════════════════════════════════════════════════════════ */
+    /* Hero layout, typography, badges, and gradient overlay are inherited
+       from the shared shell CSS above — identical to the hydrovac hero.
+       Only the page-level buttons (used by the CTA section) live here. */
     .btn {
       display: inline-block;
       font-size: 13px;
@@ -371,18 +1119,21 @@
     }
     .btn-ghost:hover { border-color: var(--oe-blue); color: var(--oe-blue); }
 
-    .hero-sidebar { display: flex; flex-direction: column; gap: 10px; }
-    .hero-badge {
-      background: rgba(1,171,238,0.09);
-      border: 1px solid rgba(1,171,238,0.22);
-      border-left: 4px solid var(--oe-blue);
-      padding: 15px 18px;
-      text-decoration: none;
-      display: block;
+    /* Hero buttons match the hydrovac hero exactly, scoped to .hero so the
+       page's other buttons keep their styling. */
+    .hero .btn {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 26px;
+      border-radius: 4px;
+      letter-spacing: 0.6px;
+      border: 2px solid transparent;
     }
-    a.hero-badge:hover { background: rgba(1,171,238,0.16); }
-    .hero-badge .bl { font-family:'Nunito',sans-serif; font-size:10px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--oe-blue); margin-bottom:4px; }
-    .hero-badge .bv { font-family:'Nunito',sans-serif; font-size:15px; font-weight:800; color:rgba(255,255,255,0.9); }
+    .hero .btn-blue { background: var(--oe-blue); color: var(--oe-white); }
+    .hero .btn-blue:hover { background: var(--oe-white); color: var(--oe-navy); }
+    .hero .btn-ghost { border-color: var(--oe-white); color: var(--oe-white); background: transparent; }
+    .hero .btn-ghost:hover { background: var(--oe-white); color: var(--oe-navy); }
 
     /* Alert bar */
     .alert-bar {
@@ -551,18 +1302,18 @@
       background: var(--oe-white);
       min-height: 420px;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      border-radius: 4px;
+      overflow: hidden;
     }
-    .map-wrap iframe {
-      width: 100%; height: 100%; min-height: 420px;
-      border: 0; display: block;
-    }
-    .map-wrap img.map-band {
-      width: 100%; height: 100%; min-height: 420px;
+    .map-wrap .map-img {
+      width: 100%; flex: 1; min-height: 0;
       object-fit: cover; display: block;
-      background: var(--oe-light);
     }
     .map-wrap a.map-link {
-      display: block; height: 100%; min-height: 420px;
+      flex: 1; min-height: 0;
+      display: flex; flex-direction: column;
     }
     .map-wrap a.map-link:focus-visible {
       outline: 3px solid var(--oe-navy);
@@ -574,6 +1325,10 @@
       font-size: 14px; font-weight: 700;
       color: var(--oe-navy);
       background: var(--oe-white);
+    }
+    .map-wrap iframe {
+      width: 100%; height: 100%; min-height: 420px;
+      border: 0; display: block;
     }
     .map-placeholder {
       width: 100%; height: 100%; min-height: 420px;
@@ -790,69 +1545,8 @@
       font-size: 14px; color: var(--oe-muted);
     }
 
-    /* ── STICKY CTA ───────────────────────────────────────── */
-    .sticky-cta {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: var(--oe-blue);
-      color: var(--oe-white);
-      padding: 16px 22px;
-      border-radius: 50px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      box-shadow: 0 6px 20px rgba(15,38,112,0.35);
-      z-index: 50;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .sticky-cta:hover {
-      background: var(--oe-green);
-      color: var(--oe-white);
-      transform: translateY(-2px);
-    }
 
-    /* ── FOOTER ───────────────────────────────────────────── */
-    footer { background: var(--oe-navy-dark); color: var(--oe-white); }
-    .footer-body { max-width: 1400px; margin: 0 auto; padding: 60px 30px 36px; }
-    .footer-cols { display: flex; flex-direction: column; gap: 36px; }
-    .footer-brand { max-width: 340px; }
-    .footer-links { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; align-items: start; }
-    /* Footer links reflow — explicit even column counts per breakpoint */
-    @media (max-width: 1100px) { .footer-links { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 960px)  { .footer-links { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
-    @media (max-width: 540px)  { .footer-links { grid-template-columns: 1fr; } }
-    .footer-col h3 {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-      color: var(--oe-white);
-    }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 8px; }
-    .footer-col a { color: rgba(255,255,255,0.8); font-size: 14px; }
-    .footer-col a:hover { color: var(--oe-blue); }
-    .footer-logo img { height: 56px; margin-bottom: 16px; }
-    .footer-tagline { font-size: 14px; line-height: 1.6; opacity: 0.8; }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding: 22px 30px;
-      max-width: 1400px;
-      margin: 0 auto;
-      text-align: center;
-      font-size: 13px;
-      opacity: 0.7;
-    }
-
-    /* ── RESPONSIVE ───────────────────────────────────────── */
+    /* ── RESPONSIVE (body only; nav & footer handled by the shell) ─ */
     @media (max-width: 1100px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
       .project-grid { grid-template-columns: 1fr 1fr; }
@@ -863,20 +1557,50 @@
       .hero-inner, .two-col, .map-contact-grid { grid-template-columns: 1fr; }
       .services-grid, .project-grid { grid-template-columns: 1fr 1fr; }
       .other-locations-grid { grid-template-columns: 1fr 1fr; }
-      .nav-centre { display: none; }
-      .nav-toggle { display: flex; }
-      .nav-emergency img { height: 36px; }
-      .sticky-cta { bottom: 14px; right: 14px; padding: 12px 18px; font-size: 13px; }
       .location-photo { height: 280px; }
       .location-photo-caption { left: 20px; right: 20px; bottom: 20px; max-width: none; }
     }
     @media (max-width: 540px) {
       .stat-grid, .services-grid, .project-grid, .other-locations-grid { grid-template-columns: 1fr; }
       .section { padding: 48px 20px; }
-      .footer-body { padding: 40px 20px 28px; }
       .lead-card { grid-template-columns: 1fr; text-align: center; }
       .lead-headshot { margin: 0 auto; }
     }
+    /* ── BUTTONS — locked OE brand standard (shared shell) ───────
+       Primary .btn-blue, .btn-navy, .sticky-cta and the cta-strip solid
+       button: default = blue fill / white text. Secondary .btn-ghost
+       ("Call …") keeps its transparent / white-outline look. Every
+       button inverts to white fill / navy text on hover AND focus.
+       Colour + hover/focus only; sizing, font, radius, transitions and
+       arrow glyphs untouched. Palette tokens only. */
+    .btn-blue, .btn-navy, .sticky-cta,
+    .cta-strip .btn,
+    .hero .btn-blue {
+      background: var(--oe-blue);
+      color: var(--oe-white);
+      border-color: transparent;
+    }
+    /* Secondary "Call …" outline button — distinct from the solid primary. */
+    .btn-ghost,
+    .cta-strip .btn-ghost,
+    .hero .btn-ghost {
+      background: transparent;
+      color: var(--oe-white);
+      border-color: var(--oe-white);
+    }
+    .btn-blue:hover, .btn-blue:focus-visible,
+    .btn-ghost:hover, .btn-ghost:focus-visible,
+    .btn-navy:hover, .btn-navy:focus-visible,
+    .sticky-cta:focus-visible,
+    .cta-strip .btn:hover, .cta-strip .btn:focus-visible,
+    .cta-strip .btn-ghost:hover, .cta-strip .btn-ghost:focus-visible,
+    .hero .btn-blue:hover, .hero .btn-blue:focus-visible,
+    .hero .btn-ghost:hover, .hero .btn-ghost:focus-visible {
+      background: var(--oe-white);
+      color: var(--oe-navy);
+      border-color: transparent;
+    }
+
   </style>
 </head>
 <body>
@@ -1035,7 +1759,6 @@
 </header>
 
 <main>
-
 <!-- BREADCRUMBS -->
 <div class="breadcrumbs">
   <div class="breadcrumbs-inner">
@@ -1046,21 +1769,20 @@
     <span class="current">Durham &amp; Area</span>
   </div>
 </div>
-
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow">Ontario Service Locations</div>
-      <h1>Durham <span>&amp; Area</span></h1>
+      <h1>Durham &amp;<br><span>Area</span></h1>
       <p class="hero-desc">Serving Durham Region from our Courtice yard — hydrovac excavation, gas and water distribution, utility locating, and soil management for the fast-growing communities east of Toronto.</p>
       <div class="hero-buttons">
-        <a href="/contact" class="btn btn-blue">Request a Quote →</a>
+        <a href="https://www.oeservices.ca/contact" class="btn btn-blue">Request a Quote →</a>
         <a href="tel:4167490005" class="btn btn-ghost">Call 416-749-0005</a>
       </div>
     </div>
     <div class="hero-sidebar">
-      <a href="#contact" class="hero-badge"><div class="bl">Serving Durham From</div><div class="bv">Courtice</div></a>
+      <a href="#contact" class="hero-badge-link" aria-label="Jump to Durham office section"><div class="hero-badge"><div class="bl">Serving Durham From</div><div class="bv">Courtice</div></div></a>
       <div class="hero-badge"><div class="bl">Local Coverage</div><div class="bv">Durham Region &amp; East GTA</div></div>
       <div class="hero-badge"><div class="bl">Service Response</div><div class="bv">24/7 Emergency Coverage</div></div>
     </div>
@@ -1273,7 +1995,7 @@
     <div class="map-contact-grid">
       <div class="map-wrap">
         <a href="https://www.google.com/maps/search/?api=1&query=19%20Courtice%20Ct%2C%20Courtice%20ON%20L1E%202T4" target="_blank" rel="noopener noreferrer" aria-label="Open OE Utility Services Durham yard, 19 Courtice Ct, Courtice, in Google Maps" class="map-link">
-          <img class="map-band" src="/locations/maps/oe-yard-durham-page.png" alt="Map of OE Utility Services Durham yard in Courtice" loading="lazy" />
+          <img class="map-img" src="/locations/maps/oe-yard-durham-page.png" alt="Map of OE Utility Services Durham yard in Courtice" />
         </a>
         <div class="map-caption">19 Courtice Ct, Courtice ON L1E 2T4</div>
       </div>
@@ -1371,14 +2093,14 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     STICKY CTA
-═══════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════════════
+     STICKY CTA — Always-visible quote button
+══════════════════════════════════════════════════════════ -->
 <a href="https://www.oeservices.ca/contact" class="sticky-cta">Get a Quote</a>
 
-<!-- ═══════════════════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════════════════
      FOOTER
-═══════════════════════════════════════════════════════════ -->
+══════════════════════════════════════════════════════════ -->
 </main>
 
 <footer>
@@ -1447,6 +2169,7 @@
   </div>
 </footer>
 
+<!-- Mobile nav: hamburger toggle + tap-to-expand Services -->
 <script>
   (function () {
     var navToggle = document.getElementById('navToggle');
