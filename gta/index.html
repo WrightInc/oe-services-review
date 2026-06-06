@@ -1302,6 +1302,14 @@
       width: 100%; flex: 1; min-height: 0;
       object-fit: cover; display: block;
     }
+    .map-wrap a.map-link {
+      flex: 1; min-height: 0;
+      display: flex; flex-direction: column;
+    }
+    .map-wrap a.map-link:focus-visible {
+      outline: 3px solid var(--oe-navy);
+      outline-offset: -3px;
+    }
     .map-wrap .map-caption {
       padding: 14px 18px;
       text-align: center;
@@ -1978,7 +1986,9 @@
     <div class="blue-rule"></div>
     <div class="map-contact-grid">
       <div class="map-wrap">
-        <img class="map-img" src="/locations/maps/oe-yard-gta-page.png" alt="Map of OE Utility Services Greater Toronto Area yard in Vaughan" />
+        <a href="https://www.google.com/maps/search/?api=1&query=550%20Bowes%20Road%2C%20Vaughan%20ON%20L4K%201K2" target="_blank" rel="noopener noreferrer" aria-label="Open OE Utility Services Greater Toronto Area yard, 550 Bowes Road, Vaughan, in Google Maps" class="map-link">
+          <img class="map-img" src="/locations/maps/oe-yard-gta-page.png" alt="Map of OE Utility Services Greater Toronto Area yard in Vaughan" />
+        </a>
         <div class="map-caption">550 Bowes Road, Vaughan ON L4K 1K2</div>
       </div>
       <div class="contact-wrap">
