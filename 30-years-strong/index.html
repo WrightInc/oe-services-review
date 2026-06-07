@@ -1660,6 +1660,38 @@
       .anniv-mile:nth-child(odd) .anniv-node, .anniv-mile:nth-child(even) .anniv-node { left: 9px; right: auto; }
       .anniv-mile.anniv-mile-final { padding-left: 0; }
     }
+
+    /* ── CLOSING STATEMENT BAND — full-bleed navy send-off ─── */
+    .anniv-closing {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--oe-navy) 0%, var(--oe-navy-dark) 100%);
+      border-bottom: 3px solid var(--oe-blue);   /* separates this band from the flat-navy CTA below */
+      padding: 90px 30px;
+    }
+    /* decorative soft brand glow behind the text (pseudo-element, not announced) */
+    .anniv-closing::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 28%, rgba(1,171,238,0.16), transparent 60%);
+      pointer-events: none;
+    }
+    .anniv-closing-inner { position: relative; max-width: 860px; margin: 0 auto; text-align: center; }
+    .anniv-closing-text { margin: 0; }
+    .anniv-closing-big {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      color: var(--oe-white);
+      margin-bottom: 16px;
+    }
+    .anniv-closing-sub { display: block; font-size: 19px; line-height: 1.65; color: rgba(255,255,255,0.85); }
+    .anniv-closing-link { color: var(--oe-blue); text-decoration: underline; font-weight: 700; }
+    .anniv-closing-link:hover { color: var(--oe-white); }
+    .anniv-closing-link:focus-visible { outline: 2px solid var(--oe-white); outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -1954,10 +1986,10 @@
   </div>
 </section>
 
-<!-- CLOSING TIE-IN -->
-<section class="section">
-  <div class="wrap anniv-narrow">
-    <p class="anniv-lead">Thirty years in, we're just getting started — now <a class="anniv-link" href="/locations/">six Regional Business Units across Ontario</a>, with the full range of <a class="anniv-link" href="/hydrovac/">hydrovac and utility services</a> behind every one. One call, one team, get more out.</p>
+<!-- CLOSING TIE-IN — full-width navy statement band -->
+<section class="anniv-closing">
+  <div class="anniv-closing-inner">
+    <p class="anniv-closing-text"><span class="anniv-closing-big">Thirty years in, we're just getting started </span><span class="anniv-closing-sub">— now <a class="anniv-closing-link" href="/locations/">six Regional Business Units across Ontario</a>, with the full range of <a class="anniv-closing-link" href="/hydrovac/">hydrovac and utility services</a> behind every one. One call, one team, get more out.</span></p>
   </div>
 </section>
 
