@@ -1590,44 +1590,30 @@
     .anniv-subhead { font-size: clamp(20px, 2.2vw, 26px); opacity: 1; line-height: 1.5; max-width: 600px; }
 
     /* ── HERO — giant "30" treatment ───────────────────────── */
-    .anniv-hero { background: linear-gradient(135deg, var(--oe-navy) 0%, var(--oe-navy-dark) 100%); }
-    .anniv-hero .hero-inner { align-items: center; }
+    .anniv-hero { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--oe-navy) 0%, var(--oe-navy-dark) 100%); }
+    .anniv-hero .hero-inner { grid-template-columns: 1fr; align-items: center; }
+    .anniv-hero .anniv-hero-content { max-width: 760px; position: relative; z-index: 2; }
     .anniv-hero-mark { display: block; width: 200px; max-width: 64%; height: auto; margin-bottom: 20px; }
-    .anniv-hero-figure { position: relative; display: flex; align-items: center; justify-content: center; max-width: 420px; margin: 0 auto; }
-    /* decorative soft brand glow anchoring the numeral (brand blue — a navy glow would be invisible on the navy hero) */
-    .anniv-hero-figure::before {
-      content: '';
-      position: absolute; left: 50%; top: 50%;
-      width: 115%; height: 115%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(1,171,238,0.12), transparent 60%);
-      pointer-events: none;
-      z-index: 0;
+    /* decorative full-bleed "30" watermark behind the content (duplicates the H1 — aria-hidden) */
+    .anniv-hero-watermark {
+      position: absolute; top: 50%; right: -4%; transform: translateY(-50%);
+      font-family: 'Nunito', sans-serif; font-weight: 900; line-height: 0.8;
+      font-size: clamp(280px, 38vw, 620px);
+      color: var(--oe-blue); opacity: 0.14;
+      pointer-events: none; z-index: 1; margin: 0; user-select: none;
     }
-    .anniv-big30 {
-      position: relative;
-      z-index: 1;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 900;
-      font-size: clamp(140px, 22vw, 300px);
-      line-height: 0.85;
-      letter-spacing: -0.04em;
-      color: var(--oe-blue);
-    }
-    @media (max-width: 960px) {
-      .anniv-hero-figure { order: -1; margin-bottom: 4px; }
-      .anniv-hero-mark { margin-left: auto; margin-right: auto; }
-      .anniv-big30 { font-size: clamp(120px, 40vw, 220px); }
+    @media (max-width: 760px) {
+      .anniv-hero-watermark { opacity: 0.10; }
     }
 
     /* ── STAT STRIP — banner of three big stats ────────────── */
     .anniv-strip { background: var(--oe-navy); padding: 56px 30px; }
     .anniv-strip-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
-    .anniv-stat { padding: 6px 26px; text-align: center; border-left: 1px solid rgba(255,255,255,0.18); }
+    .anniv-stat { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 6px 26px; text-align: center; border-left: 1px solid rgba(255,255,255,0.18); }
     .anniv-stat:first-child { border-left: none; }
-    .anniv-stat-fig { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(34px, 4.5vw, 52px); line-height: 1; color: var(--oe-white); vertical-align: middle; white-space: nowrap; }
-    .anniv-stat-from { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.78); vertical-align: middle; }
-    .anniv-arrow { color: var(--oe-blue); font-weight: 900; font-size: clamp(26px, 4vw, 38px); vertical-align: middle; }
+    .anniv-stat-fig { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(38px, 5vw, 56px); line-height: 1; color: var(--oe-white); white-space: nowrap; }
+    .anniv-stat-from { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.78); }
+    .anniv-arrow { color: var(--oe-blue); font-weight: 900; }
     .anniv-strip-caption { max-width: 980px; margin: 22px auto 0; text-align: center; font-size: 15px; font-weight: 600; line-height: 1.6; color: rgba(255,255,255,0.8); }
     @media (max-width: 760px) {
       .anniv-strip-inner { grid-template-columns: 1fr; }
@@ -1874,6 +1860,7 @@
 </div>
 <!-- HERO -->
 <section class="hero anniv-hero">
+  <span class="anniv-hero-watermark" aria-hidden="true">30</span>
   <div class="hero-inner">
     <div class="anniv-hero-content">
       <!-- 🚩 FLAG: PLACEHOLDER hero artwork — OE's 30th-anniversary logo lockup used as a supporting mark until Darren confirms/supplies the final hero image. Not lazy-loaded (LCP). No stock imagery. -->
@@ -1886,18 +1873,15 @@
         <a href="tel:4167490005" class="btn btn-ghost">Call 416-749-0005</a>
       </div>
     </div>
-    <div class="anniv-hero-figure">
-      <span class="anniv-big30" aria-hidden="true">30</span>
-    </div>
   </div>
 </section>
 
 <!-- HERO STAT STRIP -->
 <section class="anniv-strip" aria-label="Thirty years of growth at a glance">
   <div class="anniv-strip-inner">
-    <div class="anniv-stat"><span class="anniv-stat-from">1 Truck</span> <span class="anniv-arrow" aria-hidden="true">→</span> <span class="anniv-stat-fig">70+</span></div>
-    <div class="anniv-stat"><span class="anniv-stat-from">1 Location</span> <span class="anniv-arrow" aria-hidden="true">→</span> <span class="anniv-stat-fig">6 Locations</span></div>
-    <div class="anniv-stat"><span class="anniv-stat-fig">30</span> <span class="anniv-stat-from">Years Strong</span></div>
+    <div class="anniv-stat"><span class="anniv-stat-from">1 Truck <span class="anniv-arrow" aria-hidden="true">→</span></span><span class="anniv-stat-fig">70+</span></div>
+    <div class="anniv-stat"><span class="anniv-stat-from">1 Location <span class="anniv-arrow" aria-hidden="true">→</span></span><span class="anniv-stat-fig">6 Locations</span></div>
+    <div class="anniv-stat"><span class="anniv-stat-from">Since 1995</span><span class="anniv-stat-fig">30 Years</span></div>
   </div>
   <p class="anniv-strip-caption">Greater Toronto Area · Durham &amp; Area · Hamilton &amp; Area · Barrie &amp; Area · London &amp; Area · Ottawa &amp; Area — OE's six Regional Business Units (RBUs) across Ontario.</p>
 </section>
