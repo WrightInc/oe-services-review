@@ -1586,14 +1586,27 @@
        Does not touch shared shell rules. Brand palette only.
   ════════════════════════════════════════════════════════ -->
   <style>
-    .anniv-gmo { text-transform: uppercase; font-weight: 900; letter-spacing: 0.5px; }
+    .anniv-gmo { text-transform: uppercase; font-weight: 900; letter-spacing: 0.5px; color: var(--oe-blue); }
+    .anniv-subhead { font-size: clamp(20px, 2.2vw, 26px); opacity: 1; line-height: 1.5; max-width: 600px; }
 
     /* ── HERO — giant "30" treatment ───────────────────────── */
     .anniv-hero { background: linear-gradient(135deg, var(--oe-navy) 0%, var(--oe-navy-dark) 100%); }
     .anniv-hero .hero-inner { align-items: center; }
     .anniv-hero-mark { display: block; width: 200px; max-width: 64%; height: auto; margin-bottom: 20px; }
-    .anniv-hero-figure { display: flex; align-items: center; justify-content: center; }
+    .anniv-hero-figure { position: relative; display: flex; align-items: center; justify-content: center; max-width: 420px; margin: 0 auto; }
+    /* decorative soft brand glow anchoring the numeral (brand blue — a navy glow would be invisible on the navy hero) */
+    .anniv-hero-figure::before {
+      content: '';
+      position: absolute; left: 50%; top: 50%;
+      width: 115%; height: 115%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(1,171,238,0.12), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
     .anniv-big30 {
+      position: relative;
+      z-index: 1;
       font-family: 'Nunito', sans-serif;
       font-weight: 900;
       font-size: clamp(140px, 22vw, 300px);
@@ -1612,9 +1625,10 @@
     .anniv-strip-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
     .anniv-stat { padding: 6px 26px; text-align: center; border-left: 1px solid rgba(255,255,255,0.18); }
     .anniv-stat:first-child { border-left: none; }
-    .anniv-stat-fig { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(40px, 6vw, 60px); line-height: 1; color: var(--oe-white); vertical-align: middle; }
+    .anniv-stat-fig { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(34px, 4.5vw, 52px); line-height: 1; color: var(--oe-white); vertical-align: middle; white-space: nowrap; }
     .anniv-stat-from { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.78); vertical-align: middle; }
     .anniv-arrow { color: var(--oe-blue); font-weight: 900; font-size: clamp(26px, 4vw, 38px); vertical-align: middle; }
+    .anniv-strip-caption { max-width: 980px; margin: 22px auto 0; text-align: center; font-size: 15px; font-weight: 600; line-height: 1.6; color: rgba(255,255,255,0.8); }
     @media (max-width: 760px) {
       .anniv-strip-inner { grid-template-columns: 1fr; }
       .anniv-stat { border-left: none; border-top: 1px solid rgba(255,255,255,0.18); padding: 22px; }
@@ -1864,9 +1878,9 @@
     <div class="anniv-hero-content">
       <!-- 🚩 FLAG: PLACEHOLDER hero artwork — OE's 30th-anniversary logo lockup used as a supporting mark until Darren confirms/supplies the final hero image. Not lazy-loaded (LCP). No stock imagery. -->
       <img class="anniv-hero-mark" src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE_logo_30th_RGB_rev-1920w.png" alt="OE Utility Services 30th-anniversary logo lockup — 30 years strong, 1995 to 2026" />
-      <div class="hero-eyebrow">30 Years Strong · 1995 to 2026</div>
+      <div class="hero-eyebrow">Celebrating 1995–2026</div>
       <h1><span>30</span> Years Strong</h1>
-      <p class="hero-desc">At OE Utility Services, we <strong class="anniv-gmo">Get More Out</strong> for our Customers.</p>
+      <p class="hero-desc anniv-subhead">At OE Utility Services, we <strong class="anniv-gmo">Get More Out</strong> for our Customers.</p>
       <div class="hero-buttons">
         <a href="https://www.oeservices.ca/contact" class="btn btn-blue">Request a Quote →</a>
         <a href="tel:4167490005" class="btn btn-ghost">Call 416-749-0005</a>
@@ -1882,15 +1896,16 @@
 <section class="anniv-strip" aria-label="Thirty years of growth at a glance">
   <div class="anniv-strip-inner">
     <div class="anniv-stat"><span class="anniv-stat-from">1 Truck</span> <span class="anniv-arrow" aria-hidden="true">→</span> <span class="anniv-stat-fig">70+</span></div>
-    <div class="anniv-stat"><span class="anniv-stat-from">1 Location</span> <span class="anniv-arrow" aria-hidden="true">→</span> <span class="anniv-stat-fig">6 RBUs</span></div>
+    <div class="anniv-stat"><span class="anniv-stat-from">1 Location</span> <span class="anniv-arrow" aria-hidden="true">→</span> <span class="anniv-stat-fig">6 Locations</span></div>
     <div class="anniv-stat"><span class="anniv-stat-fig">30</span> <span class="anniv-stat-from">Years Strong</span></div>
   </div>
+  <p class="anniv-strip-caption">Greater Toronto Area · Durham &amp; Area · Hamilton &amp; Area · Barrie &amp; Area · London &amp; Area · Ottawa &amp; Area — OE's six Regional Business Units (RBUs) across Ontario.</p>
 </section>
 
 <!-- INTRO -->
 <section class="section">
   <div class="wrap anniv-narrow">
-    <p class="anniv-lead">One truck in a Mississauga lot in 1995. More than 70 trucks across six Regional Business Units (RBUs) in 2026. What began as a single hydrovac and one promise — dig smarter, leave it better — is now an Ontario-wide operation. The promise hasn't changed, and neither has who it's for: our Customers.</p>
+    <p class="anniv-lead">In 2026, OE Utility Services proudly celebrates 30 years of serving Ontario — and the Customers, crews, and communities who got us here. One truck in a Mississauga lot in 1995. More than 70 trucks across six Regional Business Units (RBUs) in 2026. What began as a single hydrovac and one promise — dig smarter, leave it better — is now an Ontario-wide operation. The promise hasn't changed, and neither has who it's for: our Customers.</p>
   </div>
 </section>
 
