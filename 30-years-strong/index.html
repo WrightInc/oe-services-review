@@ -1,80 +1,61 @@
 <!DOCTYPE html>
 <!--
 ═══════════════════════════════════════════════════════════════════════════════
-  OE UTILITY SERVICES — LOCATIONS PAGE TEMPLATE
-  Example: Greater Toronto Area (GTA)
-  
-  USE THIS TEMPLATE FOR ALL SIX RBU PAGES.
-  Replace the bracketed placeholders below with location-specific content:
-  
-    [LOCATION_NAME]              e.g. "Greater Toronto Area" / "Hamilton" / "Ottawa"
-    [LOCATION_SHORT]             e.g. "GTA" / "Hamilton" / "Ottawa"
-    [OFFICE_ADDRESS_LINE_1]      Street address
-    [OFFICE_ADDRESS_LINE_2]      City, Province, Postal Code
-    [OFFICE_PHONE]               Local branch line if different from HQ
-    [OFFICE_EMAIL]               Branch email if different
-    [LOCATION_PHOTO_URL]         Hero photo of the office / yard / building
-    [BRANCH_LEAD_NAME]           RBU Manager name (e.g. "Todd Desjardins")
-    [HEADSHOT_URL]               URL to the manager's headshot photo
-    [GOOGLE_MAPS_EMBED_URL]      Embed src URL from Google Maps
-    [SERVICE_AREA_LIST]          Cities / regions served from this RBU
-    [PROJECT_1] / [PROJECT_2]    2–3 representative local projects
-    [CLIENT_LIST]                Notable municipal / ICI clients in region
-  
-  IMPORTANT: For each RBU page:
-  1. Update the "Six Locations Serving Ontario" section to highlight 
-     the CURRENT page as `current-location` with "You are here" badge,
-     and convert that page's link from <a> to a <div> (no link).
-  2. Update breadcrumbs and page title to match the location.
-  3. Update LocalBusiness schema to match the location's address.
+  OE UTILITY SERVICES — "30 YEARS STRONG" ANNIVERSARY PAGE  (/30-years-strong/)
+  A brand / celebration page — NOT a location or service page.
+  Inherits the shared shell byte-for-byte (head fonts + design-system CSS,
+  header desktop + mobile nav, breadcrumb, main landmark, footer, floating
+  CTA, mobile-menu script). The distinct anniversary body lives in its own
+  scoped style block in the head; shared shell styles are never altered.
 ═══════════════════════════════════════════════════════════════════════════════
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hydrovac Services Hamilton & Area | OE Utility Services</title>
-  <meta name="description" content="Hydrovac services in Hamilton & Area from OE Utility Services — daylighting, utility locating, and full-service utility support backed by 70+ trucks across six Ontario yards. Request a quote." />
+  <title>30 Years Strong — 1995 to 2026 | OE Utility Services</title>
+  <meta name="description" content="For 30 years, OE Utility Services has grown from one hydrovac truck in Mississauga to 70+ trucks across six Ontario Regional Business Units. See the journey." />
 
-  <link rel="canonical" href="https://www.oeservices.ca/hamilton/" />
+  <link rel="canonical" href="https://www.oeservices.ca/30-years-strong/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hydrovac Services Hamilton & Area | OE Utility Services" />
-  <meta property="og:description" content="Full-service hydrovac and utility support in Hamilton & Area — one call, one team, get more out." />
-  <meta property="og:url" content="https://www.oeservices.ca/hamilton/" />
-  <!-- 🚩 FLAG: og:image is the Hamilton contact-band yard map used as a placeholder. Confirm final og:image — swap in a unique Hamilton yard/crew photo once supplied. -->
-  <meta property="og:image" content="https://www.oeservices.ca/locations/maps/oe-yard-hamilton-page.png" />
+  <meta property="og:title" content="30 Years Strong — OE Utility Services" />
+  <meta property="og:description" content="For 30 years, OE Utility Services has grown from one hydrovac truck in Mississauga to 70+ trucks across six Ontario Regional Business Units. See the journey." />
+  <meta property="og:url" content="https://www.oeservices.ca/30-years-strong/" />
+  <!-- 🚩 FLAG: og:image is OE's 30th-anniversary logo lockup as a placeholder — confirm/supply the final anniversary share image. -->
+  <meta property="og:image" content="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE_logo_30th_RGB_rev-1920w.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Hydrovac Services Hamilton & Area | OE Utility Services" />
-  <meta name="twitter:description" content="Full-service hydrovac and utility support in Hamilton & Area — one call, one team, get more out." />
-  <meta name="twitter:image" content="https://www.oeservices.ca/locations/maps/oe-yard-hamilton-page.png" />
+  <meta name="twitter:title" content="30 Years Strong — OE Utility Services" />
+  <meta name="twitter:description" content="For 30 years, OE Utility Services has grown from one hydrovac truck in Mississauga to 70+ trucks across six Ontario Regional Business Units. See the journey." />
+  <meta name="twitter:image" content="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE_logo_30th_RGB_rev-1920w.png" />
 
-  <!-- Local Business Schema for SEO -->
-  <!-- 🚩 FLAG: telephone + openingHours carried over from GTA HQ — confirm Hamilton-specific values before publish.
-       🚩 FLAG: geo coordinates omitted — add lat/long for 450 Sherman Ave. North, Hamilton once confirmed.
-       🚩 FLAG: areaServed is "Hamilton & Area" — expand to the confirmed municipality list once approved. -->
+  <!-- WebPage + BreadcrumbList schema (this is a brand/anniversary page, not a location) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "OE Utility Services — Hamilton & Area",
-    "image": "https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE-main-fullcolor-logo-1920w.png",
-    "url": "https://www.oeservices.ca/hamilton/",
-    "telephone": "+1-416-749-0005",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "450 Sherman Ave. North",
-      "addressLocality": "Hamilton",
-      "addressRegion": "ON",
-      "postalCode": "L8L 8J6",
-      "addressCountry": "CA"
-    },
-    "areaServed": "Hamilton & Area",
-    "openingHours": "Mo-Fr 07:00-17:00",
-    "priceRange": "$$"
+    "@type": "WebPage",
+    "name": "30 Years Strong — OE Utility Services",
+    "url": "https://www.oeservices.ca/30-years-strong/",
+    "description": "For 30 years, OE Utility Services has grown from one hydrovac truck in Mississauga to 70+ trucks across six Ontario Regional Business Units.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "OE Utility Services",
+      "url": "https://www.oeservices.ca/",
+      "logo": "https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE-main-fullcolor-logo-1920w.png"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.oeservices.ca/" },
+      { "@type": "ListItem", "position": 2, "name": "30 Years Strong", "item": "https://www.oeservices.ca/30-years-strong/" }
+    ]
   }
   </script>
 
@@ -1599,6 +1580,50 @@
     }
 
   </style>
+
+  <!-- ════════════════════════════════════════════════════════
+       SCOPED STYLES — 30 Years Strong anniversary body only.
+       Does not touch shared shell rules. Brand palette only.
+  ════════════════════════════════════════════════════════ -->
+  <style>
+    .anniv-gmo { text-transform: uppercase; font-weight: 900; letter-spacing: 0.5px; }
+    .anniv-hero-art { width: 100%; max-width: 420px; height: auto; display: block; margin: 0 0 0 auto; }
+    @media (max-width: 960px) { .anniv-hero-art { margin: 0 auto; } }
+
+    /* Hero stat strip — same visual family as the hero sidebar badges */
+    .anniv-strip { background: var(--oe-navy); padding: 40px 30px; }
+    .anniv-strip-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .anniv-stat {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-left: 4px solid var(--oe-blue);
+      padding: 22px 26px; border-radius: 4px; text-align: center;
+    }
+    .anniv-stat-v { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 24px; line-height: 1.2; color: var(--oe-white); }
+    @media (max-width: 760px) { .anniv-strip-inner { grid-template-columns: 1fr; } }
+
+    /* Lead paragraphs + narrow wrap */
+    .anniv-narrow { max-width: 820px; }
+    .anniv-lead { font-size: 19px; line-height: 1.7; color: var(--oe-text); }
+    .anniv-link { color: var(--oe-navy); font-weight: 700; text-decoration: underline; }
+    .anniv-link:hover { color: var(--oe-navy-dark); }
+    .anniv-link:focus-visible { outline: 2px solid var(--oe-navy); outline-offset: 2px; }
+
+    /* Milestone timeline — alternating, decorative centre line via pseudo-element */
+    .anniv-timeline { list-style: none; position: relative; max-width: 960px; margin: 8px auto 0; padding: 0; }
+    .anniv-timeline::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--oe-border); transform: translateX(-50%); }
+    .anniv-mile { position: relative; width: 50%; padding: 0 40px 32px; }
+    .anniv-mile:nth-child(odd) { left: 0; text-align: right; }
+    .anniv-mile:nth-child(even) { left: 50%; text-align: left; }
+    .anniv-mile-card { background: var(--oe-white); border: 1px solid var(--oe-border); border-top: 4px solid var(--oe-blue); border-radius: 6px; padding: 22px 24px; }
+    .anniv-year { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 22px; color: var(--oe-navy); line-height: 1; }
+    .anniv-head { font-size: 18px; color: var(--oe-navy); margin: 6px 0 8px; }
+    .anniv-text { font-size: 15px; color: var(--oe-muted); line-height: 1.6; }
+    @media (max-width: 760px) {
+      .anniv-timeline::before { left: 18px; }
+      .anniv-mile, .anniv-mile:nth-child(odd), .anniv-mile:nth-child(even) { width: 100%; left: 0; text-align: left; padding: 0 0 26px 46px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -1670,7 +1695,7 @@
       </li>
       <li><a href="https://www.oeservices.ca/sustainability">Sustainability</a></li>
       <li><a href="https://www.oeservices.ca/about-us">About Us</a></li>
-      <li><a href="/locations/" class="active">Locations</a></li>
+      <li><a href="/locations/">Locations</a></li>
       <li class="nav-contact"><a href="https://www.oeservices.ca/contact">Contact • Estimate</a></li>
     </ul>
     <a href="tel:4167490005" class="nav-emergency">
@@ -1749,7 +1774,7 @@
       </li>
       <li><a href="https://www.oeservices.ca/sustainability">Sustainability</a></li>
       <li><a href="https://www.oeservices.ca/about-us">About Us</a></li>
-      <li><a href="/locations/" class="active">Locations</a></li>
+      <li><a href="/locations/">Locations</a></li>
       <li class="mobile-contact"><a href="https://www.oeservices.ca/contact">Contact • Estimate</a></li>
     </ul>
   </nav>
@@ -1761,301 +1786,144 @@
   <div class="breadcrumbs-inner">
     <a href="/">Home</a>
     <span class="sep">›</span>
-    <a href="/locations">Locations</a>
-    <span class="sep">›</span>
-    <span class="current">Hamilton &amp; Area</span>
+    <span class="current">30 Years Strong</span>
   </div>
 </div>
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow">OE Utility Services — Hamilton &amp; Area</div>
-      <a href="/30-years-strong/" class="hero-eyebrow hero-eyebrow-link" aria-label="Celebrating 30 years &mdash; OE Utility Services 1995 to 2026">30 Years Strong</a>
-      <h1>Hydrovac Services in<br><span>Hamilton</span> &amp; Area</h1>
-      <p class="hero-desc">Daylighting, utility locating, and complete utility support delivered from our Hamilton yard — backed by 70+ trucks and six locations across Ontario. OE is your full-service utility provider.</p>
+      <div class="hero-eyebrow">30 Years Strong · 1995 to 2026</div>
+      <h1><span>30</span> Years Strong</h1>
+      <p class="hero-desc">At OE Utility Services, we <strong class="anniv-gmo">Get More Out</strong> for our Customers.</p>
       <div class="hero-buttons">
         <a href="https://www.oeservices.ca/contact" class="btn btn-blue">Request a Quote →</a>
         <a href="tel:4167490005" class="btn btn-ghost">Call 416-749-0005</a>
       </div>
     </div>
     <div class="hero-sidebar">
-      <a href="#contact" class="hero-badge-link" aria-label="Jump to OE Utility Services Hamilton &amp; Area yard section"><div class="hero-badge"><div class="bl">Serving Hamilton &amp; Area From</div><div class="bv">450 Sherman Ave. North, Hamilton ON L8L 8J6</div></div></a>
-      <a href="/30-years-strong/" class="hero-badge-link" aria-label="30 Years Strong — OE Utility Services"><div class="hero-badge"><div class="bl">Your Full-Service Utility Partner</div><div class="bv">30+ Years</div></div></a>
-      <a href="tel:4167490005" class="hero-badge-link" aria-label="Call OE Utility Services at 416-749-0005"><div class="hero-badge"><div class="bl">Service Response</div><div class="bv">24/7 Emergency Coverage</div></div></a>
+      <!-- 🚩 FLAG: PLACEHOLDER hero artwork — using OE's 30th-anniversary logo lockup until Darren confirms/supplies the final hero image. Not lazy-loaded (LCP image). No stock imagery. -->
+      <img class="anniv-hero-art" src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE_logo_30th_RGB_rev-1920w.png" alt="OE Utility Services 30th-anniversary logo lockup — 30 years strong, 1995 to 2026" />
     </div>
   </div>
 </section>
 
-<div class="alert-bar">📍 &nbsp; 24/7 EMERGENCY RESPONSE ACROSS HAMILTON &amp; AREA — Call 416.749.0005 anytime</div>
-
-<!-- LOCATION PHOTO -->
-<section class="location-photo-section">
-  <div class="location-photo-wrap">
-    <!-- 🚩 FLAG: PLACEHOLDER — replace with a unique Hamilton yard photo. Do NOT reuse a GTA or service-page image. -->
-    <img class="location-photo" src="[PLACEHOLDER_LOCATION_PHOTO]" alt="OE Utility Services Hamilton &amp; Area yard in Hamilton, Ontario" />
-    <div class="location-photo-caption">
-      <div class="caption-eyebrow">Hamilton &amp; Area Regional Business Unit</div>
-      <div class="caption-title">450 Sherman Ave. North, Hamilton ON L8L 8J6</div>
-    </div>
+<!-- HERO STAT STRIP -->
+<section class="anniv-strip" aria-label="Thirty years of growth at a glance">
+  <div class="anniv-strip-inner">
+    <div class="anniv-stat"><div class="anniv-stat-v">1 Truck <span aria-hidden="true">→</span> 70+</div></div>
+    <div class="anniv-stat"><div class="anniv-stat-v">1 Location <span aria-hidden="true">→</span> 6 RBUs</div></div>
+    <div class="anniv-stat"><div class="anniv-stat-v">30 Years Strong</div></div>
   </div>
 </section>
 
-<!-- INTRO + STATS -->
+<!-- INTRO -->
 <section class="section">
-  <div class="wrap">
-    <div class="two-col">
-      <div>
-        <div class="eyebrow">About Our Hamilton &amp; Area Operations</div>
-        <h2 class="stitle">Get More Out with Hydrovac Services in Hamilton &amp; Area</h2>
-        <div class="blue-rule"></div>
-        <p class="body-text">OE Utility Services delivers hydrovac services across Hamilton &amp; Area, working from our yard at 450 Sherman Ave. North. As an integrated full-service utility partner — not a single-service hydrovac shop — we bring daylighting, utility locating, and complete underground support to the projects shaping the region.</p>
-        <p class="body-text">Hamilton is in the middle of generational infrastructure investment, including a 14-kilometre light rail corridor that will see kilometres of watermain and buried utilities replaced along Main and King. From that work to the city's older underground networks and the Burlington and Niagara industrial corridor, our Hamilton crews give utility, construction, and engineering Customers a local team backed by the full strength of OE.</p>
-      </div>
-      <div class="stat-grid">
-        <!-- Stats row — approved figures (GTA stat-card styling). -->
-        <div class="stat-card"><div class="stat-num" style="font-size:26px;">Up to 10%</div><div class="stat-label">Cost savings</div></div>
-        <div class="stat-card"><div class="stat-num">50%</div><div class="stat-label">Productivity gains</div></div>
-        <div class="stat-card"><div class="stat-num">30%</div><div class="stat-label">Lower travel and emissions</div></div>
-        <div class="stat-card"><div class="stat-num" style="font-size:26px;">$40/hr</div><div class="stat-label">Discount when services are booked together</div></div>
-      </div>
-    </div>
+  <div class="wrap anniv-narrow">
+    <p class="anniv-lead">One truck in a Mississauga lot in 1995. More than 70 trucks across six Regional Business Units (RBUs) in 2026. What began as a single hydrovac and one promise — dig smarter, leave it better — is now an Ontario-wide operation. The promise hasn't changed, and neither has who it's for: our Customers.</p>
   </div>
 </section>
 
-<!-- SERVICES OFFERED FROM THIS LOCATION -->
+<!-- THE JOURNEY — MILESTONE TIMELINE -->
 <section class="section gray">
   <div class="wrap">
-    <div class="eyebrow">Available From Our Hamilton &amp; Area Yard</div>
-    <h2 class="stitle">Hydrovac Services Delivered Across Hamilton &amp; Area</h2>
+    <div class="eyebrow">The Journey</div>
+    <h2 class="stitle">From One Truck to Six RBUs: 1995 to 2026</h2>
     <div class="blue-rule"></div>
-    <p class="body-text" style="max-width:780px; margin-bottom:34px;">Every OE service line is resourced from our Hamilton operations. Click any service to learn more.</p>
-    <div class="services-grid">
-      <a href="/hydrovac/" class="service-card">
-        <div class="service-icon">H</div>
-        <h3>Hydrovac Trucks</h3>
-        <p>Non-destructive hydro excavation for safe utility exposure across Hamilton &amp; Area — ideal for congested urban corridors and aging underground networks.</p>
-        <span class="read-more">Learn more →</span>
-      </a>
-      <a href="/u-fill/" class="service-card">
-        <div class="service-icon">U</div>
-        <h3>U-Fill (Unshrinkable Concrete Trucks)</h3>
-        <p>On-site unshrinkable concrete and flowable fill for utility backfill, void filling, and road base stabilization across Hamilton &amp; Area.</p>
-        <span class="read-more">Learn more →</span>
-      </a>
-      <a href="/material-slinger/" class="service-card">
-        <div class="service-icon">M</div>
-        <h3>Material Slinger Trucks</h3>
-        <p>Precise placement of stone, gravel, and soil — including long-distance and hard-to-reach placement on Hamilton &amp; Area job sites.</p>
-        <span class="read-more">Learn more →</span>
-      </a>
-      <a href="/coring/" class="service-card">
-        <div class="service-icon">C</div>
-        <h3>Coring Trucks</h3>
-        <p>Concrete and asphalt coring, utility access coring, and full surface restoration across Hamilton &amp; Area.</p>
-        <span class="read-more">Learn more →</span>
-      </a>
-      <a href="/traffic-control/" class="service-card">
-        <div class="service-icon">T</div>
-        <h3>Traffic Control</h3>
-        <p>Traffic control plans, lane closure permits, flagging personnel, and municipal coordination for Hamilton &amp; Area work zones.</p>
-        <span class="read-more">Learn more →</span>
-      </a>
-      <a href="/turnkey-sue/" class="service-card">
-        <div class="service-icon">S</div>
-        <h3>Turnkey SUE — Level A</h3>
-        <p>Field QL-A test-hole exposure supporting subsurface utility engineering on Hamilton &amp; Area infrastructure projects; engineering certified by a P.Eng.</p>
-        <span class="read-more">Learn more →</span>
-      </a>
-      <a href="/soil-recycling/" class="service-card">
-        <div class="service-icon">SR</div>
-        <h3>Soil Recycling</h3>
-        <p>Excavated material managed through OE's ECA-approved central GTA soil recycling facility — keeping Hamilton &amp; Area projects compliant and reducing landfill disposal.</p>
-        <span class="read-more">Learn more →</span>
-      </a>
-      <a href="/additional-services/" class="service-card">
-        <div class="service-icon">A</div>
-        <h3>Additional Services</h3>
-        <p>Dump trucks, soft services, locates, permits, and project management — the full range of OE support available across Hamilton &amp; Area.</p>
-        <span class="read-more">Learn more →</span>
-      </a>
-    </div>
+    <ol class="anniv-timeline">
+      <li class="anniv-mile">
+        <div class="anniv-mile-card">
+          <div class="anniv-year">1995</div>
+          <h3 class="anniv-head">It starts with one truck.</h3>
+          <p class="anniv-text">Ontario Excavac opens in Mississauga. One hydrovac, one promise: dig smarter, leave it better.</p>
+        </div>
+      </li>
+      <li class="anniv-mile">
+        <div class="anniv-mile-card">
+          <div class="anniv-year">2008</div>
+          <h3 class="anniv-head">Named best in the business.</h3>
+          <p class="anniv-text">Excavator of the Year (Electric), and the move into gas utilities — proof the bet on hydrovac was the right one.</p>
+        </div>
+      </li>
+      <li class="anniv-mile">
+        <div class="anniv-mile-card">
+          <div class="anniv-year">2015</div>
+          <h3 class="anniv-head">Safety becomes the standard.</h3>
+          <p class="anniv-text">The first Utility Contractor Association Safety Award — and every single year since.</p>
+        </div>
+      </li>
+      <li class="anniv-mile">
+        <div class="anniv-mile-card">
+          <div class="anniv-year">2016</div>
+          <h3 class="anniv-head">Room to grow.</h3>
+          <p class="anniv-text">A 95,000 sq. ft., 7-acre GTA home base. The scrappy startup is now an operation.</p>
+        </div>
+      </li>
+      <li class="anniv-mile">
+        <div class="anniv-mile-card">
+          <div class="anniv-year">2017</div>
+          <h3 class="anniv-head">Thinking beyond the dig.</h3>
+          <p class="anniv-text">ClearLine launches; 11,000 water service repairs delivered for the City of Toronto.</p>
+        </div>
+      </li>
+      <li class="anniv-mile">
+        <div class="anniv-mile-card">
+          <div class="anniv-year">2018</div>
+          <h3 class="anniv-head">Closing the loop.</h3>
+          <p class="anniv-text">OE's own soil recycling facility opens — handling what comes out of the ground, responsibly.</p>
+        </div>
+      </li>
+      <li class="anniv-mile">
+        <div class="anniv-mile-card">
+          <div class="anniv-year">2023</div>
+          <h3 class="anniv-head">A new name for a bigger promise.</h3>
+          <p class="anniv-text">Ontario Excavac becomes OE Utility Services — reflecting end-to-end utility support, not just excavation.</p>
+        </div>
+      </li>
+      <li class="anniv-mile">
+        <div class="anniv-mile-card">
+          <div class="anniv-year">2024</div>
+          <h3 class="anniv-head">Across Ontario.</h3>
+          <p class="anniv-text">Ottawa and London open. Hydrovac Excavator of the Year. Recognized as a Safe Employer.</p>
+        </div>
+      </li>
+      <li class="anniv-mile">
+        <div class="anniv-mile-card">
+          <div class="anniv-year">2025</div>
+          <h3 class="anniv-head">Sustainability, verified.</h3>
+          <p class="anniv-text">EcoVadis bronze medal — third-party proof, not just a claim.</p>
+        </div>
+      </li>
+      <li class="anniv-mile">
+        <div class="anniv-mile-card">
+          <div class="anniv-year">2026</div>
+          <h3 class="anniv-head">30 years strong.</h3>
+          <p class="anniv-text">One truck became 70+. One lot became six Regional Business Units. The promise hasn't changed.</p>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<!-- SERVICE AREA -->
+<!-- CLOSING TIE-IN -->
 <section class="section">
-  <div class="wrap">
-    <div class="two-col">
-      <div>
-        <div class="eyebrow">Coverage Area</div>
-        <h2 class="stitle">Where We Work in Hamilton &amp; Area</h2>
-        <div class="blue-rule"></div>
-        <p class="body-text">Our Hamilton yard services projects across Hamilton &amp; Area. If your project is in the region, we have crews and equipment within reach.</p>
-        <p class="body-text"><strong>Don't see your municipality listed?</strong> We routinely take on projects beyond our standard coverage area. <a href="/contact" style="color:var(--oe-blue);font-weight:700;">Contact us</a> to confirm availability for your location.</p>
-      </div>
-      <div>
-        <div class="eyebrow">Hamilton &amp; Area Served</div>
-        <!-- 🚩 PLACEHOLDER — confirm Hamilton service-area municipalities before publish. DO NOT SHIP UNCONFIRMED. -->
-        <div class="body-text" style="background:var(--oe-light);border-left:4px solid var(--oe-blue);padding:16px 18px;color:var(--oe-muted);">
-          [PLACEHOLDER — confirm Hamilton service-area municipalities before publish: e.g. Hamilton, Burlington, Stoney Creek, Dundas, Ancaster, Grimsby, Niagara — DO NOT SHIP UNCONFIRMED]
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LOCAL PROJECTS -->
-<section class="section gray">
-  <div class="wrap">
-    <div class="eyebrow">Hamilton &amp; Area Project Highlights</div>
-    <h2 class="stitle">Recent Work Across the Region</h2>
-    <div class="blue-rule"></div>
-    <!-- 🚩 PLACEHOLDER — verified Hamilton project highlights to be supplied. Do not publish unconfirmed project details. -->
-    <div class="body-text" style="background:var(--oe-light);border-left:4px solid var(--oe-blue);padding:16px 18px;color:var(--oe-muted);max-width:780px;">
-      [PLACEHOLDER — verified Hamilton project highlights to be supplied]
-    </div>
-  </div>
-</section>
-
-<!-- BRANCH LEAD + CERTIFICATIONS -->
-<section class="section">
-  <div class="wrap">
-    <div class="two-col">
-      <div>
-        <div class="eyebrow">Your Hamilton &amp; Area Contact</div>
-        <h2 class="stitle">Local Leadership You Can Count On</h2>
-        <div class="blue-rule"></div>
-        <p class="body-text">Our Hamilton &amp; Area Regional Business Unit is led by a dedicated operations team with deep regional experience. For project enquiries, quotes, or partnership discussions, contact OE directly and our team will route your request to the right people.</p>
-        <!-- 🚩 PLACEHOLDER — Hamilton branch lead name / photo / phone / email to be confirmed. Do not publish until confirmed. -->
-        <div class="body-text" style="margin-top:20px;background:var(--oe-light);border-left:4px solid var(--oe-blue);padding:16px 18px;color:var(--oe-muted);">
-          [PLACEHOLDER — Hamilton branch lead name / photo / phone / email to be confirmed]
-        </div>
-      </div>
-      <div>
-        <div class="eyebrow">Credentials & Standards</div>
-        <h2 class="stitle">Certified for Every Hamilton &amp; Area Project</h2>
-        <div class="blue-rule"></div>
-        <p class="body-text">OE Utility Services holds the highest safety credentials in the Ontario utility sector — independently audited and currently certified to <strong>both ISO 45001 (international) and COR&reg; 2020 (Ontario)</strong> standards through the Infrastructure Health & Safety Association (IHSA).</p>
-        <div class="cert-strip">
-          <span class="cert-tag">ISO 45001 Certified</span>
-          <span class="cert-tag">COR&reg; 2020 Certified</span>
-          <span class="cert-tag">IHSA Audited</span>
-          <span class="cert-tag">Authorized Enbridge Gas Inc. Contractor</span>
-          <span class="cert-tag">SOSE Safe Employer</span>
-        </div>
-        <a href="/safety_certificates" class="btn btn-blue" style="margin-top:24px; display:inline-block;">View Our Safety Certificates →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MAP + CONTACT -->
-<section class="section gray" id="contact">
-  <div class="wrap">
-    <div class="eyebrow">Visit or Contact Our Hamilton &amp; Area Yard</div>
-    <h2 class="stitle">Hamilton &amp; Area Yard</h2>
-    <div class="blue-rule"></div>
-    <div class="map-contact-grid">
-      <div class="map-wrap">
-        <a href="https://www.google.com/maps/search/?api=1&query=450%20Sherman%20Ave.%20North%2C%20Hamilton%20ON%20L8L%208J6" target="_blank" rel="noopener noreferrer" aria-label="Open OE Utility Services Hamilton &amp; Area yard, 450 Sherman Ave. North, Hamilton ON L8L 8J6, in Google Maps" class="map-link">
-          <img class="map-img" src="/locations/maps/oe-yard-hamilton-page.png" loading="lazy" alt="Map of OE Utility Services Hamilton &amp; Area yard in Hamilton" />
-        </a>
-        <div class="map-caption">450 Sherman Ave. North, Hamilton ON L8L 8J6</div>
-      </div>
-      <div class="contact-wrap">
-        <h3>Yard Details</h3>
-        <div class="c-line">
-          <div class="icon">📍</div>
-          <span>
-            <strong style="color:var(--oe-navy);display:block;">450 Sherman Ave. North, Hamilton ON L8L 8J6</strong>
-          </span>
-        </div>
-        <!-- 🚩 FLAG: phone + email carried over from GTA HQ — confirm Hamilton-specific contact details before publish. -->
-        <div class="c-line">
-          <div class="icon">📞</div>
-          <span><a href="tel:4167490005">416-749-0005</a></span>
-        </div>
-        <div class="c-line">
-          <div class="icon">✉</div>
-          <span><a href="mailto:sales@oeservices.ca">sales@oeservices.ca</a></span>
-        </div>
-        <div class="c-line">
-          <div class="icon">🌐</div>
-          <span><a href="/">oeservices.ca</a></span>
-        </div>
-
-        <!-- 🚩 FLAG: office hours defaulted to GTA pattern — confirm for Hamilton. -->
-        <div class="hours-block">
-          <strong>Office Hours</strong>
-          <div class="hours-row"><span>Monday – Friday</span><span>7:00 AM – 5:00 PM</span></div>
-          <div class="hours-row"><span>Saturday – Sunday</span><span>By Appointment</span></div>
-        </div>
-
-        <div class="emergency-callout">
-          <div class="lbl">24/7 Emergency Line</div>
-          <a href="tel:4167490005">416-749-0005</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ALL SIX LOCATIONS -->
-<section id="locations-grid" class="section gray">
-  <div class="wrap">
-    <div class="eyebrow">Our Ontario Locations</div>
-    <h2 class="stitle">Six Locations Serving Ontario</h2>
-    <div class="blue-rule"></div>
-    <p class="body-text" style="max-width:780px; margin-bottom:34px;">OE Utility Services operates from six Regional Business Units (RBUs) across Ontario — bringing the same standards, certifications, and 24/7 response to every region we serve.</p>
-    <div class="other-locations-grid">
-      <!-- CURRENT PAGE: Hamilton (highlighted) -->
-      <div class="other-loc-card current-location">
-        <div class="pin-icon">📍</div>
-        <h4>Hamilton &amp; Area</h4>
-        <p>Hamilton, Burlington, Niagara</p>
-        <div class="current-badge">You are here</div>
-      </div>
-      <a href="/gta/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Greater Toronto Area</h4>
-        <p>Headquarters · Flagship operations</p>
-      </a>
-      <a href="/ottawa/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Ottawa &amp; Area</h4>
-        <p>Eastern Ontario service hub</p>
-      </a>
-      <a href="/durham/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Durham &amp; Area</h4>
-        <p>Eastern Ontario coverage</p>
-      </a>
-      <a href="/london/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>London &amp; Area</h4>
-        <p>Southwestern Ontario</p>
-      </a>
-      <a href="/barrie/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Barrie &amp; Area</h4>
-        <p>Central and Northern Ontario</p>
-      </a>
-    </div>
+  <div class="wrap anniv-narrow">
+    <p class="anniv-lead">Thirty years in, we're just getting started — now <a class="anniv-link" href="/locations/">six Regional Business Units across Ontario</a>, with the full range of <a class="anniv-link" href="/hydrovac/">hydrovac and utility services</a> behind every one. One call, one team, get more out.</p>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
-    <h2><span class="slogan-white">GET MORE OUT</span> OF YOUR HAMILTON &amp; AREA PROJECT!</h2>
-    <p>Whether it's a one-day hydrovac dig or a multi-month servicing program, our Hamilton team is ready to deliver. Reach out for a free consultation or estimate.</p>
+    <h2><span class="slogan-white">GET MORE OUT</span> OF 30 YEARS OF EXPERIENCE</h2>
+    <p>Three decades in, the promise is the same. Reach out for a free consultation or estimate — one call, one team.</p>
     <div class="cta-buttons">
-      <a href="/contact" class="btn btn-blue">Request a Quote →</a>
+      <a href="https://www.oeservices.ca/contact" class="btn btn-blue">Request a Quote →</a>
       <a href="tel:4167490005" class="btn btn-ghost">Call 416-749-0005</a>
     </div>
   </div>
 </section>
+
 
 <!-- ══════════════════════════════════════════════════════════
      STICKY CTA — Always-visible quote button
