@@ -1587,41 +1587,78 @@
   ════════════════════════════════════════════════════════ -->
   <style>
     .anniv-gmo { text-transform: uppercase; font-weight: 900; letter-spacing: 0.5px; }
-    .anniv-hero-art { width: 100%; max-width: 420px; height: auto; display: block; margin: 0 0 0 auto; }
-    @media (max-width: 960px) { .anniv-hero-art { margin: 0 auto; } }
 
-    /* Hero stat strip — same visual family as the hero sidebar badges */
-    .anniv-strip { background: var(--oe-navy); padding: 40px 30px; }
-    .anniv-strip-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .anniv-stat {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-left: 4px solid var(--oe-blue);
-      padding: 22px 26px; border-radius: 4px; text-align: center;
+    /* ── HERO — giant "30" treatment ───────────────────────── */
+    .anniv-hero { background: linear-gradient(135deg, var(--oe-navy) 0%, var(--oe-navy-dark) 100%); }
+    .anniv-hero .hero-inner { align-items: center; }
+    .anniv-hero-mark { display: block; width: 200px; max-width: 64%; height: auto; margin-bottom: 20px; }
+    .anniv-hero-figure { display: flex; align-items: center; justify-content: center; }
+    .anniv-big30 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(140px, 22vw, 300px);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      color: var(--oe-blue);
     }
-    .anniv-stat-v { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 24px; line-height: 1.2; color: var(--oe-white); }
-    @media (max-width: 760px) { .anniv-strip-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 960px) {
+      .anniv-hero-figure { order: -1; margin-bottom: 4px; }
+      .anniv-hero-mark { margin-left: auto; margin-right: auto; }
+      .anniv-big30 { font-size: clamp(120px, 40vw, 220px); }
+    }
 
-    /* Lead paragraphs + narrow wrap */
+    /* ── STAT STRIP — banner of three big stats ────────────── */
+    .anniv-strip { background: var(--oe-navy); padding: 56px 30px; }
+    .anniv-strip-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+    .anniv-stat { padding: 6px 26px; text-align: center; border-left: 1px solid rgba(255,255,255,0.18); }
+    .anniv-stat:first-child { border-left: none; }
+    .anniv-stat-fig { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(40px, 6vw, 60px); line-height: 1; color: var(--oe-white); vertical-align: middle; }
+    .anniv-stat-from { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.78); vertical-align: middle; }
+    .anniv-arrow { color: var(--oe-blue); font-weight: 900; font-size: clamp(26px, 4vw, 38px); vertical-align: middle; }
+    @media (max-width: 760px) {
+      .anniv-strip-inner { grid-template-columns: 1fr; }
+      .anniv-stat { border-left: none; border-top: 1px solid rgba(255,255,255,0.18); padding: 22px; }
+      .anniv-stat:first-child { border-top: none; }
+    }
+
+    /* ── INTRO + closing lead ──────────────────────────────── */
     .anniv-narrow { max-width: 820px; }
     .anniv-lead { font-size: 19px; line-height: 1.7; color: var(--oe-text); }
     .anniv-link { color: var(--oe-navy); font-weight: 700; text-decoration: underline; }
     .anniv-link:hover { color: var(--oe-navy-dark); }
     .anniv-link:focus-visible { outline: 2px solid var(--oe-navy); outline-offset: 2px; }
 
-    /* Milestone timeline — alternating, decorative centre line via pseudo-element */
-    .anniv-timeline { list-style: none; position: relative; max-width: 960px; margin: 8px auto 0; padding: 0; }
-    .anniv-timeline::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--oe-border); transform: translateX(-50%); }
-    .anniv-mile { position: relative; width: 50%; padding: 0 40px 32px; }
+    /* ── TIMELINE — spine + nodes + big years + 2026 finale ── */
+    .anniv-timeline { list-style: none; position: relative; max-width: 980px; margin: 8px auto 0; padding: 0; }
+    /* decorative spine: navy→blue gradient */
+    .anniv-timeline::before { content: ''; position: absolute; top: 4px; bottom: 4px; left: 50%; width: 4px; background: linear-gradient(var(--oe-navy), var(--oe-blue)); transform: translateX(-50%); border-radius: 2px; }
+    .anniv-mile { position: relative; width: 50%; padding: 0 40px 22px; }
     .anniv-mile:nth-child(odd) { left: 0; text-align: right; }
     .anniv-mile:nth-child(even) { left: 50%; text-align: left; }
-    .anniv-mile-card { background: var(--oe-white); border: 1px solid var(--oe-border); border-top: 4px solid var(--oe-blue); border-radius: 6px; padding: 22px 24px; }
-    .anniv-year { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 22px; color: var(--oe-navy); line-height: 1; }
-    .anniv-head { font-size: 18px; color: var(--oe-navy); margin: 6px 0 8px; }
+    /* decorative node on the spine */
+    .anniv-node { position: absolute; top: 22px; width: 18px; height: 18px; border-radius: 50%; background: var(--oe-blue); border: 4px solid var(--oe-light); box-shadow: 0 0 0 1px var(--oe-blue); }
+    .anniv-mile:nth-child(odd) .anniv-node { right: -11px; }
+    .anniv-mile:nth-child(even) .anniv-node { left: -11px; }
+    .anniv-mile-card { background: var(--oe-white); border: 1px solid var(--oe-border); border-top: 4px solid var(--oe-blue); border-radius: 6px; padding: 18px 22px; }
+    /* year is the dominant element (navy for AA on white; blue reserved for nodes/spine) */
+    .anniv-year { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(34px, 5vw, 52px); color: var(--oe-navy); line-height: 1; margin-bottom: 2px; }
+    .anniv-head { font-size: 18px; color: var(--oe-navy); margin: 4px 0 8px; }
     .anniv-text { font-size: 15px; color: var(--oe-muted); line-height: 1.6; }
+
+    /* 2026 — the arrival: full-width navy card */
+    .anniv-mile.anniv-mile-final { width: 100%; left: 0; text-align: center; padding: 18px 0 0; }
+    .anniv-mile-final .anniv-node { display: none; }
+    .anniv-mile-final .anniv-mile-card { background: var(--oe-navy); border: none; max-width: 760px; margin: 0 auto; padding: 36px 32px; }
+    .anniv-final-mark { display: block; width: 120px; height: auto; margin: 0 auto 14px; }
+    .anniv-mile-final .anniv-year { color: var(--oe-blue); font-size: clamp(44px, 7vw, 64px); }
+    .anniv-mile-final .anniv-head { color: var(--oe-white); font-size: 26px; }
+    .anniv-mile-final .anniv-text { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto; }
+
     @media (max-width: 760px) {
       .anniv-timeline::before { left: 18px; }
-      .anniv-mile, .anniv-mile:nth-child(odd), .anniv-mile:nth-child(even) { width: 100%; left: 0; text-align: left; padding: 0 0 26px 46px; }
+      .anniv-mile, .anniv-mile:nth-child(odd), .anniv-mile:nth-child(even) { width: 100%; left: 0; text-align: left; padding: 0 0 20px 46px; }
+      .anniv-mile:nth-child(odd) .anniv-node, .anniv-mile:nth-child(even) .anniv-node { left: 9px; right: auto; }
+      .anniv-mile.anniv-mile-final { padding-left: 0; }
     }
   </style>
 </head>
@@ -1790,9 +1827,11 @@
   </div>
 </div>
 <!-- HERO -->
-<section class="hero">
+<section class="hero anniv-hero">
   <div class="hero-inner">
-    <div>
+    <div class="anniv-hero-content">
+      <!-- 🚩 FLAG: PLACEHOLDER hero artwork — OE's 30th-anniversary logo lockup used as a supporting mark until Darren confirms/supplies the final hero image. Not lazy-loaded (LCP). No stock imagery. -->
+      <img class="anniv-hero-mark" src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE_logo_30th_RGB_rev-1920w.png" alt="OE Utility Services 30th-anniversary logo lockup — 30 years strong, 1995 to 2026" />
       <div class="hero-eyebrow">30 Years Strong · 1995 to 2026</div>
       <h1><span>30</span> Years Strong</h1>
       <p class="hero-desc">At OE Utility Services, we <strong class="anniv-gmo">Get More Out</strong> for our Customers.</p>
@@ -1801,9 +1840,8 @@
         <a href="tel:4167490005" class="btn btn-ghost">Call 416-749-0005</a>
       </div>
     </div>
-    <div class="hero-sidebar">
-      <!-- 🚩 FLAG: PLACEHOLDER hero artwork — using OE's 30th-anniversary logo lockup until Darren confirms/supplies the final hero image. Not lazy-loaded (LCP image). No stock imagery. -->
-      <img class="anniv-hero-art" src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE_logo_30th_RGB_rev-1920w.png" alt="OE Utility Services 30th-anniversary logo lockup — 30 years strong, 1995 to 2026" />
+    <div class="anniv-hero-figure">
+      <span class="anniv-big30" aria-hidden="true">30</span>
     </div>
   </div>
 </section>
@@ -1811,9 +1849,9 @@
 <!-- HERO STAT STRIP -->
 <section class="anniv-strip" aria-label="Thirty years of growth at a glance">
   <div class="anniv-strip-inner">
-    <div class="anniv-stat"><div class="anniv-stat-v">1 Truck <span aria-hidden="true">→</span> 70+</div></div>
-    <div class="anniv-stat"><div class="anniv-stat-v">1 Location <span aria-hidden="true">→</span> 6 RBUs</div></div>
-    <div class="anniv-stat"><div class="anniv-stat-v">30 Years Strong</div></div>
+    <div class="anniv-stat"><span class="anniv-stat-from">1 Truck</span> <span class="anniv-arrow" aria-hidden="true">→</span> <span class="anniv-stat-fig">70+</span></div>
+    <div class="anniv-stat"><span class="anniv-stat-from">1 Location</span> <span class="anniv-arrow" aria-hidden="true">→</span> <span class="anniv-stat-fig">6 RBUs</span></div>
+    <div class="anniv-stat"><span class="anniv-stat-fig">30</span> <span class="anniv-stat-from">Years Strong</span></div>
   </div>
 </section>
 
@@ -1832,6 +1870,7 @@
     <div class="blue-rule"></div>
     <ol class="anniv-timeline">
       <li class="anniv-mile">
+        <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
           <div class="anniv-year">1995</div>
           <h3 class="anniv-head">It starts with one truck.</h3>
@@ -1839,6 +1878,7 @@
         </div>
       </li>
       <li class="anniv-mile">
+        <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
           <div class="anniv-year">2008</div>
           <h3 class="anniv-head">Named best in the business.</h3>
@@ -1846,6 +1886,7 @@
         </div>
       </li>
       <li class="anniv-mile">
+        <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
           <div class="anniv-year">2015</div>
           <h3 class="anniv-head">Safety becomes the standard.</h3>
@@ -1853,6 +1894,7 @@
         </div>
       </li>
       <li class="anniv-mile">
+        <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
           <div class="anniv-year">2016</div>
           <h3 class="anniv-head">Room to grow.</h3>
@@ -1860,6 +1902,7 @@
         </div>
       </li>
       <li class="anniv-mile">
+        <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
           <div class="anniv-year">2017</div>
           <h3 class="anniv-head">Thinking beyond the dig.</h3>
@@ -1867,6 +1910,7 @@
         </div>
       </li>
       <li class="anniv-mile">
+        <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
           <div class="anniv-year">2018</div>
           <h3 class="anniv-head">Closing the loop.</h3>
@@ -1874,6 +1918,7 @@
         </div>
       </li>
       <li class="anniv-mile">
+        <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
           <div class="anniv-year">2023</div>
           <h3 class="anniv-head">A new name for a bigger promise.</h3>
@@ -1881,6 +1926,7 @@
         </div>
       </li>
       <li class="anniv-mile">
+        <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
           <div class="anniv-year">2024</div>
           <h3 class="anniv-head">Across Ontario.</h3>
@@ -1888,14 +1934,17 @@
         </div>
       </li>
       <li class="anniv-mile">
+        <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
           <div class="anniv-year">2025</div>
           <h3 class="anniv-head">Sustainability, verified.</h3>
           <p class="anniv-text">EcoVadis bronze medal — third-party proof, not just a claim.</p>
         </div>
       </li>
-      <li class="anniv-mile">
+      <li class="anniv-mile anniv-mile-final">
         <div class="anniv-mile-card">
+          <!-- 🚩 FLAG: PLACEHOLDER 30th-anniversary mark (decorative) — same lockup as the hero, pending the final asset. -->
+          <img class="anniv-final-mark" src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE_logo_30th_RGB_rev-1920w.png" alt="" aria-hidden="true" />
           <div class="anniv-year">2026</div>
           <h3 class="anniv-head">30 years strong.</h3>
           <p class="anniv-text">One truck became 70+. One lot became six Regional Business Units. The promise hasn't changed.</p>
