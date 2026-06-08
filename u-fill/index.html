@@ -344,7 +344,7 @@
        font-family set explicitly so it matches the OE heading face (Nunito). */
     .hero-service-name {
       font-family: 'Nunito', Arial, sans-serif;
-      font-size: 34px;
+      font-size: 46px;
       font-weight: 800;
       line-height: 1.1;
       color: var(--oe-white);
@@ -352,7 +352,15 @@
       border-left: 5px solid var(--oe-blue);
       padding-left: 16px;
     }
-    @media (max-width: 768px) { .hero-service-name { font-size: 28px; } }
+    @media (max-width: 768px) { .hero-service-name { font-size: 34px; } }
+    /* U-Fill page only — service name leads, brand line smaller beneath it.
+       Scoped override of the shared .hero h1 (64px); does not affect other pages. */
+    .hero h1 {
+      font-size: 30px;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+    }
+    @media (max-width: 768px) { .hero h1 { font-size: 26px; } }
     .hero h1 span { color: var(--oe-blue); }
     .hero-desc { font-size: 18px; line-height: 1.55; margin-bottom: 32px; max-width: 540px; opacity: 0.92; }
     .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
