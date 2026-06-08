@@ -339,6 +339,33 @@
       border-radius: 3px;
       margin-bottom: 22px;
     }
+    .hero-eyebrow-link { text-decoration: none; }
+    .hero-eyebrow.pill-parent {
+      background: transparent;
+      border: 2px solid var(--oe-blue);
+      padding: 5px 13px;
+    }
+    .hero-eyebrow.pill-parent:hover { background: var(--oe-blue); }
+    .hero-service-name {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--oe-white);
+      margin: 18px 0 16px;
+      border-left: 5px solid var(--oe-blue);
+      padding-left: 16px;
+    }
+    @media (max-width: 768px) { .hero-service-name { font-size: 40px; } }
+    .hero-tagline {
+      font-family: 'Nunito', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--oe-white);
+      margin-bottom: 22px;
+    }
+    .hero-tagline span { color: var(--oe-blue); }
+    @media (max-width: 768px) { .hero-tagline { font-size: 24px; } }
     .hero h1 {
       font-size: 56px;
       letter-spacing: -1px;
@@ -846,8 +873,11 @@
 ══════════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Daylighting / Utility Exposure</div>
-    <h1>See What's Underground.<br><span>Safely.</span></h1>
+    <a href="/hydrovac/" class="hero-eyebrow hero-eyebrow-link pill-parent" aria-label="Back to Hydrovac Trucks overview">Hydrovac Trucks →</a>
+    <span class="hero-eyebrow">Daylighting / Utility Exposure</span>
+    <a href="/30-years-strong/" class="hero-eyebrow hero-eyebrow-link" aria-label="Celebrating 30 years — OE Utility Services 1995 to 2026">30 Years Strong</a>
+    <h1 class="hero-service-name">Daylighting / Utility Exposure</h1>
+    <p class="hero-tagline">See What's Underground. <span>Safely.</span></p>
     <p class="hero-desc">Non-destructive exposure of gas, electric, water, telecom, and fibre — before any mechanical work begins. Required by Ontario regulation. Delivered with 30 years of Ontario field experience.</p>
     <div class="hero-buttons">
       <a href="../#quote" class="btn btn-blue">Request a Quote →</a>

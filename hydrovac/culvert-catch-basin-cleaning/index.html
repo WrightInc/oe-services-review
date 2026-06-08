@@ -343,6 +343,33 @@
       border-radius: 3px;
       margin-bottom: 22px;
     }
+    .hero-eyebrow-link { text-decoration: none; }
+    .hero-eyebrow.pill-parent {
+      background: transparent;
+      border: 2px solid var(--oe-blue);
+      padding: 5px 13px;
+    }
+    .hero-eyebrow.pill-parent:hover { background: var(--oe-blue); }
+    .hero-service-name {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--oe-white);
+      margin: 18px 0 16px;
+      border-left: 5px solid var(--oe-blue);
+      padding-left: 16px;
+    }
+    @media (max-width: 768px) { .hero-service-name { font-size: 40px; } }
+    .hero-tagline {
+      font-family: 'Nunito', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--oe-white);
+      margin-bottom: 22px;
+    }
+    .hero-tagline span { color: var(--oe-blue); }
+    @media (max-width: 768px) { .hero-tagline { font-size: 24px; } }
     .hero h1 {
       font-size: 56px;
       letter-spacing: -1px;
@@ -850,8 +877,11 @@
 ══════════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Hydrovac Capability</div>
-    <h1>Catch Basin &amp; Culvert<br>Cleaning <span>in Ontario</span></h1>
+    <a href="/hydrovac/" class="hero-eyebrow hero-eyebrow-link pill-parent" aria-label="Back to Hydrovac Trucks overview">Hydrovac Trucks →</a>
+    <span class="hero-eyebrow">Catch Basin &amp; Culvert Cleaning</span>
+    <a href="/30-years-strong/" class="hero-eyebrow hero-eyebrow-link" aria-label="Celebrating 30 years — OE Utility Services 1995 to 2026">30 Years Strong</a>
+    <h1 class="hero-service-name">Catch Basin &amp; Culvert Cleaning</h1>
+    <p class="hero-tagline">Clear the Blockage. <span>Keep It Flowing.</span></p>
     <p class="hero-desc">We clear sediment, debris, and standing water from catch basins and culverts — then vacuum, haul, and dispose of the material compliantly. Storm systems that drain the way they were designed to, year-round.</p>
     <div class="hero-buttons">
       <a href="/hydrovac/#quote" class="btn btn-blue">Request a Quote →</a>
