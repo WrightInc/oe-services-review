@@ -499,6 +499,58 @@
     }
     .why-list li strong { color: var(--oe-navy); }
 
+    /* ── WHY OE — animated differentiator cards (Hydrovac page only) ── */
+    .why-intro { max-width: 820px; margin-bottom: 40px; }
+    .why-intro .lead { font-size: 20px; font-weight: 700; color: var(--oe-navy); line-height: 1.4; margin-bottom: 18px; }
+    .why-intro p { font-size: 17px; line-height: 1.65; color: var(--oe-text); }
+    .why-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 880px) { .why-cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .why-cards { grid-template-columns: 1fr; } }
+    .why-card {
+      background: var(--oe-light);
+      border: 1px solid var(--oe-border);
+      border-left: 5px solid var(--oe-blue);
+      border-radius: 8px;
+      padding: 26px 24px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .why-card.in { animation: whyRise .55s ease forwards; }
+    .why-card:nth-child(1).in { animation-delay: .05s; }
+    .why-card:nth-child(2).in { animation-delay: .13s; }
+    .why-card:nth-child(3).in { animation-delay: .21s; }
+    .why-card:nth-child(4).in { animation-delay: .29s; }
+    .why-card:nth-child(5).in { animation-delay: .37s; }
+    @keyframes whyRise { to { opacity: 1; transform: translateY(0); } }
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(15,38,112,0.16);
+      border-left-color: var(--oe-navy);
+    }
+    .why-card-icon {
+      width: 48px; height: 48px; border-radius: 8px;
+      background: var(--oe-blue);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      transition: background .25s ease, transform .25s ease;
+    }
+    .why-card:hover .why-card-icon { background: var(--oe-navy); transform: scale(1.08); }
+    .why-card-icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 2; }
+    .why-card-stat {
+      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-size: 22px; color: var(--oe-navy); line-height: 1.1; margin-bottom: 8px;
+    }
+    .why-card p { font-size: 15px; color: var(--oe-text); line-height: 1.55; margin: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .why-card { opacity: 1; transform: none; animation: none; }
+      .why-card:hover { transform: none; }
+    }
+
     /* ── STATS STRIP ──────────────────────────────────────── */
     .stats-strip {
       background: var(--oe-navy);
@@ -1331,24 +1383,37 @@
 ══════════════════════════════════════════════════════════ -->
 <section class="section">
   <div class="section-inner">
-    <div class="why-grid">
-      <div class="why-text">
-        <div class="section-eyebrow">Why OE</div>
-        <h2 class="section-title">The Integrated Alternative to Single-Truck Hydrovac Providers</h2>
-        <p class="lead">Most hydrovac companies dig the hole and leave. OE digs the hole — and handles everything that follows.</p>
-        <p>That means one point of accountability across daylighting, repair, replacement, restoration, and disposal. No coordinating multiple vendors. No finger-pointing when something goes wrong. No project delays while contractors wait for each other.</p>
-
-        <ul class="why-list">
-          <li><strong>One team, one call.</strong> Hydrovac, utility work, restoration, and disposal — all under OE.</li>
-          <li><strong>30 years of Ontario operations.</strong> Established relationships with municipalities, utilities, and ICI clients.</li>
-          <li><strong>Owned soil recycling facility.</strong> MOECP-approved; 100,000+ tonnes diverted from landfill.</li>
-          <li><strong>70+ truck fleet across 6 Ontario locations.</strong> Crews positioned for fast regional response.</li>
-          <li><strong>24/7 emergency dispatch.</strong> GPS-tracked fleet for real-time response coordination.</li>
-        </ul>
+    <div class="why-intro">
+      <div class="section-eyebrow">Why OE</div>
+      <h2 class="section-title">The Integrated Alternative to Single-Truck Hydrovac Providers</h2>
+      <p class="lead">Most hydrovac companies show up, dig the hole, and leave. OE manages the whole job — before, during, and after the dig. One call. One team.</p>
+      <p>One point of accountability across planning, locates, excavation, repair, restoration, and disposal. No coordinating multiple vendors. No finger-pointing when something goes wrong. No project delays while contractors wait for each other.</p>
+    </div>
+    <div class="why-cards">
+      <div class="why-card">
+        <div class="why-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12l4 4 14-14"/><path d="M3 19h18"/></svg></div>
+        <div class="why-card-stat">One Team, One Call</div>
+        <p>Hydrovac, utility work, restoration, and disposal — all under OE.</p>
       </div>
-      <div class="why-image">
-        <!-- STOCK PLACEHOLDER — REPLACE with OE crew on-site photo (recommended: 800x600, crew in OE-branded PPE coordinating around exposed utility) -->
-        <img src="https://placehold.co/800x600/0F2670/01ABEE/png?text=OE+CREW+ON+SITE%0A%5BReplace+with+real+photo%5D" alt="OE crew on-site coordinating hydrovac excavation" loading="lazy" />
+      <div class="why-card">
+        <div class="why-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg></div>
+        <div class="why-card-stat">30 Years in Ontario</div>
+        <p>Established relationships with municipalities, utilities, and commercial Customers.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/></svg></div>
+        <div class="why-card-stat">ECA-Approved Disposal</div>
+        <p>Excavated material is taken to an ECA-approved central GTA soil recycling facility — disposal is part of the same job.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M1 9h13v8H1z"/><path d="M14 12h4l3 3v2h-7z"/><circle cx="5" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
+        <div class="why-card-stat">70+ Trucks · 6 Locations</div>
+        <p>A province-wide fleet with crews positioned for fast regional response.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <div class="why-card-stat">24/7 Emergency Dispatch</div>
+        <p>GPS-tracked fleet for real-time response coordination.</p>
       </div>
     </div>
   </div>
@@ -2011,6 +2076,17 @@
         btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
     });
+  })();
+
+  // Why OE cards — fade/rise in on scroll (Hydrovac page only)
+  (function(){
+    var cards = document.querySelectorAll('.why-card');
+    if (!cards.length) return;
+    if (!('IntersectionObserver' in window)) { cards.forEach(function(c){ c.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    cards.forEach(function(c){ io.observe(c); });
   })();
 </script>
 
