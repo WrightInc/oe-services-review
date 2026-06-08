@@ -331,6 +331,28 @@
       margin-bottom: 24px;
       line-height: 1.05;
     }
+    /* Service-name headline — Hydrovac page only. Rendered as a paragraph
+       (not a heading) to keep the single h1 first in source order;
+       font-family set explicitly so it matches the OE heading face (Nunito). */
+    .hero-service-name {
+      font-family: 'Nunito', Arial, sans-serif;
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--oe-white);
+      margin: 18px 0 14px;
+      border-left: 5px solid var(--oe-blue);
+      padding-left: 16px;
+    }
+    @media (max-width: 768px) { .hero-service-name { font-size: 34px; } }
+    /* Hydrovac page only — service name leads, brand line smaller beneath it.
+       Scoped override of the shared .hero h1 (64px); does not affect other pages. */
+    .hero h1 {
+      font-size: 30px;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+    }
+    @media (max-width: 768px) { .hero h1 { font-size: 26px; } }
     .hero h1 span { color: var(--oe-blue); }
     .hero-desc { font-size: 18px; line-height: 1.55; margin-bottom: 32px; max-width: 540px; opacity: 0.92; }
     .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -1270,9 +1292,10 @@
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow">Hydrovac Excavation Services</div>
+      <span class="hero-eyebrow">Hydrovac Excavation Services</span>
       <a href="/30-years-strong/" class="hero-eyebrow hero-eyebrow-link" aria-label="Celebrating 30 years &mdash; OE Utility Services 1995 to 2026">30 Years Strong</a>
-      <h1>One Call.<br>One Team.<br><span>Get More Out.</span></h1>
+      <p class="hero-service-name">Hydrovac Excavation Services</p>
+      <h1>One Call. One Team. <span>Get More Out.</span></h1>
       <p class="hero-desc">OE is your full-service utility partner — hydrovac excavation is one capability within a complete utility infrastructure offering. The same team that exposes your line can install, replace, repair, and restore — across Ontario, around the clock.</p>
       <div class="hero-buttons">
         <a href="#quote" class="btn btn-blue">Request a Quote →</a>
