@@ -696,6 +696,39 @@
       border-color: transparent;
     }
 
+    /* ── Integrated Difference diagram (scoped: .intdiff-) ───────────────── */
+    .intdiff { margin-top: 32px; }
+    .intdiff-label { color:#6B7280; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; margin:0 0 6px; }
+    .intdiff-label-oe { color:#0F2670; margin-top:30px; }
+    .intdiff-label-sub { color:#01ABEE; }
+    .intdiff-desktop { overflow:visible; }
+    .intdiff-comp { width:72%; display:block; }
+    .intdiff-oe { width:100%; display:block; margin-bottom:14px; }
+    .intdiff-mobile { display:none; }
+    .intdiff-support { color:#0F2670; font-size:14px; margin:0 0 6px; }
+    .intdiff-slogan { font-size:16px; color:#0F2670; margin:0 0 28px; }
+    .intdiff-slogan-brand { color:#01ABEE; font-weight:600; letter-spacing:0.5px; }
+    .intdiff-stats { border-top:1px solid #E2E6EE; padding-top:18px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .intdiff-stat { display:flex; flex-direction:column; }
+    .intdiff-num { color:#0F2670; font-size:22px; font-weight:600; }
+    .intdiff-stat-lbl { color:#6B7280; font-size:13px; }
+    .intdiff-regnote { color:#6B7280; font-size:12px; margin:-4px 0 14px; }
+    .intdiff-crow { display:flex; align-items:center; gap:10px; }
+    .intdiff-cdot { width:14px; height:14px; border-radius:50%; background:#FFFFFF; border:3px solid #9AA3B5; flex:0 0 auto; box-sizing:border-box; }
+    .intdiff-clbl { color:#4A5468; font-size:13px; }
+    .intdiff-cgap { margin-left:6px; border-left:2px dashed #B0431F; min-height:26px; padding:4px 0 4px 16px; color:#B0431F; font-size:11px; display:flex; align-items:center; }
+    .intdiff-oe-m { position:relative; }
+    .intdiff-oeline-m { position:absolute; left:5px; top:8px; bottom:8px; width:5px; border-radius:3px; background:#01ABEE; }
+    .intdiff-orow { display:flex; align-items:center; gap:14px; padding:7px 0; position:relative; }
+    .intdiff-odot { width:15px; height:15px; border-radius:50%; background:#0A1B4D; border:4px solid #01ABEE; flex:0 0 auto; box-sizing:border-box; }
+    .intdiff-otxt { color:#6B7280; font-size:12px; }
+    .intdiff-oname { color:#0F2670; font-size:14px; font-weight:500; }
+    @media (max-width: 768px) {
+      .intdiff-desktop { display:none; }
+      .intdiff-mobile { display:block; }
+      .intdiff-comp-m { margin-bottom:26px; }
+      .intdiff-stats { display:grid; grid-template-columns:1fr 1fr; gap:14px 10px; }
+    }
   </style>
 </head>
 <body>
@@ -973,8 +1006,93 @@
 
     <div class="body-text">
       <p>Most hydrovac providers expose the utility and leave. OE exposes the utility — and stays on site for whatever comes next.</p>
-      <p>That single-source model matters most when daylighting reveals a problem: damaged insulation, corroded pipe, undocumented cross-bore, leak indication. With OE, the same crew that exposed the issue can mobilise the repair, replacement, or restoration — same contract, same project lead.</p>
-      <p>Bundling the exposure with the repair or restoration that follows — one mobilization instead of a second crew called back — is where OE's LEAN approach pays off: up to 10% cost savings and 50% productivity gains, plus a $40/hr discount when services are booked together. Spoil is hauled to OE's own ECA-approved central GTA soil recycling facility, cutting travel costs and emissions by 30%, and our NextGen hydrovacs run 10dB quieter for residential and noise-sensitive sites.</p>
+      <div class="intdiff" data-intdiff>
+        <div class="intdiff-label">Typical competitor</div>
+
+        <svg class="intdiff-desktop intdiff-comp" viewBox="0 0 600 86" role="img"
+             aria-label="Typical competitor: four disconnected stages with handoffs between separate contractors">
+          <g class="intdiff-cgrp"><line x1="40" y1="40" x2="99" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><circle cx="40" cy="40" r="7" fill="#FFFFFF" stroke="#9AA3B5" stroke-width="4"/><text x="40" y="16" text-anchor="middle" font-size="13" fill="#4A5468">Excavate</text></g>
+          <g class="intdiff-cgrp"><line x1="99" y1="40" x2="155" y2="40" stroke="#B0431F" stroke-width="2" stroke-dasharray="5 6"/><text x="127" y="66" text-anchor="middle" font-size="11" fill="#B0431F">handoff &middot; new contract</text></g>
+          <g class="intdiff-cgrp"><line x1="155" y1="40" x2="213" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><line x1="213" y1="40" x2="272" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><circle cx="213" cy="40" r="7" fill="#FFFFFF" stroke="#9AA3B5" stroke-width="4"/><text x="213" y="16" text-anchor="middle" font-size="13" fill="#4A5468">Install</text></g>
+          <g class="intdiff-cgrp"><line x1="272" y1="40" x2="328" y2="40" stroke="#B0431F" stroke-width="2" stroke-dasharray="5 6"/><text x="300" y="66" text-anchor="middle" font-size="11" fill="#B0431F">handoff &middot; new crew</text></g>
+          <g class="intdiff-cgrp"><line x1="328" y1="40" x2="386" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><line x1="386" y1="40" x2="445" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><circle cx="386" cy="40" r="7" fill="#FFFFFF" stroke="#9AA3B5" stroke-width="4"/><text x="386" y="16" text-anchor="middle" font-size="13" fill="#4A5468">Backfill</text></g>
+          <g class="intdiff-cgrp"><line x1="445" y1="40" x2="501" y2="40" stroke="#B0431F" stroke-width="2" stroke-dasharray="5 6"/><text x="473" y="66" text-anchor="middle" font-size="11" fill="#B0431F">handoff &middot; delay</text></g>
+          <g class="intdiff-cgrp"><line x1="501" y1="40" x2="559" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><circle cx="559" cy="40" r="7" fill="#FFFFFF" stroke="#9AA3B5" stroke-width="4"/><text x="559" y="16" text-anchor="middle" font-size="13" fill="#4A5468">Restore</text></g>
+        </svg>
+        <div class="intdiff-mobile intdiff-comp-m">
+          <div class="intdiff-crow"><span class="intdiff-cdot"></span><span class="intdiff-clbl">Excavate</span></div>
+          <div class="intdiff-cgap">handoff &middot; new contract</div>
+          <div class="intdiff-crow"><span class="intdiff-cdot"></span><span class="intdiff-clbl">Install</span></div>
+          <div class="intdiff-cgap">handoff &middot; new crew</div>
+          <div class="intdiff-crow"><span class="intdiff-cdot"></span><span class="intdiff-clbl">Backfill</span></div>
+          <div class="intdiff-cgap">handoff &middot; delay</div>
+          <div class="intdiff-crow"><span class="intdiff-cdot"></span><span class="intdiff-clbl">Restore</span></div>
+        </div>
+
+        <div class="intdiff-label intdiff-label-oe">The same project with OE<br>
+          <span class="intdiff-label-sub">The only end-to-end solution in Canada</span></div>
+
+        <svg class="intdiff-desktop intdiff-oe" viewBox="0 0 840 100" role="img"
+             aria-label="With OE: one continuous line through every stage from locates to spoil recycling">
+          <line class="intdiff-oeline" data-len="812" x1="14" y1="42" x2="826" y2="42" stroke="#01ABEE" stroke-width="6" stroke-linecap="round"/>
+          <g class="intdiff-ostn">
+            <circle cx="40" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="40" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Locates</text>
+            <text x="40" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="40" dy="0">Ontario One Call</tspan><tspan x="40" dy="13">managed</tspan></text>
+          </g>
+          <g class="intdiff-ostn">
+            <circle cx="166" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="166" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Excavate</text>
+            <text x="166" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="166" dy="0">precise, non-destructive</tspan><tspan x="166" dy="13">hydrovac</tspan></text>
+          </g>
+          <g class="intdiff-ostn">
+            <circle cx="292" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="292" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Install</text>
+            <text x="292" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="292" dy="0">new infrastructure</tspan><tspan x="292" dy="13">placed</tspan></text>
+          </g>
+          <g class="intdiff-ostn">
+            <circle cx="418" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="418" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Tie-in</text>
+            <text x="418" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="418" dy="0">connected to</tspan><tspan x="418" dy="13">live services</tspan></text>
+          </g>
+          <g class="intdiff-ostn">
+            <circle cx="544" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="544" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Backfill</text>
+            <text x="544" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="544" dy="0">backfilled and</tspan><tspan x="544" dy="13">compacted</tspan></text>
+          </g>
+          <g class="intdiff-ostn">
+            <circle cx="670" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="670" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Restore</text>
+            <text x="670" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="670" dy="0">surface returned</tspan><tspan x="670" dy="13">to service</tspan></text>
+          </g>
+          <g class="intdiff-ostn">
+            <circle cx="796" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="796" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Spoil recycled</text>
+            <text x="796" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="796" dy="0">ECA-approved</tspan><tspan x="796" dy="13">GTA facility</tspan></text>
+          </g>
+        </svg>
+        <div class="intdiff-mobile intdiff-oe-m">
+          <span class="intdiff-oeline-m"></span>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Locates</span> &mdash; Ontario One Call managed</span></div>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Excavate</span> &mdash; precise, non-destructive hydrovac</span></div>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Install</span> &mdash; new infrastructure placed</span></div>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Tie-in</span> &mdash; connected to live services</span></div>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Backfill</span> &mdash; backfilled and compacted</span></div>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Restore</span> &mdash; surface returned to service</span></div>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Spoil recycled</span> &mdash; ECA-approved GTA facility</span></div>
+        </div>
+
+        <p class="intdiff-support"><strong>ONE</strong> crew &middot; <strong>ONE</strong> company &middot;
+          <strong>30 Years Strong</strong> &mdash; drawing on 70+ trucks and 6 Ontario locations</p>
+        <p class="intdiff-slogan"><span class="intdiff-slogan-brand">GET MORE OUT</span> with OE Utility Services</p>
+
+        <div class="intdiff-stats">
+          <div class="intdiff-stat"><span class="intdiff-num">10%</span> <span class="intdiff-stat-lbl">cost savings</span></div>
+          <div class="intdiff-stat"><span class="intdiff-num">50%</span> <span class="intdiff-stat-lbl">productivity gains</span></div>
+          <div class="intdiff-stat"><span class="intdiff-num">$40/hr</span> <span class="intdiff-stat-lbl">bundle discount</span></div>
+          <div class="intdiff-stat"><span class="intdiff-num">30%</span> <span class="intdiff-stat-lbl">travel &amp; emissions cut</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1185,6 +1303,90 @@
         btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
     });
+  })();
+</script>
+
+<!-- Integrated Difference: scroll-triggered animation (scoped, AODA-safe) -->
+<script>
+  (function () {
+    var root = document.querySelector('[data-intdiff]');
+    if (!root) return;
+    var mm = window.matchMedia;
+    if (mm && mm('(prefers-reduced-motion: reduce)').matches) return; // static full state already rendered
+    var isMobile = mm && mm('(max-width: 768px)').matches;
+
+    var compGroups = root.querySelectorAll('.intdiff-comp .intdiff-cgrp');
+    var oeLine     = root.querySelector('.intdiff-oeline');
+    var stations   = root.querySelectorAll('.intdiff-oe .intdiff-ostn');
+    var compRows   = root.querySelectorAll('.intdiff-comp-m .intdiff-crow, .intdiff-comp-m .intdiff-cgap');
+    var mLine      = root.querySelector('.intdiff-oeline-m');
+    var oeRows     = root.querySelectorAll('.intdiff-oe-m .intdiff-orow');
+    var support    = root.querySelector('.intdiff-support');
+    var slogan     = root.querySelector('.intdiff-slogan');
+    var regnote    = root.querySelector('.intdiff-regnote');
+    var stats      = root.querySelectorAll('.intdiff-stat');
+
+    function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+    function hideFade(el) { if (!el) return; el.style.opacity = '0'; el.style.transform = 'translateY(8px)'; }
+
+    // pre-animation hidden states applied via JS only, so a no-JS visitor sees the full static section
+    each(compGroups, hideFade); each(stations, hideFade);
+    each(compRows, hideFade); each(oeRows, hideFade);
+    [support, slogan, regnote].forEach(hideFade); each(stats, hideFade);
+    if (oeLine) {
+      var len = parseInt(oeLine.getAttribute('data-len'), 10) || 812;
+      oeLine.style.strokeDasharray = len; oeLine.style.strokeDashoffset = len;
+    }
+    if (mLine) { mLine.style.transformOrigin = 'top'; mLine.style.transform = 'scaleY(0)'; }
+
+    // enable transitions on the next frame so applying the hidden state does not flash
+    requestAnimationFrame(function () {
+      function tr(el) { if (el) el.style.transition = 'opacity .5s ease, transform .5s ease'; }
+      each(compGroups, tr); each(stations, tr); each(compRows, tr); each(oeRows, tr);
+      [support, slogan, regnote].forEach(tr); each(stats, tr);
+    });
+
+    function reveal(el, delay) {
+      if (!el) return;
+      setTimeout(function () { el.style.opacity = '1'; el.style.transform = 'none'; }, delay);
+    }
+    function closing(start) {
+      reveal(regnote, start);
+      reveal(support, start + 100);
+      reveal(slogan, start + 400);
+      each(stats, function (s, i) { reveal(s, start + 550 + i * 150); });
+    }
+    function playDesktop() {
+      each(compGroups, function (g, i) { reveal(g, i * 300); });
+      var oeStart = compGroups.length * 300 + 300;
+      if (oeLine) setTimeout(function () {
+        oeLine.style.transition = 'stroke-dashoffset 1800ms ease-out';
+        oeLine.style.strokeDashoffset = '0';
+      }, oeStart);
+      each(stations, function (g, i) { reveal(g, oeStart + 150 + i * 230); });
+      closing(oeStart + 150 + stations.length * 230);
+    }
+    function playMobile() {
+      each(compRows, function (r, i) { reveal(r, i * 180); });
+      var t = compRows.length * 180 + 300;
+      if (mLine) setTimeout(function () {
+        mLine.style.transition = 'transform 1.2s ease-out';
+        mLine.style.transform = 'scaleY(1)';
+      }, t);
+      each(oeRows, function (r, i) { reveal(r, t + 150 + i * 180); });
+      closing(t + 150 + oeRows.length * 180);
+    }
+
+    var played = false;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !played) {
+          played = true; io.unobserve(root);
+          if (isMobile) playMobile(); else playDesktop();
+        }
+      });
+    }, { threshold: 0.3 });
+    io.observe(root);
   })();
 </script>
 

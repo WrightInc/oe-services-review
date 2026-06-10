@@ -696,6 +696,39 @@
       border-color: transparent;
     }
 
+    /* ── Integrated Difference diagram (scoped: .intdiff-) ───────────────── */
+    .intdiff { margin-top: 32px; }
+    .intdiff-label { color:#6B7280; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; margin:0 0 6px; }
+    .intdiff-label-oe { color:#0F2670; margin-top:30px; }
+    .intdiff-label-sub { color:#01ABEE; }
+    .intdiff-desktop { overflow:visible; }
+    .intdiff-comp { width:72%; display:block; }
+    .intdiff-oe { width:100%; display:block; margin-bottom:14px; }
+    .intdiff-mobile { display:none; }
+    .intdiff-support { color:#0F2670; font-size:14px; margin:0 0 6px; }
+    .intdiff-slogan { font-size:16px; color:#0F2670; margin:0 0 28px; }
+    .intdiff-slogan-brand { color:#01ABEE; font-weight:600; letter-spacing:0.5px; }
+    .intdiff-stats { border-top:1px solid #E2E6EE; padding-top:18px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .intdiff-stat { display:flex; flex-direction:column; }
+    .intdiff-num { color:#0F2670; font-size:22px; font-weight:600; }
+    .intdiff-stat-lbl { color:#6B7280; font-size:13px; }
+    .intdiff-regnote { color:#6B7280; font-size:12px; margin:-4px 0 14px; }
+    .intdiff-crow { display:flex; align-items:center; gap:10px; }
+    .intdiff-cdot { width:14px; height:14px; border-radius:50%; background:#FFFFFF; border:3px solid #9AA3B5; flex:0 0 auto; box-sizing:border-box; }
+    .intdiff-clbl { color:#4A5468; font-size:13px; }
+    .intdiff-cgap { margin-left:6px; border-left:2px dashed #B0431F; min-height:26px; padding:4px 0 4px 16px; color:#B0431F; font-size:11px; display:flex; align-items:center; }
+    .intdiff-oe-m { position:relative; }
+    .intdiff-oeline-m { position:absolute; left:5px; top:8px; bottom:8px; width:5px; border-radius:3px; background:#01ABEE; }
+    .intdiff-orow { display:flex; align-items:center; gap:14px; padding:7px 0; position:relative; }
+    .intdiff-odot { width:15px; height:15px; border-radius:50%; background:#0A1B4D; border:4px solid #01ABEE; flex:0 0 auto; box-sizing:border-box; }
+    .intdiff-otxt { color:#6B7280; font-size:12px; }
+    .intdiff-oname { color:#0F2670; font-size:14px; font-weight:500; }
+    @media (max-width: 768px) {
+      .intdiff-desktop { display:none; }
+      .intdiff-mobile { display:block; }
+      .intdiff-comp-m { margin-bottom:26px; }
+      .intdiff-stats { display:grid; grid-template-columns:1fr 1fr; gap:14px 10px; }
+    }
   </style>
 </head>
 <body>
@@ -973,8 +1006,87 @@
 
     <div class="body-text">
       <p>Most suppliers drop the fill and leave. OE places the CLSM as one step in the same dig-and-restore job — the crew that opened the trench backfills and restores it, on the same contract, with one project lead.</p>
-      <p>That single-source model matters most on a live road cut: the excavation, the utility work, the CLSM backfill, and the surface restoration are sequenced by one team instead of waiting on a separate fill supplier to show up between trades. Fewer handoffs, fewer trucks on site, fewer days the lane is open.</p>
-      <p>Booking the excavation, CLSM backfill, and restoration together as one OE job is where the savings show up: up to 10% cost savings, 50% productivity gains, and a $40/hr discount when services are booked together — one mobilization, one crew, one point of accountability instead of waiting on a separate fill supplier. Because OE runs its own integrated operations across 6 Ontario locations, coordinating fewer trucks and trips cuts travel costs and emissions by 30%.</p>
+      <div class="intdiff" data-intdiff>
+        <div class="intdiff-label">Typical competitor</div>
+
+        <svg class="intdiff-desktop intdiff-comp" viewBox="0 0 600 86" role="img"
+             aria-label="Typical competitor: four disconnected stages with handoffs between separate contractors">
+          <g class="intdiff-cgrp"><line x1="40" y1="40" x2="99" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><circle cx="40" cy="40" r="7" fill="#FFFFFF" stroke="#9AA3B5" stroke-width="4"/><text x="40" y="16" text-anchor="middle" font-size="13" fill="#4A5468">Order aggregate</text></g>
+          <g class="intdiff-cgrp"><line x1="99" y1="40" x2="155" y2="40" stroke="#B0431F" stroke-width="2" stroke-dasharray="5 6"/><text x="127" y="66" text-anchor="middle" font-size="11" fill="#B0431F">handoff &middot; new supplier</text></g>
+          <g class="intdiff-cgrp"><line x1="155" y1="40" x2="213" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><line x1="213" y1="40" x2="272" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><circle cx="213" cy="40" r="7" fill="#FFFFFF" stroke="#9AA3B5" stroke-width="4"/><text x="213" y="16" text-anchor="middle" font-size="13" fill="#4A5468">Place lifts</text></g>
+          <g class="intdiff-cgrp"><line x1="272" y1="40" x2="328" y2="40" stroke="#B0431F" stroke-width="2" stroke-dasharray="5 6"/><text x="300" y="66" text-anchor="middle" font-size="11" fill="#B0431F">handoff &middot; new crew</text></g>
+          <g class="intdiff-cgrp"><line x1="328" y1="40" x2="386" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><line x1="386" y1="40" x2="445" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><circle cx="386" cy="40" r="7" fill="#FFFFFF" stroke="#9AA3B5" stroke-width="4"/><text x="386" y="16" text-anchor="middle" font-size="13" fill="#4A5468">Compact</text></g>
+          <g class="intdiff-cgrp"><line x1="445" y1="40" x2="501" y2="40" stroke="#B0431F" stroke-width="2" stroke-dasharray="5 6"/><text x="473" y="66" text-anchor="middle" font-size="11" fill="#B0431F">handoff &middot; delay</text></g>
+          <g class="intdiff-cgrp"><line x1="501" y1="40" x2="559" y2="40" stroke="#9AA3B5" stroke-width="5" stroke-linecap="round"/><circle cx="559" cy="40" r="7" fill="#FFFFFF" stroke="#9AA3B5" stroke-width="4"/><text x="559" y="16" text-anchor="middle" font-size="13" fill="#4A5468">Test</text></g>
+        </svg>
+        <div class="intdiff-mobile intdiff-comp-m">
+          <div class="intdiff-crow"><span class="intdiff-cdot"></span><span class="intdiff-clbl">Order aggregate</span></div>
+          <div class="intdiff-cgap">handoff &middot; new supplier</div>
+          <div class="intdiff-crow"><span class="intdiff-cdot"></span><span class="intdiff-clbl">Place lifts</span></div>
+          <div class="intdiff-cgap">handoff &middot; new crew</div>
+          <div class="intdiff-crow"><span class="intdiff-cdot"></span><span class="intdiff-clbl">Compact</span></div>
+          <div class="intdiff-cgap">handoff &middot; delay</div>
+          <div class="intdiff-crow"><span class="intdiff-cdot"></span><span class="intdiff-clbl">Test</span></div>
+        </div>
+
+        <div class="intdiff-label intdiff-label-oe">The same project with OE<br>
+          <span class="intdiff-label-sub">The only end-to-end solution in Canada</span></div>
+
+        <svg class="intdiff-desktop intdiff-oe" viewBox="0 0 840 100" role="img"
+             aria-label="With OE: one continuous line through every stage from locates to spoil recycling">
+          <line class="intdiff-oeline" data-len="786" x1="14" y1="42" x2="800" y2="42" stroke="#01ABEE" stroke-width="6" stroke-linecap="round"/>
+          <g class="intdiff-ostn">
+            <circle cx="40" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="40" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Recycled feedstock</text>
+            <text x="40" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="40" dy="0">processed soil,</tspan><tspan x="40" dy="13">ECA-approved GTA facility</tspan></text>
+          </g>
+          <g class="intdiff-ostn">
+            <circle cx="192" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="192" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Batch</text>
+            <text x="192" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="192" dy="0">mixed to</tspan><tspan x="192" dy="13">project spec</tspan></text>
+          </g>
+          <g class="intdiff-ostn">
+            <circle cx="344" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="344" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Deliver</text>
+            <text x="344" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="344" dy="0">direct from OE's</tspan><tspan x="344" dy="13">central facility</tspan></text>
+          </g>
+          <g class="intdiff-ostn">
+            <circle cx="496" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="496" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Place</text>
+            <text x="496" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="496" dy="0">self-levelling,</tspan><tspan x="496" dy="13">no compaction lifts</tspan></text>
+          </g>
+          <g class="intdiff-ostn">
+            <circle cx="648" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="648" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Cure</text>
+            <text x="648" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="648" dy="0">engineered,</tspan><tspan x="648" dy="13">re-excavatable strength</tspan></text>
+          </g>
+          <g class="intdiff-ostn">
+            <circle cx="800" cy="42" r="9" fill="#0A1B4D" stroke="#01ABEE" stroke-width="4"/>
+            <text x="800" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#0F2670">Restore</text>
+            <text x="800" y="64" text-anchor="middle" font-size="11" fill="#6B7280"><tspan x="800" dy="0">surface returned</tspan><tspan x="800" dy="13">to service</tspan></text>
+          </g>
+        </svg>
+        <div class="intdiff-mobile intdiff-oe-m">
+          <span class="intdiff-oeline-m"></span>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Recycled feedstock</span> &mdash; processed soil, ECA-approved GTA facility</span></div>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Batch</span> &mdash; mixed to project spec</span></div>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Deliver</span> &mdash; direct from OE's central facility</span></div>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Place</span> &mdash; self-levelling, no compaction lifts</span></div>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Cure</span> &mdash; engineered, re-excavatable strength</span></div>
+          <div class="intdiff-orow"><span class="intdiff-odot"></span><span class="intdiff-otxt"><span class="intdiff-oname">Restore</span> &mdash; surface returned to service</span></div>
+        </div>
+
+        <p class="intdiff-support"><strong>ONE</strong> crew &middot; <strong>ONE</strong> company &middot;
+          <strong>30 Years Strong</strong> &mdash; drawing on 70+ trucks and 6 Ontario locations</p>
+        <p class="intdiff-slogan"><span class="intdiff-slogan-brand">GET MORE OUT</span> with OE Utility Services</p>
+
+        <div class="intdiff-stats">
+          <div class="intdiff-stat"><span class="intdiff-num">10%</span> <span class="intdiff-stat-lbl">cost savings</span></div>
+          <div class="intdiff-stat"><span class="intdiff-num">50%</span> <span class="intdiff-stat-lbl">productivity gains</span></div>
+          <div class="intdiff-stat"><span class="intdiff-num">$40/hr</span> <span class="intdiff-stat-lbl">bundle discount</span></div>
+          <div class="intdiff-stat"><span class="intdiff-num">30%</span> <span class="intdiff-stat-lbl">travel &amp; emissions cut</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1154,6 +1266,90 @@
         btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
     });
+  })();
+</script>
+
+<!-- Integrated Difference: scroll-triggered animation (scoped, AODA-safe) -->
+<script>
+  (function () {
+    var root = document.querySelector('[data-intdiff]');
+    if (!root) return;
+    var mm = window.matchMedia;
+    if (mm && mm('(prefers-reduced-motion: reduce)').matches) return; // static full state already rendered
+    var isMobile = mm && mm('(max-width: 768px)').matches;
+
+    var compGroups = root.querySelectorAll('.intdiff-comp .intdiff-cgrp');
+    var oeLine     = root.querySelector('.intdiff-oeline');
+    var stations   = root.querySelectorAll('.intdiff-oe .intdiff-ostn');
+    var compRows   = root.querySelectorAll('.intdiff-comp-m .intdiff-crow, .intdiff-comp-m .intdiff-cgap');
+    var mLine      = root.querySelector('.intdiff-oeline-m');
+    var oeRows     = root.querySelectorAll('.intdiff-oe-m .intdiff-orow');
+    var support    = root.querySelector('.intdiff-support');
+    var slogan     = root.querySelector('.intdiff-slogan');
+    var regnote    = root.querySelector('.intdiff-regnote');
+    var stats      = root.querySelectorAll('.intdiff-stat');
+
+    function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+    function hideFade(el) { if (!el) return; el.style.opacity = '0'; el.style.transform = 'translateY(8px)'; }
+
+    // pre-animation hidden states applied via JS only, so a no-JS visitor sees the full static section
+    each(compGroups, hideFade); each(stations, hideFade);
+    each(compRows, hideFade); each(oeRows, hideFade);
+    [support, slogan, regnote].forEach(hideFade); each(stats, hideFade);
+    if (oeLine) {
+      var len = parseInt(oeLine.getAttribute('data-len'), 10) || 812;
+      oeLine.style.strokeDasharray = len; oeLine.style.strokeDashoffset = len;
+    }
+    if (mLine) { mLine.style.transformOrigin = 'top'; mLine.style.transform = 'scaleY(0)'; }
+
+    // enable transitions on the next frame so applying the hidden state does not flash
+    requestAnimationFrame(function () {
+      function tr(el) { if (el) el.style.transition = 'opacity .5s ease, transform .5s ease'; }
+      each(compGroups, tr); each(stations, tr); each(compRows, tr); each(oeRows, tr);
+      [support, slogan, regnote].forEach(tr); each(stats, tr);
+    });
+
+    function reveal(el, delay) {
+      if (!el) return;
+      setTimeout(function () { el.style.opacity = '1'; el.style.transform = 'none'; }, delay);
+    }
+    function closing(start) {
+      reveal(regnote, start);
+      reveal(support, start + 100);
+      reveal(slogan, start + 400);
+      each(stats, function (s, i) { reveal(s, start + 550 + i * 150); });
+    }
+    function playDesktop() {
+      each(compGroups, function (g, i) { reveal(g, i * 300); });
+      var oeStart = compGroups.length * 300 + 300;
+      if (oeLine) setTimeout(function () {
+        oeLine.style.transition = 'stroke-dashoffset 1800ms ease-out';
+        oeLine.style.strokeDashoffset = '0';
+      }, oeStart);
+      each(stations, function (g, i) { reveal(g, oeStart + 150 + i * 230); });
+      closing(oeStart + 150 + stations.length * 230);
+    }
+    function playMobile() {
+      each(compRows, function (r, i) { reveal(r, i * 180); });
+      var t = compRows.length * 180 + 300;
+      if (mLine) setTimeout(function () {
+        mLine.style.transition = 'transform 1.2s ease-out';
+        mLine.style.transform = 'scaleY(1)';
+      }, t);
+      each(oeRows, function (r, i) { reveal(r, t + 150 + i * 180); });
+      closing(t + 150 + oeRows.length * 180);
+    }
+
+    var played = false;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !played) {
+          played = true; io.unobserve(root);
+          if (isMobile) playMobile(); else playDesktop();
+        }
+      });
+    }, { threshold: 0.3 });
+    io.observe(root);
   })();
 </script>
 
