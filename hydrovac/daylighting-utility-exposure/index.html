@@ -729,6 +729,16 @@
       .intdiff-comp-m { margin-bottom:26px; }
       .intdiff-stats { display:grid; grid-template-columns:1fr 1fr; gap:14px 10px; }
     }
+    /* Integrated Difference — restored Why OE detail copy (scoped) */
+    .intdiff-detail-single { margin: 0 0 22px; }
+    .intdiff-detail-single p { color:#4A5468; font-size:15px; line-height:1.75; margin:0; max-width:640px; }
+    .intdiff-details { display:grid; grid-template-columns:1fr 1fr; gap:22px 40px; margin:0 0 26px; }
+    .intdiff-point-lead { color:#0F2670; font-size:15px; font-weight:600; line-height:1.45; margin:0 0 6px; }
+    .intdiff-point-body { color:#4A5468; font-size:14px; line-height:1.7; margin:0; }
+    .intdiff-close { color:#4A5468; font-size:15px; line-height:1.75; margin:0 0 26px; max-width:680px; }
+    @media (max-width: 768px) {
+      .intdiff-details { grid-template-columns:1fr; gap:18px; }
+    }
   </style>
 </head>
 <body>
@@ -1086,6 +1096,10 @@
           <strong>30 Years Strong</strong> &mdash; drawing on 70+ trucks and 6 Ontario locations</p>
         <p class="intdiff-slogan"><span class="intdiff-slogan-brand">GET MORE OUT</span> with OE Utility Services</p>
 
+        <div class="intdiff-detail-single">
+          <p>That single-source model matters most when daylighting reveals a problem: damaged insulation, corroded pipe, undocumented cross-bore, leak indication. With OE, the same crew that exposed the issue can mobilise the repair, replacement, or restoration — same contract, same project lead.</p>
+        </div>
+        <p class="intdiff-close">Bundling the exposure with the repair or restoration that follows — one mobilization instead of a second crew called back — is where OE's LEAN approach pays off: up to 10% cost savings and 50% productivity gains, plus a $40/hr discount when services are booked together. Spoil is hauled to OE's own ECA-approved central GTA soil recycling facility, cutting travel costs and emissions by 30%, and our NextGen hydrovacs run 10dB quieter for residential and noise-sensitive sites.</p>
         <div class="intdiff-stats">
           <div class="intdiff-stat"><span class="intdiff-num">10%</span> <span class="intdiff-stat-lbl">cost savings</span></div>
           <div class="intdiff-stat"><span class="intdiff-num">50%</span> <span class="intdiff-stat-lbl">productivity gains</span></div>
@@ -1325,6 +1339,8 @@
     var slogan     = root.querySelector('.intdiff-slogan');
     var regnote    = root.querySelector('.intdiff-regnote');
     var stats      = root.querySelectorAll('.intdiff-stat');
+    var details    = root.querySelector('.intdiff-details, .intdiff-detail-single');
+    var closeP     = root.querySelector('.intdiff-close');
 
     function each(list, fn) { Array.prototype.forEach.call(list, fn); }
     function hideFade(el) { if (!el) return; el.style.opacity = '0'; el.style.transform = 'translateY(8px)'; }
@@ -1332,7 +1348,7 @@
     // pre-animation hidden states applied via JS only, so a no-JS visitor sees the full static section
     each(compGroups, hideFade); each(stations, hideFade);
     each(compRows, hideFade); each(oeRows, hideFade);
-    [support, slogan, regnote].forEach(hideFade); each(stats, hideFade);
+    [support, slogan, regnote, details, closeP].forEach(hideFade); each(stats, hideFade);
     if (oeLine) {
       var len = parseInt(oeLine.getAttribute('data-len'), 10) || 812;
       oeLine.style.strokeDasharray = len; oeLine.style.strokeDashoffset = len;
@@ -1343,7 +1359,7 @@
     requestAnimationFrame(function () {
       function tr(el) { if (el) el.style.transition = 'opacity .5s ease, transform .5s ease'; }
       each(compGroups, tr); each(stations, tr); each(compRows, tr); each(oeRows, tr);
-      [support, slogan, regnote].forEach(tr); each(stats, tr);
+      [support, slogan, regnote, details, closeP].forEach(tr); each(stats, tr);
     });
 
     function reveal(el, delay) {
@@ -1354,7 +1370,9 @@
       reveal(regnote, start);
       reveal(support, start + 100);
       reveal(slogan, start + 400);
-      each(stats, function (s, i) { reveal(s, start + 550 + i * 150); });
+      reveal(details, start + 550);
+      reveal(closeP, start + 550);
+      each(stats, function (s, i) { reveal(s, start + 700 + i * 150); });
     }
     function playDesktop() {
       each(compGroups, function (g, i) { reveal(g, i * 300); });
