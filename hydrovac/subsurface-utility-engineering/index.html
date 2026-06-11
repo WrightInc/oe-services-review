@@ -709,9 +709,38 @@
     .intdiff-comp { width:72%; display:block; }
     .intdiff-oe { width:100%; display:block; margin-bottom:14px; }
     .intdiff-mobile { display:none; }
-    .intdiff-support { color:#0F2670; font-size:14px; margin:0 0 6px; }
-    .intdiff-slogan { font-size:16px; color:#0F2670; margin:0 0 28px; }
-    .intdiff-slogan-brand { color:#01ABEE; font-weight:600; letter-spacing:0.5px; }
+    .intdiff-brandpill { position:relative; max-width:640px; border-radius:22px;
+      background:linear-gradient(180deg,#18316E 0%,#0E2257 48%,#0A1B4D 100%);
+      border:1px solid rgba(255,255,255,0.14);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.25),
+        0 6px 18px rgba(10,27,77,0.22);
+      padding:24px 30px 26px; overflow:hidden; margin:0 0 30px; }
+    .intdiff-brandpill::after { content:""; position:absolute; left:0; right:0; top:0; height:46%;
+      background:linear-gradient(180deg,rgba(255,255,255,0.10) 0%,rgba(255,255,255,0) 100%);
+      border-radius:22px 22px 0 0; pointer-events:none; }
+    .intdiff-brandpill::before { content:""; position:absolute; left:0; top:0; bottom:0; width:6px;
+      background:#01ABEE; border-radius:22px 0 0 22px; }
+    .intdiff-brandpill-watermark { position:absolute; right:-8px; top:50%;
+      transform:translateY(-50%); font-size:130px; font-weight:800; line-height:1;
+      color:transparent; -webkit-text-stroke:2px rgba(56,86,158,0.55);
+      pointer-events:none; user-select:none; }
+    @supports not (-webkit-text-stroke: 1px black) {
+      .intdiff-brandpill-watermark { color:rgba(56,86,158,0.18); } }
+    .intdiff-bp-stations { position:relative; display:flex; align-items:flex-start;
+      justify-content:space-between; max-width:440px; margin:4px 0 20px; }
+    .intdiff-bp-stations::before { content:""; position:absolute; left:7px; right:7px; top:6px;
+      height:3px; background:#01ABEE; border-radius:2px; }
+    .intdiff-bp-station { position:relative; }
+    .intdiff-bp-dot { width:8px; height:8px; border-radius:50%; background:#0A1B4D;
+      border:3.5px solid #01ABEE; margin-bottom:8px; }
+    .intdiff-bp-big { color:#FFFFFF; font-size:18px; font-weight:800; letter-spacing:0.5px;
+      line-height:1; }
+    .intdiff-bp-small { color:#B9C4E0; font-size:13px; margin-top:2px; }
+    .intdiff-bp-slogan { position:relative; margin:0; }
+    .intdiff-bp-slogan .gmo { display:block; color:#01ABEE; font-size:30px; font-weight:800;
+      letter-spacing:0.8px; line-height:1.05; text-shadow:0 1px 0 rgba(0,0,0,0.25); }
+    .intdiff-bp-slogan .rest { display:block; color:#FFFFFF; font-size:17px; margin-top:4px; }
+    .intdiff-bp-sub { position:relative; color:#B9C4E0; font-size:13.5px; margin:10px 0 0; }
     .intdiff-stats { border-top:1px solid #E2E6EE; padding-top:18px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
     .intdiff-stat { display:flex; flex-direction:column; }
     .intdiff-num { color:#0F2670; font-size:22px; font-weight:600; }
@@ -750,8 +779,15 @@
       .intdiff-details .intdiff-point:last-child { border-bottom:none; }
       /* mobile type scale — Integrated Difference */
       .intdiff-label, .intdiff-label-oe, .intdiff-label-sub { font-size:14px; }
-      .intdiff-support { font-size:17px; }
-      .intdiff-slogan { font-size:18px; }
+      .intdiff-brandpill { padding:22px 22px 24px; border-radius:18px; }
+      .intdiff-brandpill::before { border-radius:18px 0 0 18px; }
+      .intdiff-brandpill::after { border-radius:18px 18px 0 0; }
+      .intdiff-brandpill-watermark { font-size:96px; right:-14px; }
+      .intdiff-bp-stations { max-width:none; margin-bottom:18px; }
+      .intdiff-bp-big { font-size:16px; }
+      .intdiff-bp-small { font-size:12px; }
+      .intdiff-bp-slogan .gmo { font-size:25px; }
+      .intdiff-bp-slogan .rest { font-size:16px; }
       .intdiff-clbl { font-size:18px; }
       .intdiff-cgap { font-size:15px; }
       .intdiff-orow { align-items:flex-start; padding:10px 0; }
@@ -1130,9 +1166,20 @@
         </div>
         <p class="intdiff-regnote">The QL-A deliverable is certified by a Professional Engineer under ASCE 38 and Professional Engineers Ontario requirements.</p>
 
-        <p class="intdiff-support"><strong>ONE</strong> crew &middot; <strong>ONE</strong> company &middot;
-          <strong>30 Years Strong</strong> &mdash; drawing on 70+ trucks and 6 Ontario locations</p>
-        <p class="intdiff-slogan"><span class="intdiff-slogan-brand">GET MORE OUT</span> with OE Utility Services</p>
+        <div class="intdiff-brandpill">
+          <div class="intdiff-brandpill-watermark" aria-hidden="true">30</div>
+          <div class="intdiff-bp-stations">
+            <div class="intdiff-bp-station"><div class="intdiff-bp-dot"></div>
+              <div class="intdiff-bp-big">ONE</div><div class="intdiff-bp-small">crew</div></div>
+            <div class="intdiff-bp-station"><div class="intdiff-bp-dot"></div>
+              <div class="intdiff-bp-big">ONE</div><div class="intdiff-bp-small">company</div></div>
+            <div class="intdiff-bp-station"><div class="intdiff-bp-dot"></div>
+              <div class="intdiff-bp-big">30</div><div class="intdiff-bp-small">Years Strong</div></div>
+          </div>
+          <p class="intdiff-bp-slogan"><span class="gmo">GET MORE OUT</span>
+            <span class="rest">with OE Utility Services</span></p>
+          <p class="intdiff-bp-sub">drawing on 70+ trucks and 6 Ontario locations</p>
+        </div>
 
         <div class="intdiff-details">
           <div class="intdiff-point">
@@ -1429,8 +1476,7 @@
     var compRows   = root.querySelectorAll('.intdiff-comp-m .intdiff-crow, .intdiff-comp-m .intdiff-cgap');
     var mLine      = root.querySelector('.intdiff-oeline-m');
     var oeRows     = root.querySelectorAll('.intdiff-oe-m .intdiff-orow');
-    var support    = root.querySelector('.intdiff-support');
-    var slogan     = root.querySelector('.intdiff-slogan');
+    var brandpill  = root.querySelector('.intdiff-brandpill');
     var regnote    = root.querySelector('.intdiff-regnote');
     var stats      = root.querySelectorAll('.intdiff-stat');
 
@@ -1440,7 +1486,7 @@
     // pre-animation hidden states applied via JS only, so a no-JS visitor sees the full static section
     each(compGroups, hideFade); each(stations, hideFade);
     each(compRows, hideFade); each(oeRows, hideFade);
-    [support, slogan, regnote].forEach(hideFade); each(stats, hideFade);
+    [brandpill, regnote].forEach(hideFade); each(stats, hideFade);
     if (oeLine) {
       var len = parseInt(oeLine.getAttribute('data-len'), 10) || 812;
       oeLine.style.strokeDasharray = len; oeLine.style.strokeDashoffset = len;
@@ -1451,7 +1497,7 @@
     requestAnimationFrame(function () {
       function tr(el) { if (el) el.style.transition = 'opacity .5s ease, transform .5s ease'; }
       each(compGroups, tr); each(stations, tr); each(compRows, tr); each(oeRows, tr);
-      [support, slogan, regnote].forEach(tr); each(stats, tr);
+      [brandpill, regnote].forEach(tr); each(stats, tr);
     });
 
     function reveal(el, delay) {
@@ -1460,8 +1506,7 @@
     }
     function closing(start) {
       reveal(regnote, start);
-      reveal(support, start + 100);
-      reveal(slogan, start + 400);
+      reveal(brandpill, start + 100);
       each(stats, function (s, i) { reveal(s, start + 550 + i * 150); });
     }
     function playDesktop() {
