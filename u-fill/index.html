@@ -78,6 +78,14 @@
       --oe-text:   #222222;
       --oe-muted:  #666666;
       --oe-green:  #2E7D32;
+      /* Secondary brand accents — used for colour variety + meaning
+         (green = savings / environmental, amber = speed / attention). */
+      --oe-green-bright: #34A853;
+      --oe-green-tint:   #EAF7EE;
+      --oe-amber:        #F5A623;
+      --oe-amber-deep:   #D88A00;
+      --oe-amber-text:   #8A5A00;  /* AA on white */
+      --oe-blue-tint:    #E9F5FC;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -419,13 +427,21 @@
 
     /* ── ALERT BAR ────────────────────────────────────────── */
     .alert-bar {
-      background: var(--oe-blue);
-      color: var(--oe-white);
+      background: linear-gradient(90deg, var(--oe-amber) 0%, var(--oe-amber-deep) 100%);
+      color: var(--oe-navy);
       text-align: center;
       padding: 12px 20px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 14px;
       letter-spacing: 0.4px;
+    }
+    .alert-bar .bolt {
+      display: inline-block;
+      animation: boltPulse 1.8s ease-in-out infinite;
+    }
+    @keyframes boltPulse {
+      0%, 100% { transform: scale(1);    opacity: 1;   }
+      50%      { transform: scale(1.28); opacity: 0.65; }
     }
 
     /* ── HERO PHOTO SECTION ───────────────────────────────── */
@@ -1217,9 +1233,113 @@
       margin-bottom: 6px;
     }
 
+    /* ════════════════════════════════════════════════════════
+       COLOUR + MOTION ENHANCEMENT PASS  (U-Fill showcase)
+       Additive layer on top of the navy + blue system: brings in
+       green / amber brand accents and scroll-reveal motion. Every
+       rule degrades gracefully — content is fully visible without
+       JS and all motion is disabled under prefers-reduced-motion.
+    ═══════════════════════════════════════════════════════════ */
+
+    /* —— Scroll reveal ——————————————————————————————————————
+       The hidden start state only applies once the inline head
+       script confirms JS by adding .reveal-on to <html>; without
+       JS the content simply renders visible. */
+    .reveal-on .reveal-group > * {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal-on .reveal-group.in > * { opacity: 1; transform: none; }
+    .reveal-on .reveal-group.in > *:nth-child(1) { transition-delay: 0s;   }
+    .reveal-on .reveal-group.in > *:nth-child(2) { transition-delay: .08s; }
+    .reveal-on .reveal-group.in > *:nth-child(3) { transition-delay: .16s; }
+    .reveal-on .reveal-group.in > *:nth-child(4) { transition-delay: .24s; }
+    .reveal-on .reveal-group.in > *:nth-child(5) { transition-delay: .32s; }
+    .reveal-on .reveal-group.in > *:nth-child(6) { transition-delay: .40s; }
+    .reveal-on .reveal-group.in > *:nth-child(7) { transition-delay: .48s; }
+    .reveal-on .reveal-group.in > *:nth-child(8) { transition-delay: .56s; }
+
+    /* —— Colour-cycled Why-OE cards —————————————————————————
+       Resting accent cycles blue → green → amber across the row;
+       hover still deepens to navy (inherited) so the set stays
+       cohesive. */
+    .why-cards .why-card:nth-child(3n+2) { border-left-color: var(--oe-green-bright); }
+    .why-cards .why-card:nth-child(3n+2) .why-card-icon { background: var(--oe-green-bright); }
+    .why-cards .why-card:nth-child(3n)   { border-left-color: var(--oe-amber); }
+    .why-cards .why-card:nth-child(3n)   .why-card-icon { background: var(--oe-amber); }
+
+    /* —— Stats strip: colour-cycled numbers + count-up ———————— */
+    .stat-num.acc-green { color: var(--oe-green-bright); }
+    .stat-num.acc-amber { color: var(--oe-amber); }
+
+    /* —— Capability + application cards: accent variety ————————— */
+    .ufill-capabilities .service-card:nth-child(2) { border-top-color: var(--oe-green-bright); }
+    .industries-grid .industry-tile:nth-child(3n+2):hover { border-color: var(--oe-green-bright); }
+    .industries-grid .industry-tile:nth-child(3n):hover   { border-color: var(--oe-amber); }
+    .industries-grid .industry-tile:hover .industry-icon  { transform: scale(1.12); transition: transform .2s ease; }
+
+    /* —— The Integrated Difference: colourful count-up stats ——— */
+    .ufill-integrated { background: var(--oe-green-tint); }
+    .integrated-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-bottom: 34px;
+    }
+    @media (max-width: 1100px) { .integrated-stats { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px)  { .integrated-stats { grid-template-columns: 1fr; } }
+    .istat {
+      background: var(--oe-white);
+      border: 1px solid var(--oe-border);
+      border-top: 4px solid var(--oe-blue);
+      border-radius: 8px;
+      padding: 26px 22px;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .istat:hover { transform: translateY(-5px); box-shadow: 0 14px 30px rgba(15,38,112,0.14); }
+    .istat-num {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 46px;
+      line-height: 1;
+      color: var(--oe-navy);
+      margin-bottom: 10px;
+    }
+    .istat-label { font-size: 15px; font-weight: 800; color: var(--oe-navy); margin-bottom: 4px; }
+    .istat-sub   { font-size: 13px; color: var(--oe-muted); line-height: 1.45; }
+    .istat.green { border-top-color: var(--oe-green-bright); }
+    .istat.green .istat-num { color: var(--oe-green); }
+    .istat.amber { border-top-color: var(--oe-amber); }
+    .istat.amber .istat-num { color: var(--oe-amber-deep); }
+    .istat.blue  .istat-num { color: var(--oe-blue-text); }
+
+    /* —— Sticky CTA: gentle amber attention pulse ———————————— */
+    .sticky-cta { animation: ctaPulse 2.8s ease-in-out infinite; }
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 6px 20px rgba(15,38,112,0.35); }
+      50%      { box-shadow: 0 6px 26px rgba(245,166,35,0.55); }
+    }
+
+    /* —— Motion off for users who ask for it ————————————————— */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on .reveal-group > *,
+      .reveal-on .reveal-group.in > * {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .alert-bar .bolt,
+      .sticky-cta,
+      .industries-grid .industry-tile:hover .industry-icon { animation: none !important; transform: none !important; }
+    }
+
   </style>
 </head>
 <body>
+<!-- Confirm JS support before first paint so scroll-reveal start
+     states only apply when they can actually be animated away. -->
+<script>document.documentElement.className += ' reveal-on';</script>
 
 <!-- ══════════════════════════════════════════════════════════
      HEADER
@@ -1411,7 +1531,7 @@
   </div>
 </section>
 
-<div class="alert-bar">⚡ &nbsp; 24/7 EMERGENCY UTILITY RESPONSE — Call 416.749.0005 anytime</div>
+<div class="alert-bar"><span class="bolt" aria-hidden="true">⚡</span> &nbsp; 24/7 EMERGENCY UTILITY RESPONSE — Call 416.749.0005 anytime</div>
 
 <!-- ══════════════════════════════════════════════════════════
      HERO PHOTO — Large signature image
@@ -1472,17 +1592,17 @@
      STATS STRIP
 ══════════════════════════════════════════════════════════ -->
 <section class="stats-strip">
-  <div class="stats-grid">
+  <div class="stats-grid reveal-group">
     <div>
-      <div class="stat-num">70+</div>
+      <div class="stat-num" data-count="70" data-suffix="+">70+</div>
       <div class="stat-label">Trucks in the Fleet</div>
     </div>
     <div>
-      <div class="stat-num">6</div>
+      <div class="stat-num acc-green" data-count="6">6</div>
       <div class="stat-label">Ontario Locations</div>
     </div>
     <div>
-      <div class="stat-num">30+</div>
+      <div class="stat-num acc-amber" data-count="30" data-suffix="+">30+</div>
       <div class="stat-label">Years of Service</div>
     </div>
     <div>
@@ -1515,12 +1635,12 @@
      sub-pages are built (matches the hydrovac link pattern).
 ══════════════════════════════════════════════════════════ -->
 <section class="section ufill-capabilities">
-  <div class="section-inner">
+  <div class="section-inner reveal-group">
     <div class="section-eyebrow">Capabilities</div>
     <h2 class="section-title">U-Fill Service Capabilities</h2>
     <p class="section-lead">From utility trench backfill to void filling, OE places unshrinkable fill to Ontario municipal spec across the province.</p>
 
-    <div class="services-grid">
+    <div class="services-grid reveal-group">
       <a class="service-card" href="controlled-low-strength-material/">
         <div class="service-icon">🧱</div>
         <h3>Controlled Low Strength Material (CLSM)</h3>
@@ -1553,12 +1673,12 @@
      APPLICATIONS — Where unshrinkable fill is used
 ══════════════════════════════════════════════════════════ -->
 <section class="section">
-  <div class="section-inner">
+  <div class="section-inner reveal-group">
     <div class="section-eyebrow">Applications</div>
     <h2 class="section-title">Where Unshrinkable Fill Goes to Work</h2>
     <p class="section-lead">From utility trench backfill to void filling, unshrinkable fill solves the jobs where compaction is slow, risky, or simply can't reach.</p>
 
-    <div class="industries-grid">
+    <div class="industries-grid reveal-group">
       <div class="industry-tile">
         <div class="industry-icon">🔧</div>
         <h3>Utility Trench Backfill</h3>
@@ -1606,12 +1726,37 @@
 <!-- ══════════════════════════════════════════════════════════
      THE INTEGRATED DIFFERENCE — LEAN paragraph (approved figures)
 ══════════════════════════════════════════════════════════ -->
-<section class="section section-light">
+<section class="section ufill-integrated">
   <div class="section-inner">
     <div class="section-eyebrow">The Integrated Difference</div>
     <h2 class="section-title">One Contract From Dig to Backfill</h2>
+    <p class="section-lead">Booking excavation, U-Fill backfill, and restoration together as one OE job is where the savings show up.</p>
+
+    <div class="integrated-stats reveal-group">
+      <div class="istat green">
+        <div class="istat-num" data-count="10" data-prefix="up to " data-suffix="%">up to 10%</div>
+        <div class="istat-label">Cost Savings</div>
+        <div class="istat-sub">When dig, backfill &amp; restoration are booked as one job.</div>
+      </div>
+      <div class="istat amber">
+        <div class="istat-num" data-count="50" data-suffix="%">50%</div>
+        <div class="istat-label">Productivity Gains</div>
+        <div class="istat-sub">One mobilization, one crew — no waiting on a separate supplier.</div>
+      </div>
+      <div class="istat blue">
+        <div class="istat-num" data-count="40" data-prefix="$" data-suffix="/hr">$40/hr</div>
+        <div class="istat-label">Bundled-Service Discount</div>
+        <div class="istat-sub">Applied when services are booked together.</div>
+      </div>
+      <div class="istat green">
+        <div class="istat-num" data-count="30" data-suffix="%">30%</div>
+        <div class="istat-label">Lower Travel &amp; Emissions</div>
+        <div class="istat-sub">Integrated operations across 6 Ontario locations mean fewer trips.</div>
+      </div>
+    </div>
+
     <div class="why-text" style="max-width: 820px;">
-      <p>Booking excavation, U-Fill backfill, and restoration together as one OE job is where the savings show up: up to 10% cost savings, 50% productivity gains, and a $40/hr discount when services are booked together — one mobilization, one crew, one point of accountability instead of waiting on a separate fill supplier. Because OE runs its own integrated operations across 6 Ontario locations, coordinating fewer trucks and trips cuts travel costs and emissions by 30%.</p>
+      <p>One mobilization, one crew, one point of accountability instead of waiting on a separate fill supplier. Because OE runs its own integrated operations across 6 Ontario locations, coordinating fewer trucks and trips cuts travel costs and emissions — savings that land back in your project budget.</p>
     </div>
   </div>
 </section>
@@ -1620,7 +1765,7 @@
      REPRESENTATIVE WORK — single representative project
 ══════════════════════════════════════════════════════════ -->
 <section class="section">
-  <div class="section-inner">
+  <div class="section-inner reveal-group">
     <div class="section-eyebrow">Representative Work</div>
     <h2 class="section-title">Real Work Across Ontario</h2>
     <p class="section-lead">A representative project type — not an actual named Customer. Full project portfolio available on request.</p>
@@ -1664,12 +1809,12 @@
      Reinforces integrated-partner positioning at peak trust
 ══════════════════════════════════════════════════════════ -->
 <section class="section section-light">
-  <div class="section-inner">
+  <div class="section-inner reveal-group">
     <div class="section-eyebrow">The Full OE Service</div>
     <h2 class="section-title">More Than U-Fill — A Complete Utility Infrastructure Partner</h2>
     <p class="section-lead">U-Fill is one capability within OE's full service offering. Here's what else our team handles — often within the same contract, on the same site, by the same project lead.</p>
 
-    <div class="full-service-grid">
+    <div class="full-service-grid reveal-group">
       <a class="full-service-card" href="/hydrovac/">
         <div class="full-service-icon">🚿</div>
         <h4>Hydrovac Trucks</h4>
@@ -1766,12 +1911,12 @@
      reach me?") answered immediately before conversion point
 ══════════════════════════════════════════════════════════ -->
 <section class="section section-light" id="coverage">
-  <div class="section-inner">
+  <div class="section-inner reveal-group">
     <div class="section-eyebrow">Coverage</div>
     <h2 class="section-title">U-Fill Service Across Ontario</h2>
     <p class="section-lead">Six locations with crews positioned for fast regional response. Click any location for detailed service area information.</p>
 
-    <div class="coverage-grid">
+    <div class="coverage-grid reveal-group">
       <a class="coverage-card" href="/locations/gta/">
         <h4>Greater Toronto Area →</h4>
         <p>Headquarters · Flagship operations</p>
@@ -1991,6 +2136,50 @@
       entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.2 });
     cards.forEach(function(c){ io.observe(c); });
+  })();
+
+  // Scroll-reveal for grouped sections — children stagger in via CSS.
+  (function(){
+    var groups = document.querySelectorAll('.reveal-group');
+    if (!groups.length) return;
+    if (!('IntersectionObserver' in window)) {
+      Array.prototype.forEach.call(groups, function(g){ g.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    Array.prototype.forEach.call(groups, function(g){ io.observe(g); });
+  })();
+
+  // Count-up for stat numbers ([data-count]). Honours prefers-reduced-motion
+  // (and no-IntersectionObserver) by leaving the final values untouched.
+  (function(){
+    var nums = document.querySelectorAll('[data-count]');
+    if (!nums.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    function render(el, val){
+      el.textContent = (el.getAttribute('data-prefix') || '') + val + (el.getAttribute('data-suffix') || '');
+    }
+    Array.prototype.forEach.call(nums, function(el){ render(el, 0); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var el = e.target; io.unobserve(el);
+        var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+        var dur = 1100, start = null;
+        function step(ts){
+          if (start === null) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          render(el, Math.round(eased * target));
+          if (p < 1) requestAnimationFrame(step); else render(el, target);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+    Array.prototype.forEach.call(nums, function(el){ io.observe(el); });
   })();
 </script>
 
