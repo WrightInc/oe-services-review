@@ -425,25 +425,6 @@
     .hero-badge-link { display: block; color: inherit; text-decoration: none; }
     .hero-badge-link:focus-visible { outline: 2px solid var(--oe-blue); outline-offset: 2px; }
 
-    /* ── ALERT BAR ────────────────────────────────────────── */
-    .alert-bar {
-      background: linear-gradient(90deg, var(--oe-amber) 0%, var(--oe-amber-deep) 100%);
-      color: var(--oe-navy);
-      text-align: center;
-      padding: 12px 20px;
-      font-weight: 800;
-      font-size: 14px;
-      letter-spacing: 0.4px;
-    }
-    .alert-bar .bolt {
-      display: inline-block;
-      animation: boltPulse 1.8s ease-in-out infinite;
-    }
-    @keyframes boltPulse {
-      0%, 100% { transform: scale(1);    opacity: 1;   }
-      50%      { transform: scale(1.28); opacity: 0.65; }
-    }
-
     /* ── HERO PHOTO SECTION ───────────────────────────────── */
     .hero-photo-section { background: var(--oe-light); padding: 0; }
     .hero-photo-wrap {
@@ -1314,13 +1295,6 @@
     .istat.amber .istat-num { color: var(--oe-amber-deep); }
     .istat.blue  .istat-num { color: var(--oe-blue-text); }
 
-    /* —— Sticky CTA: gentle amber attention pulse ———————————— */
-    .sticky-cta { animation: ctaPulse 2.8s ease-in-out infinite; }
-    @keyframes ctaPulse {
-      0%, 100% { box-shadow: 0 6px 20px rgba(15,38,112,0.35); }
-      50%      { box-shadow: 0 6px 26px rgba(245,166,35,0.55); }
-    }
-
     /* —— Motion off for users who ask for it ————————————————— */
     @media (prefers-reduced-motion: reduce) {
       .reveal-on .reveal-group > *,
@@ -1329,8 +1303,6 @@
         transform: none !important;
         transition: none !important;
       }
-      .alert-bar .bolt,
-      .sticky-cta,
       .industries-grid .industry-tile:hover .industry-icon { animation: none !important; transform: none !important; }
     }
 
@@ -1530,8 +1502,6 @@
     </div>
   </div>
 </section>
-
-<div class="alert-bar"><span class="bolt" aria-hidden="true">⚡</span> &nbsp; 24/7 EMERGENCY UTILITY RESPONSE — Call 416.749.0005 anytime</div>
 
 <!-- ══════════════════════════════════════════════════════════
      HERO PHOTO — Large signature image
