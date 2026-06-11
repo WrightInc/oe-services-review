@@ -722,7 +722,7 @@
     .intdiff-clbl { color:#4A5468; font-size:13px; }
     .intdiff-cgap { margin-left:6px; border-left:2px dashed #B0431F; min-height:26px; padding:4px 0 4px 16px; color:#B0431F; font-size:11px; display:flex; align-items:center; }
     .intdiff-oe-m { position:relative; }
-    .intdiff-oeline-m { position:absolute; left:5px; top:8px; bottom:14.5px; width:5px; border-radius:3px; background:#01ABEE; }
+    .intdiff-oeline-m { position:absolute; left:5px; top:22px; bottom:22px; width:5px; border-radius:3px; background:#01ABEE; }
     .intdiff-orow { display:flex; align-items:center; gap:14px; padding:7px 0; position:relative; }
     .intdiff-odot { width:15px; height:15px; border-radius:50%; background:#0A1B4D; border:4px solid #01ABEE; flex:0 0 auto; box-sizing:border-box; }
     .intdiff-otxt { color:#6B7280; font-size:12px; }
@@ -1361,6 +1361,36 @@
   (function () {
     var root = document.querySelector('[data-intdiff]');
     if (!root) return;
+
+    // Mobile OE line geometry — span the first→last station dot centres (robust to wrapped
+    // captions). Runs regardless of reduced motion; this is geometry, not animation.
+    (function () {
+      var oeWrap = root.querySelector('.intdiff-oe-m');
+      var oeLineM = root.querySelector('.intdiff-oeline-m');
+      if (!oeWrap || !oeLineM) return;
+      function measureOeLine() {
+        if (!oeWrap.offsetParent) {            // hidden (desktop) — fall back to CSS
+          oeLineM.style.top = ''; oeLineM.style.bottom = ''; oeLineM.style.height = '';
+          return;
+        }
+        var dots = oeWrap.querySelectorAll('.intdiff-odot');
+        if (dots.length < 2) return;
+        var wrapTop = oeWrap.getBoundingClientRect().top;
+        var f = dots[0].getBoundingClientRect();
+        var l = dots[dots.length - 1].getBoundingClientRect();
+        var top = (f.top - wrapTop) + f.height / 2;
+        var bot = (l.top - wrapTop) + l.height / 2;
+        oeLineM.style.top = top + 'px';
+        oeLineM.style.bottom = 'auto';
+        oeLineM.style.height = (bot - top) + 'px';
+      }
+      var rzT;
+      function scheduleMeasure() { clearTimeout(rzT); rzT = setTimeout(measureOeLine, 150); }
+      measureOeLine();
+      if (document.readyState !== 'complete') window.addEventListener('load', measureOeLine);
+      window.addEventListener('resize', scheduleMeasure);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureOeLine);
+    })();
     var mm = window.matchMedia;
     if (mm && mm('(prefers-reduced-motion: reduce)').matches) return; // static full state already rendered
     var isMobile = mm && mm('(max-width: 768px)').matches;
