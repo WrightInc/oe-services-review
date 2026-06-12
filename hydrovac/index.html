@@ -69,7 +69,9 @@
       --oe-border: #D8E4EE;
       --oe-text:   #222222;
       --oe-muted:  #666666;
-      --oe-green:  #2E7D32;
+      --oe-green:  #029449;   /* PMS 348 — brand guide */
+      --oe-grey-canvas:  #ECEFF2; /* brand guide light grey (Black 10%) */
+      --oe-green-canvas: #E9F4EE; /* PMS 348 tint */
     }
     @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Regular.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
     @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Medium.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
@@ -557,7 +559,7 @@
 
     /* ── STATS STRIP ──────────────────────────────────────── */
     .stats-strip {
-      background: var(--oe-navy);
+      background: var(--oe-grey-canvas);
       padding: 60px 30px;
     }
     .stats-grid {
@@ -569,12 +571,12 @@
       font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 900;
       font-size: 56px;
-      color: var(--oe-blue);
+      color: var(--oe-navy);
       line-height: 1;
       margin-bottom: 8px;
     }
     .stat-label {
-      color: var(--oe-white);
+      color: var(--oe-navy);
       font-weight: 600;
       font-size: 14px;
       text-transform: uppercase;
@@ -986,7 +988,7 @@
       gap: 10px;
     }
     .sticky-cta:hover {
-      background: var(--oe-green);
+      background: var(--oe-navy);
       color: var(--oe-white);
       transform: translateY(-2px);
     }
@@ -1452,7 +1454,7 @@
 <!-- ══════════════════════════════════════════════════════════
      SERVICE CAPABILITIES
 ══════════════════════════════════════════════════════════ -->
-<section class="section section-light">
+<section class="section" style="background: var(--oe-green-canvas);">
   <div class="section-inner">
     <div class="section-eyebrow">Capabilities</div>
     <h2 class="section-title">Complete Hydrovac Service Capabilities</h2>
@@ -1603,7 +1605,7 @@
         <div class="process-num">6</div>
         <h3>Disposal & Recycling</h3>
         <ul>
-          <li>MOECP-approved Central GTA facility</li>
+          <li>ECA-approved Central GTA facility</li>
           <li>Tracking, tracing, and contamination testing</li>
           <li>1,500+ tonnes of sand reclaimed per year</li>
           <li>100,000+ tonnes diverted from landfill</li>
@@ -1802,7 +1804,7 @@
       <a class="full-service-card" href="/soil-recycling/">
         <div class="full-service-icon">♻️</div>
         <h4>Soil Recycling</h4>
-        <p>MOECP-approved facility. 100,000+ tonnes diverted from landfill. Premium pipe bedding material available.</p>
+        <p>ECA-approved facility. 100,000+ tonnes diverted from landfill. Premium pipe bedding material available.</p>
         <span class="service-read-more">Read More →</span>
       </a>
 
@@ -1844,7 +1846,7 @@
       </details>
       <details class="faq-item">
         <summary class="faq-question">How does OE handle disposal of excavated material?</summary>
-        <div class="faq-answer">Through our MOECP-approved soil recycling facility in the Central GTA. Hydrovac slurry is sorted, tested, and processed into reusable products — including premium pipe-bedding sand. Over 100,000 tonnes have been diverted from landfill to date.</div>
+        <div class="faq-answer">Through our ECA-approved soil recycling facility in the Central GTA. Hydrovac slurry is sorted, tested, and processed into reusable products — including premium pipe-bedding sand. Over 100,000 tonnes have been diverted from landfill to date.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-question">What separates OE from other Ontario hydrovac providers?</summary>
