@@ -68,6 +68,10 @@
       --oe-muted:  #666666;
       --oe-green:  #2E7D32;
     }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Regular.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Medium.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Semibold.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Semibold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Bold.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Bold.otf') format('opentype'); font-weight: 700 900; font-style: normal; font-display: swap; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Nunito Sans', Arial, sans-serif;
@@ -76,7 +80,7 @@
       line-height: 1.6;
     }
     h1, h2, h3, h4, h5 {
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 800;
       line-height: 1.15;
     }
@@ -102,7 +106,7 @@
     .nav-centre { list-style: none; display: flex; align-items: center; gap: 28px; flex: 1; justify-content: center; }
     .nav-centre > li { position: relative; }
     .nav-centre > li > a {
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 700;
       font-size: 14px;
       color: var(--oe-text);
@@ -219,7 +223,7 @@
       display: block;
       width: 100%;
       padding: 15px 30px;
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 700;
       font-size: 15px;
       color: var(--oe-text);
@@ -271,7 +275,7 @@
       border: none;
       cursor: pointer;
       text-align: left;
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 600;
       font-size: 13px;
       color: var(--oe-text);
@@ -334,7 +338,7 @@
       display: inline-block;
       background: var(--oe-blue);
       color: var(--oe-white);
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 12px;
       text-transform: uppercase;
@@ -361,7 +365,7 @@
     }
     @media (max-width: 768px) { .hero-service-name { font-size: 40px; } }
     .hero-tagline {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 30px;
       font-weight: 800;
       line-height: 1.15;
@@ -381,7 +385,7 @@
     .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn {
       display: inline-block;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 15px;
       padding: 14px 26px;
@@ -412,7 +416,7 @@
       border-left: 4px solid var(--oe-blue);
     }
     .hero-photo-caption .cap-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--oe-blue); margin-bottom: 6px; }
-    .hero-photo-caption .cap-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.25; }
+    .hero-photo-caption .cap-title { font-family: 'Diodrum Rounded', 'Nunito', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.25; }
 
     /* ── SECTIONS ─────────────────────────────────────────── */
     .section { padding: 72px 30px; }
@@ -422,7 +426,7 @@
 
     .section-eyebrow {
       display: inline-block;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 20px;
       text-transform: uppercase;
@@ -535,7 +539,7 @@
       display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center;
     }
     .trust-label {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 14px;
       color: var(--oe-navy);
@@ -549,7 +553,7 @@
       background: var(--oe-light);
       padding: 12px 18px;
       border-radius: 4px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 13px;
       color: var(--oe-navy);
@@ -588,7 +592,7 @@
       color: var(--oe-white);
       padding: 16px 22px;
       border-radius: 50px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 15px;
       text-transform: uppercase;
@@ -617,7 +621,7 @@
     @media (max-width: 960px)  { .footer-links { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
     @media (max-width: 540px)  { .footer-links { grid-template-columns: 1fr; } }
     .footer-col h3 {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 13px;
       text-transform: uppercase;

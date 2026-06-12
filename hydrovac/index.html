@@ -71,6 +71,10 @@
       --oe-muted:  #666666;
       --oe-green:  #2E7D32;
     }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Regular.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Medium.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Semibold.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Semibold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Bold.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Bold.otf') format('opentype'); font-weight: 700 900; font-style: normal; font-display: swap; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -80,7 +84,7 @@
       line-height: 1.6;
     }
     h1, h2, h3, h4, h5 {
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 800;
       line-height: 1.15;
     }
@@ -105,7 +109,7 @@
     .nav-centre { list-style: none; display: flex; align-items: center; gap: 28px; flex: 1; justify-content: center; }
     .nav-centre > li { position: relative; }
     .nav-centre > li > a {
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 700;
       font-size: 14px;
       color: var(--oe-text);
@@ -197,7 +201,7 @@
       display: block;
       width: 100%;
       padding: 15px 30px;
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 700;
       font-size: 15px;
       color: var(--oe-text);
@@ -249,7 +253,7 @@
       border: none;
       cursor: pointer;
       text-align: left;
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 600;
       font-size: 13px;
       color: var(--oe-text);
@@ -313,7 +317,7 @@
       display: inline-block;
       background: var(--oe-blue);
       color: var(--oe-white);
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 12px;
       text-transform: uppercase;
@@ -335,7 +339,7 @@
        (not a heading) to keep the single h1 first in source order;
        font-family set explicitly so it matches the OE heading face (Nunito). */
     .hero-service-name {
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-size: 56px;
       font-weight: 800;
       line-height: 1.1;
@@ -358,7 +362,7 @@
     .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn {
       display: inline-block;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 15px;
       padding: 14px 26px;
@@ -385,7 +389,7 @@
       border-radius: 4px;
     }
     .hero-badge .bl { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 4px; }
-    .hero-badge .bv { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2; }
+    .hero-badge .bv { font-family: 'Diodrum Rounded', 'Nunito', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2; }
     /* Hero stat cards — shared base look. ONLY the linked card highlights
        on hover / keyboard focus; plain non-linked cards do not react.
        Text stays light and legible in every state. Covers both link
@@ -437,7 +441,7 @@
       border-left: 4px solid var(--oe-blue);
     }
     .hero-photo-caption .cap-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--oe-blue); margin-bottom: 6px; }
-    .hero-photo-caption .cap-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.25; }
+    .hero-photo-caption .cap-title { font-family: 'Diodrum Rounded', 'Nunito', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.25; }
 
     /* ── SECTIONS ─────────────────────────────────────────── */
     .section { padding: 80px 30px; }
@@ -447,7 +451,7 @@
 
     .section-eyebrow {
       display: inline-block;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 20px;
       text-transform: uppercase;
@@ -542,7 +546,7 @@
     .why-card:hover .why-card-icon { background: var(--oe-navy); transform: scale(1.08); }
     .why-card-icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 2; }
     .why-card-stat {
-      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif; font-weight: 800;
       font-size: 22px; color: var(--oe-navy); line-height: 1.1; margin-bottom: 8px;
     }
     .why-card p { font-size: 15px; color: var(--oe-text); line-height: 1.55; margin: 0; }
@@ -562,7 +566,7 @@
       text-align: center;
     }
     .stat-num {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 900;
       font-size: 56px;
       color: var(--oe-blue);
@@ -651,7 +655,7 @@
       width: 44px; height: 44px;
       background: var(--oe-navy);
       color: var(--oe-white);
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 900;
       font-size: 20px;
       display: flex; align-items: center; justify-content: center;
@@ -707,7 +711,7 @@
       border-radius: 4px;
     }
     .fleet-feature .ff-num {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 900;
       font-size: 32px;
       color: var(--oe-blue);
@@ -792,7 +796,7 @@
       display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center;
     }
     .trust-label {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 14px;
       color: var(--oe-navy);
@@ -811,7 +815,7 @@
       background: var(--oe-light);
       padding: 14px 22px;
       border-radius: 4px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 13px;
       color: var(--oe-navy);
@@ -861,7 +865,7 @@
     }
     .faq-question {
       padding: 20px 24px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 17px;
       color: var(--oe-navy);
@@ -949,7 +953,7 @@
       color: var(--oe-white);
       border: none;
       border-radius: 4px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 16px;
       text-transform: uppercase;
@@ -969,7 +973,7 @@
       color: var(--oe-white);
       padding: 16px 22px;
       border-radius: 50px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 15px;
       text-transform: uppercase;
@@ -1016,7 +1020,7 @@
     @media (max-width: 960px)  { .footer-links { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
     @media (max-width: 540px)  { .footer-links { grid-template-columns: 1fr; } }
     .footer-col h3 {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 13px;
       text-transform: uppercase;
@@ -1096,7 +1100,7 @@
       right: 14px;
       background: var(--oe-light);
       color: var(--oe-navy);
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 10px;
       font-weight: 800;
       text-transform: uppercase;
