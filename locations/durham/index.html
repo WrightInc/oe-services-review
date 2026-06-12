@@ -100,6 +100,10 @@
       --oe-muted:  #666666;
       --oe-green:  #2E7D32;
     }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Regular.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Medium.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Semibold.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Semibold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Bold.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Bold.otf') format('opentype'); font-weight: 700 900; font-style: normal; font-display: swap; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Nunito Sans', Arial, sans-serif;
@@ -108,7 +112,7 @@
       line-height: 1.6;
     }
     h1, h2, h3, h4, h5 {
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 800;
       line-height: 1.15;
     }
@@ -134,7 +138,7 @@
     .nav-centre { list-style: none; display: flex; align-items: center; gap: 28px; flex: 1; justify-content: center; }
     .nav-centre > li { position: relative; }
     .nav-centre > li > a {
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 700;
       font-size: 14px;
       color: var(--oe-text);
@@ -226,7 +230,7 @@
       display: block;
       width: 100%;
       padding: 15px 30px;
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 700;
       font-size: 15px;
       color: var(--oe-text);
@@ -278,7 +282,7 @@
       border: none;
       cursor: pointer;
       text-align: left;
-      font-family: 'Nunito', Arial, sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif;
       font-weight: 600;
       font-size: 13px;
       color: var(--oe-text);
@@ -342,7 +346,7 @@
       display: inline-block;
       background: var(--oe-blue);
       color: var(--oe-white);
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 12px;
       text-transform: uppercase;
@@ -365,7 +369,7 @@
     .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn {
       display: inline-block;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 15px;
       padding: 14px 26px;
@@ -392,7 +396,7 @@
       border-radius: 4px;
     }
     .hero-badge .bl { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 4px; }
-    .hero-badge .bv { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2; }
+    .hero-badge .bv { font-family: 'Diodrum Rounded', 'Nunito', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2; }
     /* Hero stat cards — shared base look. ONLY the linked card highlights
        on hover / keyboard focus; plain non-linked cards do not react.
        Text stays light and legible in every state. Covers both link
@@ -440,7 +444,7 @@
       border-left: 4px solid var(--oe-blue);
     }
     .hero-photo-caption .cap-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--oe-blue); margin-bottom: 6px; }
-    .hero-photo-caption .cap-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.25; }
+    .hero-photo-caption .cap-title { font-family: 'Diodrum Rounded', 'Nunito', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.25; }
 
     /* ── SECTIONS ─────────────────────────────────────────── */
     .section { padding: 80px 30px; }
@@ -450,7 +454,7 @@
 
     .section-eyebrow {
       display: inline-block;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 20px;
       text-transform: uppercase;
@@ -513,7 +517,7 @@
       text-align: center;
     }
     .stat-num {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 900;
       font-size: 56px;
       color: var(--oe-blue);
@@ -602,7 +606,7 @@
       width: 44px; height: 44px;
       background: var(--oe-navy);
       color: var(--oe-white);
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 900;
       font-size: 20px;
       display: flex; align-items: center; justify-content: center;
@@ -658,7 +662,7 @@
       border-radius: 4px;
     }
     .fleet-feature .ff-num {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 900;
       font-size: 32px;
       color: var(--oe-blue);
@@ -743,7 +747,7 @@
       display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center;
     }
     .trust-label {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 14px;
       color: var(--oe-navy);
@@ -762,7 +766,7 @@
       background: var(--oe-light);
       padding: 14px 22px;
       border-radius: 4px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 13px;
       color: var(--oe-navy);
@@ -812,7 +816,7 @@
     }
     .faq-question {
       padding: 20px 24px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 17px;
       color: var(--oe-navy);
@@ -900,7 +904,7 @@
       color: var(--oe-white);
       border: none;
       border-radius: 4px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 16px;
       text-transform: uppercase;
@@ -920,7 +924,7 @@
       color: var(--oe-white);
       padding: 16px 22px;
       border-radius: 50px;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 15px;
       text-transform: uppercase;
@@ -967,7 +971,7 @@
     @media (max-width: 960px)  { .footer-links { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
     @media (max-width: 540px)  { .footer-links { grid-template-columns: 1fr; } }
     .footer-col h3 {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 13px;
       text-transform: uppercase;
@@ -1047,7 +1051,7 @@
       right: 14px;
       background: var(--oe-light);
       color: var(--oe-navy);
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 10px;
       font-weight: 800;
       text-transform: uppercase;
@@ -1092,7 +1096,7 @@
     ════════════════════════════════════════════════════════ */
     /* Body heading-like classes need the Nunito display face
        (shell base only covers h1–h5). */
-    .btn, .eyebrow, .stat-num, .cert-tag { font-family: 'Nunito', Arial, sans-serif; }
+    .btn, .eyebrow, .stat-num, .cert-tag { font-family: 'Diodrum Rounded', 'Nunito', Arial, sans-serif; }
 
     /* ════════════════════════════════════════════════════════
        HERO — Location-specific
@@ -1125,7 +1129,7 @@
     /* Hero buttons match the hydrovac hero exactly, scoped to .hero so the
        page's other buttons keep their styling. */
     .hero .btn {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-weight: 700;
       font-size: 15px;
       padding: 14px 26px;
@@ -1143,7 +1147,7 @@
       background: var(--oe-blue);
       padding: 14px 40px;
       text-align: center;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 13px;
       font-weight: 800;
       color: var(--oe-white);
@@ -1178,7 +1182,7 @@
       max-width: 70%;
     }
     .caption-eyebrow {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 10px;
       font-weight: 800;
       letter-spacing: 2.5px;
@@ -1187,7 +1191,7 @@
       margin-bottom: 5px;
     }
     .caption-title {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 16px;
       font-weight: 700;
       color: var(--oe-white);
@@ -1238,7 +1242,7 @@
       color:var(--oe-blue);
       border-radius:50%;
       display:flex; align-items:center; justify-content:center;
-      font-family:'Nunito',sans-serif; font-size:24px; font-weight:800;
+      font-family:'Diodrum Rounded', 'Nunito',sans-serif; font-size:24px; font-weight:800;
       margin-bottom:18px;
     }
     .service-card h3 {
@@ -1248,18 +1252,18 @@
     .service-card p { font-size:14px; color:var(--oe-muted); line-height:1.6; }
     .service-card .read-more {
       display:inline-block; margin-top:14px;
-      font-family:'Nunito',sans-serif; font-size:11px; font-weight:800;
+      font-family:'Diodrum Rounded', 'Nunito',sans-serif; font-size:11px; font-weight:800;
       letter-spacing:1.5px; text-transform:uppercase; color:var(--oe-blue);
     }
 
     /* Service area / projects table */
     .oe-table { width:100%; border-collapse:collapse; font-size:15px; }
     .oe-table thead tr { background:var(--oe-navy); }
-    .oe-table th { padding:14px 20px; text-align:left; font-family:'Nunito',sans-serif; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:var(--oe-blue); }
+    .oe-table th { padding:14px 20px; text-align:left; font-family:'Diodrum Rounded', 'Nunito',sans-serif; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:var(--oe-blue); }
     .oe-table td { padding:14px 20px; border-bottom:1px solid var(--oe-border); color:var(--oe-text); vertical-align:middle; }
     .oe-table tr:last-child td { border-bottom:none; }
     .oe-table tr:nth-child(even) td { background:var(--oe-light); }
-    .tag { display:inline-block; background:var(--oe-navy); color:var(--oe-blue); font-family:'Nunito',sans-serif; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:4px 11px; border-radius:2px; }
+    .tag { display:inline-block; background:var(--oe-navy); color:var(--oe-blue); font-family:'Diodrum Rounded', 'Nunito',sans-serif; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:4px 11px; border-radius:2px; }
 
     /* Service area pill list */
     .area-pills {
@@ -1280,7 +1284,7 @@
     .project-card { background:var(--oe-white); padding:28px 24px; border-left:4px solid var(--oe-blue); }
     .project-card .p-tag {
       display:inline-block;
-      font-family:'Nunito',sans-serif;
+      font-family:'Diodrum Rounded', 'Nunito',sans-serif;
       font-size:10px; font-weight:800;
       letter-spacing:2px; text-transform:uppercase;
       color:var(--oe-blue); margin-bottom:10px;
@@ -1349,7 +1353,7 @@
       padding: 40px 36px;
     }
     .contact-wrap h3 {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 14px; font-weight: 800;
       text-transform: uppercase; letter-spacing: 1.5px;
       color: var(--oe-navy);
@@ -1376,7 +1380,7 @@
     }
     .hours-block strong {
       display: block;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 11px; font-weight: 800;
       letter-spacing: 1.5px; text-transform: uppercase;
       color: var(--oe-navy); margin-bottom: 6px;
@@ -1394,13 +1398,13 @@
       border-left: 4px solid var(--oe-blue);
     }
     .emergency-callout .lbl {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 10px; font-weight: 800;
       letter-spacing: 2px; text-transform: uppercase;
       color: var(--oe-blue); margin-bottom: 4px;
     }
     .emergency-callout a {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 22px; font-weight: 800;
       color: var(--oe-white); text-decoration: none;
     }
@@ -1429,7 +1433,7 @@
       font-weight: 800; margin-bottom: 4px;
     }
     .lead-card .role {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 12px; font-weight: 700;
       text-transform: uppercase; letter-spacing: 1px;
       color: var(--oe-blue); margin-bottom: 8px;
@@ -1468,7 +1472,7 @@
     }
     .cta-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
     .cta-section h2 {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: clamp(26px, 3vw, 36px);
       font-weight: 800;
       color: var(--oe-blue);
@@ -1528,7 +1532,7 @@
       right: 10px;
       background: var(--oe-blue);
       color: var(--oe-navy);
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Diodrum Rounded', 'Nunito', sans-serif;
       font-size: 9px;
       font-weight: 800;
       letter-spacing: 1.2px;
