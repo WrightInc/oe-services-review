@@ -43,7 +43,7 @@ p { margin-bottom: 1.05rem; }
 
 header.nav { position: sticky; top: 0px; z-index: 60; background: rgba(255, 255, 255, 0.9); backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid var(--line); }
 
-.nav-in { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: var(--maxw); margin: 0px auto; padding: 0px 26px; }
+.nav-in { display: flex; align-items: center; justify-content: flex-start; height: 64px; max-width: var(--maxw); margin: 0px auto; padding: 0px 26px; }
 
 .brand { display: flex; align-items: center; gap: 11px; font-family: var(--fh); font-weight: 700; color: var(--navy); font-size: 1rem; }
 
@@ -61,7 +61,7 @@ header.nav { position: sticky; top: 0px; z-index: 60; background: rgba(255, 255,
   .navlinks { display: none; }
 }
 
-.hero { position: relative; min-height: 78vh; display: flex; align-items: flex-end; color: rgb(255, 255, 255); overflow: hidden; background: var(--navy); }
+.hero { position: relative; min-height: 62vh; display: flex; align-items: flex-end; color: rgb(255, 255, 255); overflow: hidden; background: var(--navy); }
 
 .hero .bg { position: absolute; inset: 0px; z-index: 1; }
 
@@ -69,7 +69,7 @@ header.nav { position: sticky; top: 0px; z-index: 60; background: rgba(255, 255,
 
 .hero .scrim { position: absolute; inset: 0px; z-index: 2; background: linear-gradient(rgba(15, 38, 112, 0.55) 0%, rgba(15, 38, 112, 0.78) 60%, rgba(15, 38, 112, 0.96) 100%); }
 
-.hero .wrap { position: relative; z-index: 3; padding-top: 90px; padding-bottom: 64px; width: 100%; }
+.hero .wrap { position: relative; z-index: 3; padding-top: 48px; padding-bottom: 64px; width: 100%; }
 
 .hero h1 { font-size: clamp(2.5rem, 6vw, 4.9rem); font-weight: 800; letter-spacing: -0.025em; }
 
@@ -263,7 +263,7 @@ section { padding: 84px 0px; }
 
 .panel h3 { color: var(--navy); font-size: 1.18rem; margin-bottom: 10px; }
 
-.ceo-top { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; margin-bottom: 10px; }
+.ceo-top { display: grid; grid-template-columns: 240px 1fr; gap: 40px; align-items: start; margin-bottom: 10px; }
 
 .ceo-top .pic { border-radius: 18px; overflow: hidden; background: var(--navy-10); aspect-ratio: 3 / 4; }
 
@@ -271,6 +271,7 @@ section { padding: 84px 0px; }
 
 @media (max-width: 720px) {
   .ceo-top { grid-template-columns: 1fr; }
+  .ceo-top .pic { max-width: 220px; }
 }
 
 .sig { font-family: var(--fh); font-weight: 700; color: var(--navy); margin-top: 18px; }
@@ -633,7 +634,7 @@ section { padding: 84px 0px; }
       gap: 10px;
     }
     .sticky-cta:hover {
-      background: var(--oe-navy);
+      background: var(--oe-green);
       color: var(--oe-white);
       transform: translateY(-2px);
     }
@@ -835,18 +836,6 @@ section { padding: 84px 0px; }
 
 <header class="nav">
   <div class="nav-in">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
-        <g fill="none" stroke-width="7" stroke-linecap="round">
-          <circle cx="50" cy="50" r="42" stroke="var(--blue)"></circle>
-          <path d="M50 8 A42 42 0 0 1 92 50" stroke="var(--navy)"></path>
-          <circle cx="50" cy="50" r="28" stroke="var(--navy)"></circle>
-          <path d="M50 22 A28 28 0 0 1 78 50" stroke="var(--blue)"></path>
-        </g>
-        <text x="50" y="62" text-anchor="middle" font-family="Diodrum Rounded, Poppins" font-weight="800" font-size="30" fill="var(--navy)">e</text>
-      </svg>
-      OE Utility Services
-    </div>
     <nav class="navlinks">
       <a href="file:///C:/Users/dwinc/Downloads/oe-2025-sustainability-report_9.html#about">About</a>
       <a href="file:///C:/Users/dwinc/Downloads/oe-2025-sustainability-report_9.html#ceo">CEO Message</a>
