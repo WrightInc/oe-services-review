@@ -1360,12 +1360,131 @@ section { padding: 84px 0px; }
 
 
 <script>
-document.documentElement.classList.add('js-reveal');
-(function(){
-  var els=document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)){Array.prototype.forEach.call(els,function(el){el.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.14});
-  Array.prototype.forEach.call(els,function(el){io.observe(el);});
-})();
+/* Restore the report's interactive behaviour (reveal, stat counters, dials,
+   gauges, charts, About toggle). js-reveal is only set when IntersectionObserver
+   exists, so if it's missing the .reveal content stays visible (never blank). */
+if('IntersectionObserver' in window){document.documentElement.classList.add('js-reveal');}
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const aboutBtn=document.getElementById('aboutToggle'),aboutPanel=document.getElementById('aboutPanel');
+aboutBtn.addEventListener('click',()=>{
+  const open=aboutBtn.getAttribute('aria-expanded')==='true';
+  aboutBtn.setAttribute('aria-expanded',String(!open));
+  aboutPanel.style.maxHeight=open?'0':aboutPanel.scrollHeight+40+'px';
+});
+
+function fmt(n){return n.toLocaleString('en-CA');}
+const statIO=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;
+  const el=e.target,target=+el.dataset.target,dur=+el.dataset.dur||1700;
+  const out=el.querySelector('[data-count]'),bar=el.querySelector('[data-bar]');let s=null;
+  function step(t){if(!s)s=t;const p=Math.min((t-s)/dur,1),k=1-Math.pow(1-p,3);
+    out.textContent=fmt(Math.floor(k*target));if(p<1)requestAnimationFrame(step);else out.textContent=fmt(target);}
+  requestAnimationFrame(step);if(bar)setTimeout(()=>bar.style.width=bar.dataset.bar+'%',120);statIO.unobserve(el);});},{threshold:.4});
+document.querySelectorAll('.stat').forEach(s=>statIO.observe(s));
+
+function dial(svg,pct){const r=48,c=2*Math.PI*r;
+  svg.innerHTML='<circle cx="60" cy="60" r="'+r+'" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="11"/>'+
+   '<circle class="p" cx="60" cy="60" r="'+r+'" fill="none" stroke="#01ABEE" stroke-width="11" stroke-linecap="round" stroke-dasharray="'+c+'" stroke-dashoffset="'+c+'" transform="rotate(-90 60 60)"/>'+
+   '<text x="60" y="56" text-anchor="middle" font-family="Diodrum Rounded, Nunito" font-weight="800" font-size="30" fill="#fff">0</text>'+
+   '<text x="60" y="78" text-anchor="middle" font-family="Diodrum Rounded, Nunito" font-weight="600" font-size="12.5" fill="#01ABEE">REDUCTION</text>';
+  const p=svg.querySelector('.p'),tx=svg.querySelector('text');let s=null,d=1400;
+  function step(t){if(!s)s=t;const q=Math.min((t-s)/d,1),k=1-Math.pow(1-q,3);
+    p.style.strokeDashoffset=c-(c*pct/100)*k;tx.textContent=Math.floor(k*pct)+'%';
+    if(q<1)requestAnimationFrame(step);else tx.textContent=pct+'%';}requestAnimationFrame(step);}
+const dialIO=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){dial(e.target.querySelector('.dial'),+e.target.dataset.dial);dialIO.unobserve(e.target);}})},{threshold:.5});
+document.querySelectorAll('.metric').forEach(m=>dialIO.observe(m));
+
+(function(){const host=document.getElementById('supplierChart');
+  host.innerHTML='<svg viewBox="0 0 460 150" width="100%" font-family="Nunito Sans">'+
+    '<text x="0" y="22" font-size="13" fill="#54607A">2026 goal (baseline)</text>'+
+    '<rect x="0" y="30" width="440" height="16" rx="8" fill="#E7EAF2"/>'+
+    '<rect class="g1" x="0" y="30" width="0" height="16" rx="8" fill="#9EBE1D"/>'+
+    '<text class="t1" x="0" y="43" font-size="11" font-weight="700" fill="#fff" opacity="0"></text>'+
+    '<text x="0" y="86" font-size="13" fill="#54607A">2025 result</text>'+
+    '<rect x="0" y="94" width="440" height="16" rx="8" fill="#E7EAF2"/>'+
+    '<rect class="g2" x="0" y="94" width="0" height="16" rx="8" fill="#01ABEE"/>'+
+    '<text class="t2" x="0" y="107" font-size="11" font-weight="700" fill="#fff" opacity="0"></text>'+
+    '<text x="0" y="138" font-size="11.5" fill="#54607A">Exclusive of vehicles &amp; fuel · scale 0–2.5%</text></svg>';
+  const sc=440/2.5;
+  const i=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;
+    const g1=host.querySelector('.g1'),g2=host.querySelector('.g2'),t1=host.querySelector('.t1'),t2=host.querySelector('.t2');
+    g1.style.transition='width 1.2s cubic-bezier(.2,.7,.2,1)';g2.style.transition='width 1.4s cubic-bezier(.2,.7,.2,1)';
+    requestAnimationFrame(()=>{g1.setAttribute('width',1.5*sc);g2.setAttribute('width',1.9*sc);});
+    setTimeout(()=>{t1.setAttribute('x',1.5*sc-32);t1.textContent='1.5%';t1.style.opacity=1;
+      t2.setAttribute('x',1.9*sc-32);t2.textContent='1.9%';t2.style.opacity=1;},1050);i.unobserve(host);});},{threshold:.4});
+  i.observe(host);})();
+
+(function(){const host=document.getElementById('ecoGauge');const len=Math.PI*80;
+  host.innerHTML='<svg viewBox="0 0 200 132" width="240">'+
+    '<path d="M20 115 A80 80 0 0 1 180 115" fill="none" stroke="#E7EAF2" stroke-width="16" stroke-linecap="round"/>'+
+    '<path class="arc" d="M20 115 A80 80 0 0 1 180 115" fill="none" stroke="#01ABEE" stroke-width="16" stroke-linecap="round" stroke-dasharray="'+len+'" stroke-dashoffset="'+len+'"/>'+
+    '<text x="100" y="100" text-anchor="middle" font-family="Diodrum Rounded, Nunito" font-weight="800" font-size="40" fill="#0F2670">59</text>'+
+    '<text x="100" y="122" text-anchor="middle" font-family="Nunito Sans" font-size="12" fill="#54607A">percentile</text></svg>'+
+    '<div style="display:flex;justify-content:space-between;font-size:.8rem;color:#54607A;max-width:240px;margin:6px auto 0"><span>2024 · 59th</span><span style="color:#029449;font-weight:700">+6 pts</span><span>2025 · 64th</span></div>'+
+    '<div style="margin-top:14px;font-family:\'Diodrum Rounded\',\'Nunito\',sans-serif;font-weight:700;color:#0F2670">Bronze medal retained</div>';
+  const arc=host.querySelector('.arc'),tx=host.querySelector('text');
+  const i=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;let s=null,d=1500;
+    function step(t){if(!s)s=t;const p=Math.min((t-s)/d,1),k=1-Math.pow(1-p,3),v=59+5*k;
+      arc.style.strokeDashoffset=len-(len*v/100);tx.textContent=Math.round(v);
+      if(p<1)requestAnimationFrame(step);else tx.textContent='64';}requestAnimationFrame(step);i.unobserve(host);});},{threshold:.5});
+  i.observe(host);})();
+
+/* AI coaching pulse — radar sweep with live outcome readouts */
+(function(){const host=document.getElementById('aiPulse');if(!host)return;
+  host.innerHTML='<svg viewBox="0 0 380 240" width="100%" font-family="Nunito Sans" role="img" aria-label="AI fleet-camera coaching outcomes">'+
+   '<defs><radialGradient id="rg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#01ABEE" stop-opacity=".35"/><stop offset="100%" stop-color="#01ABEE" stop-opacity="0"/></radialGradient></defs>'+
+   '<circle cx="80" cy="120" r="70" fill="none" stroke="#3a5183" stroke-width="1.5"/>'+
+   '<circle cx="80" cy="120" r="46" fill="none" stroke="#3a5183" stroke-width="1.5"/>'+
+   '<circle cx="80" cy="120" r="22" fill="none" stroke="#3a5183" stroke-width="1.5"/>'+
+   '<circle cx="80" cy="120" r="70" fill="url(#rg)"/>'+
+   '<g class="sweep" style="transform-origin:80px 120px"><path d="M80 120 L80 50 A70 70 0 0 1 140 95 Z" fill="#01ABEE" opacity=".22"/></g>'+
+   '<circle cx="80" cy="120" r="5" fill="#fff"/>'+
+   '<circle class="blip b1" cx="116" cy="86" r="0" fill="#9EBE1D"/>'+
+   '<circle class="blip b2" cx="120" cy="150" r="0" fill="#01ABEE"/>'+
+   '<circle class="blip b3" cx="52" cy="160" r="0" fill="#EAB043"/>'+
+   '<g font-family="Diodrum Rounded, Nunito"><text x="170" y="78" font-size="13" fill="#bcd0ec">Handheld device use</text>'+
+   '<text class="o1" x="170" y="104" font-size="26" font-weight="800" fill="#9EBE1D">0%</text>'+
+   '<text x="170" y="150" font-size="13" fill="#bcd0ec">Seatbelt non-compliance</text>'+
+   '<text class="o2" x="170" y="176" font-size="26" font-weight="800" fill="#01ABEE">0%</text>'+
+   '<text x="170" y="206" font-size="13" fill="#bcd0ec">Triggered safety events</text>'+
+   '<text class="o3" x="170" y="232" font-size="26" font-weight="800" fill="#EAB043">0%</text></g></svg>';
+  const sw=host.querySelector('.sweep');let a=0;
+  function spin(){a=(a+2)%360;sw.style.transform='rotate('+a+'deg)';requestAnimationFrame(spin);}
+  function count(el,to,suf){let s=null,d=1400;function st(t){if(!s)s=t;const p=Math.min((t-s)/d,1),k=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(k*to)+suf;if(p<1)requestAnimationFrame(st);else el.textContent=to+suf;}requestAnimationFrame(st);}
+  const i=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;
+    spin();
+    host.querySelectorAll('.blip').forEach((b,ix)=>{setTimeout(()=>{b.style.transition='r .4s ease';b.setAttribute('r','6');},300+ix*220);});
+    count(host.querySelector('.o1'),80,'%');count(host.querySelector('.o2'),80,'%');count(host.querySelector('.o3'),52,'%');
+    i.unobserve(host);});},{threshold:.4});
+  i.observe(host);})();
+
+(function(){const host=document.getElementById('flowDiagram');
+  host.innerHTML='<svg viewBox="0 0 980 230" width="100%" font-family="Nunito Sans" role="img" aria-label="Hydrovac slurry separated into clean fill, premium sand, and reclaimed water">'+
+    '<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#9fb0cf"/></marker></defs>'+
+    '<rect x="10" y="86" width="150" height="62" rx="14" fill="#0F2670"/>'+
+    '<text x="85" y="112" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">Hydrovac</text>'+
+    '<text x="85" y="132" text-anchor="middle" fill="#9fc6ec" font-size="13">slurry in</text>'+
+    '<rect x="300" y="80" width="150" height="74" rx="14" fill="#01ABEE"/>'+
+    '<text x="375" y="110" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">ISR facility</text>'+
+    '<text x="375" y="130" text-anchor="middle" fill="#dff4ff" font-size="12.5">test · track · trace</text>'+
+    '<path class="link" d="M165 117 L295 117" stroke="#9fb0cf" stroke-width="2.5" fill="none" marker-end="url(#ar)" stroke-dasharray="140" stroke-dashoffset="140"/>'+
+    '<g class="out" data-d="0"><path class="l2" d="M455 100 C540 70 560 50 640 50" stroke="#7B5945" stroke-width="2.5" fill="none" marker-end="url(#ar)" stroke-dasharray="220" stroke-dashoffset="220"/>'+
+    '<rect x="648" y="28" width="312" height="44" rx="12" fill="#fff" stroke="#7B5945" stroke-width="2"/><circle cx="672" cy="50" r="9" fill="#7B5945"/>'+
+    '<text x="692" y="55" fill="#0F2670" font-weight="700" font-size="14">Clean fill</text><text x="775" y="55" fill="#54607A" font-size="12.5">silt &amp; clay → construction</text></g>'+
+    '<g class="out" data-d="1"><path class="l2" d="M455 117 L640 110" stroke="#EAB043" stroke-width="2.5" fill="none" marker-end="url(#ar)" stroke-dasharray="200" stroke-dashoffset="200"/>'+
+    '<rect x="648" y="90" width="312" height="44" rx="12" fill="#fff" stroke="#EAB043" stroke-width="2"/><circle cx="672" cy="112" r="9" fill="#EAB043"/>'+
+    '<text x="692" y="117" fill="#0F2670" font-weight="700" font-size="14">Premium sand</text><text x="800" y="117" fill="#54607A" font-size="12.5">pipe bedding</text></g>'+
+    '<g class="out" data-d="2"><path class="l2" d="M455 134 C540 164 560 184 640 184" stroke="#01ABEE" stroke-width="2.5" fill="none" marker-end="url(#ar)" stroke-dasharray="220" stroke-dashoffset="220"/>'+
+    '<rect x="648" y="162" width="312" height="44" rx="12" fill="#fff" stroke="#01ABEE" stroke-width="2"/><circle cx="672" cy="184" r="9" fill="#01ABEE"/>'+
+    '<text x="692" y="189" fill="#0F2670" font-weight="700" font-size="14">Reclaimed water</text><text x="812" y="189" fill="#54607A" font-size="12.5">refills trucks</text></g></svg>';
+  const i=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;
+    const s=host.querySelector('.link');s.style.transition='stroke-dashoffset .7s ease';s.style.strokeDashoffset=0;
+    host.querySelectorAll('.out').forEach(g=>{const d=+g.dataset.d,p=g.querySelector('.l2');
+      g.style.opacity=0;g.style.transition='opacity .6s ease';
+      setTimeout(()=>{p.style.transition='stroke-dashoffset .9s ease';p.style.strokeDashoffset=0;g.style.opacity=1;},500+d*330);});
+    i.unobserve(host);});},{threshold:.3});
+  i.observe(host);})();
 </script>
 </body></html>
