@@ -956,6 +956,22 @@ section { padding: 84px 0px; }
 #safety .credlogos .cl-list b{display:block;font-family:var(--fh);font-weight:700;color:var(--navy);font-size:1.04rem}
 #safety .credlogos .cl-list span{display:block;color:var(--grey);font-size:.86rem;margin-top:3px;line-height:1.45}
 @media(max-width:600px){#safety .credlogos .b-cor{width:220px}#safety .credlogos .b-iso{width:140px}}
+/* enlarge hero pillbox + clean mobile wrap */
+#top .eyebrow, .hero .eyebrow{font-size:1.3rem !important;padding:16px 36px !important;letter-spacing:0.18em !important;}
+#top .eyebrow .nowrap{white-space:nowrap;}
+@media(max-width:600px){#top .eyebrow, .hero .eyebrow{font-size:.9rem !important;padding:12px 22px !important;letter-spacing:0.1em !important;}}
+
+/* hero stat pills: stagger fill to green one-by-one, looping */
+@keyframes pillGreen{
+  0%, 18% { background:var(--green-d); border-color:var(--green-d); color:#fff; box-shadow:0 8px 20px -10px rgba(2,148,73,.8); }
+  42%, 100% { background:transparent; border-color:rgba(255,255,255,.34); color:rgb(226,232,240); box-shadow:none; }
+}
+#top .pillrow .pill{animation:pillGreen 3.4s ease-in-out infinite; will-change:background,color;}
+#top .pillrow .pill:nth-of-type(1){animation-delay:0s}
+#top .pillrow .pill:nth-of-type(2){animation-delay:.38s}
+#top .pillrow .pill:nth-of-type(3){animation-delay:.76s}
+#top .pillrow .pill:nth-of-type(4){animation-delay:1.14s}
+@media(prefers-reduced-motion:reduce){#top .pillrow .pill{animation:none}}
 </style>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>2025 Sustainability Report | OE Utility Services</title>
@@ -1126,7 +1142,7 @@ section { padding: 84px 0px; }
 <div class="bg"><img alt="OE Utility Services hydrovac fleet" src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/Four+vehicles+in+a+row-1920w.jpg"/></div>
 <div class="scrim"></div>
 <div class="wrap">
-<div class="eyebrow reveal in">OE Utility Services · 2025 Sustainability Report</div>
+<div class="eyebrow reveal in"><span>OE Utility Services · </span><span class="nowrap">2025 Sustainability Report</span></div>
 <h1 class="reveal in">Sustainability in Practice<span class="b">From the Ground Up</span></h1>
 <p class="tag reveal in">Safety  ·  Environment  ·  People &amp; Culture  ·  Governance</p>
 <div class="pillrow reveal in">
