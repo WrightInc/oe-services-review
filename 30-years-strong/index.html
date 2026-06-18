@@ -74,6 +74,7 @@
       --oe-text:   #222222;
       --oe-muted:  #666666;
       --oe-green:  #029449;
+      --oe-amber:  #EAB043;
     }
     @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Regular.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
     @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Medium.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
@@ -1664,6 +1665,25 @@
     .anniv-year { font-family: 'Diodrum Rounded', 'Nunito', sans-serif; font-weight: 900; font-size: clamp(34px, 5vw, 52px); color: var(--oe-navy); line-height: 1; margin-bottom: 2px; }
     .anniv-head { font-size: 18px; color: var(--oe-navy); margin: 4px 0 8px; }
     .anniv-text { font-size: 15px; color: var(--oe-muted); line-height: 1.6; }
+    /* era stamp: small rounded pill above the year */
+    .anniv-stamp { display: inline-block; font-family: 'Diodrum Rounded', 'Nunito', sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border-radius: 100px; background: var(--oe-blue); color: var(--oe-navy-dark); margin-bottom: 10px; }
+    /* icon + year row (icon flips to the spine side on right-aligned cards) */
+    .anniv-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
+    .anniv-mile:nth-child(odd) .anniv-card-top { flex-direction: row-reverse; }
+    .anniv-ico { flex: 0 0 auto; width: 38px; height: 38px; color: var(--oe-blue); }
+    .anniv-ico svg { width: 100%; height: 100%; display: block; }
+    /* accent rotation across cards: navy → blue → amber */
+    .anniv-mile:nth-child(3n+1) .anniv-mile-card { border-top-color: var(--oe-navy); }
+    .anniv-mile:nth-child(3n+1) .anniv-node { background: var(--oe-navy); box-shadow: 0 0 0 1px var(--oe-navy); }
+    .anniv-mile:nth-child(3n+1) .anniv-stamp { background: var(--oe-navy); color: #fff; }
+    .anniv-mile:nth-child(3n+1) .anniv-ico { color: var(--oe-navy); }
+    .anniv-mile:nth-child(3n+2) .anniv-mile-card { border-top-color: var(--oe-blue); }
+    .anniv-mile:nth-child(3n+2) .anniv-stamp { background: var(--oe-blue); color: var(--oe-navy-dark); }
+    .anniv-mile:nth-child(3n+2) .anniv-ico { color: var(--oe-blue); }
+    .anniv-mile:nth-child(3n) .anniv-mile-card { border-top-color: var(--oe-amber); }
+    .anniv-mile:nth-child(3n) .anniv-node { background: var(--oe-amber); box-shadow: 0 0 0 1px var(--oe-amber); }
+    .anniv-mile:nth-child(3n) .anniv-stamp { background: var(--oe-amber); color: var(--oe-navy-dark); }
+    .anniv-mile:nth-child(3n) .anniv-ico { color: #B9851F; }
 
     /* 2026 — the arrival: full-width navy card */
     .anniv-mile.anniv-mile-final { width: 100%; left: 0; text-align: center; padding: 18px 0 0; }
@@ -1673,11 +1693,14 @@
     .anniv-mile-final .anniv-year { color: var(--oe-blue); font-size: clamp(44px, 7vw, 64px); }
     .anniv-mile-final .anniv-head { color: var(--oe-white); font-size: 26px; }
     .anniv-mile-final .anniv-text { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto; }
+    .anniv-mile-final .anniv-card-top { justify-content: center; }
+    .anniv-mile-final .anniv-ico { width: 46px; height: 46px; color: #fff; }
 
     @media (max-width: 760px) {
       .anniv-timeline::before { left: 18px; }
       .anniv-mile, .anniv-mile:nth-child(odd), .anniv-mile:nth-child(even) { width: 100%; left: 0; text-align: left; padding: 0 0 20px 46px; }
       .anniv-mile:nth-child(odd) .anniv-node, .anniv-mile:nth-child(even) .anniv-node { left: 9px; right: auto; }
+      .anniv-mile:nth-child(odd) .anniv-card-top { flex-direction: row; }
       .anniv-mile.anniv-mile-final { padding-left: 0; }
     }
 
@@ -1958,7 +1981,8 @@
       <li class="anniv-mile">
         <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
-          <div class="anniv-year">1995</div>
+          <span class="anniv-stamp">Where it began</span>
+          <div class="anniv-card-top"><span class="anniv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l1-4h12l3 4h-2"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle><path d="M5 13V7h9l4 6"></path></svg></span><div class="anniv-year">1995</div></div>
           <h3 class="anniv-head">It starts with one truck.</h3>
           <p class="anniv-text">Ontario Excavac opens in Mississauga. One hydrovac, one promise: dig smarter, leave it better.</p>
         </div>
@@ -1966,7 +1990,8 @@
       <li class="anniv-mile">
         <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
-          <div class="anniv-year">2008</div>
+          <span class="anniv-stamp">Growing the fleet</span>
+          <div class="anniv-card-top"><span class="anniv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.8 1.2 5.6L12 20l-5 2.8 1.2-5.6L4 13.4l5.6-.6z"></path></svg></span><div class="anniv-year">2008</div></div>
           <h3 class="anniv-head">Named best in the business.</h3>
           <p class="anniv-text">Excavator of the Year (Electric), and the move into gas utilities — proof the bet on hydrovac was the right one.</p>
         </div>
@@ -1974,7 +1999,8 @@
       <li class="anniv-mile">
         <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
-          <div class="anniv-year">2015</div>
+          <span class="anniv-stamp">Safety becomes the standard</span>
+          <div class="anniv-card-top"><span class="anniv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg></span><div class="anniv-year">2015</div></div>
           <h3 class="anniv-head">Safety becomes the standard.</h3>
           <p class="anniv-text">The first Utility Contractor Association Safety Award — and every single year since.</p>
         </div>
@@ -1982,7 +2008,8 @@
       <li class="anniv-mile">
         <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
-          <div class="anniv-year">2016</div>
+          <span class="anniv-stamp">Room to grow</span>
+          <div class="anniv-card-top"><span class="anniv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"></path><path d="M3 21h18"></path><path d="M9 21v-6h6v6"></path></svg></span><div class="anniv-year">2016</div></div>
           <h3 class="anniv-head">Room to grow.</h3>
           <p class="anniv-text">A 95,000 sq. ft., 7-acre GTA home base. The scrappy startup is now an operation.</p>
         </div>
@@ -1990,7 +2017,8 @@
       <li class="anniv-mile">
         <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
-          <div class="anniv-year">2017</div>
+          <span class="anniv-stamp">Beyond the dig</span>
+          <div class="anniv-card-top"><span class="anniv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 7 5 10a5 5 0 0 1-10 0c0-3 2-6 5-10z"></path></svg></span><div class="anniv-year">2017</div></div>
           <h3 class="anniv-head">Thinking beyond the dig.</h3>
           <p class="anniv-text">ClearLine launches; 11,000 water service repairs delivered for the City of Toronto.</p>
         </div>
@@ -1998,7 +2026,8 @@
       <li class="anniv-mile">
         <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
-          <div class="anniv-year">2018</div>
+          <span class="anniv-stamp">Closing the loop</span>
+          <div class="anniv-card-top"><span class="anniv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"></path><path d="M21 3v5h-5"></path></svg></span><div class="anniv-year">2018</div></div>
           <h3 class="anniv-head">Closing the loop.</h3>
           <p class="anniv-text">OE's own soil recycling facility opens — handling what comes out of the ground, responsibly.</p>
         </div>
@@ -2006,7 +2035,8 @@
       <li class="anniv-mile">
         <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
-          <div class="anniv-year">2023</div>
+          <span class="anniv-stamp">A new name</span>
+          <div class="anniv-card-top"><span class="anniv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18"></path><path d="M6 7v13h12V7"></path><path d="M9 4h6l1 3H8z"></path></svg></span><div class="anniv-year">2023</div></div>
           <h3 class="anniv-head">A new name for a bigger promise.</h3>
           <p class="anniv-text">Ontario Excavac becomes OE Utility Services — reflecting end-to-end utility support, not just excavation.</p>
         </div>
@@ -2014,7 +2044,8 @@
       <li class="anniv-mile">
         <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
-          <div class="anniv-year">2024</div>
+          <span class="anniv-stamp">Across Ontario</span>
+          <div class="anniv-card-top"><span class="anniv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span><div class="anniv-year">2024</div></div>
           <h3 class="anniv-head">Across Ontario.</h3>
           <p class="anniv-text">Ottawa and London open. Hydrovac Excavator of the Year. Recognized as a Safe Employer.</p>
         </div>
@@ -2022,7 +2053,8 @@
       <li class="anniv-mile">
         <span class="anniv-node" aria-hidden="true"></span>
         <div class="anniv-mile-card">
-          <div class="anniv-year">2025</div>
+          <span class="anniv-stamp">Sustainability, verified</span>
+          <div class="anniv-card-top"><span class="anniv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20c-2-6 1-12 7-15-1 5 0 9-2 12"></path><path d="M7 20c4 0 7-2 9-6"></path></svg></span><div class="anniv-year">2025</div></div>
           <h3 class="anniv-head">Sustainability, verified.</h3>
           <p class="anniv-text">EcoVadis bronze medal — third-party proof, not just a claim.</p>
         </div>
@@ -2031,6 +2063,7 @@
         <div class="anniv-mile-card">
           <!-- 🚩 FLAG: PLACEHOLDER 30th-anniversary mark (decorative) — same lockup as the hero, pending the final asset. -->
           <img class="anniv-final-mark" src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/OE_logo_30th_RGB_rev-1920w.png" alt="" aria-hidden="true" />
+          <div class="anniv-card-top"><span class="anniv-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12l3 3 5-6"></path></svg></span></div>
           <div class="anniv-year">2026</div>
           <h3 class="anniv-head">30 years strong.</h3>
           <p class="anniv-text">One truck became 70+. One lot became six Regional Business Units. The promise hasn't changed.</p>
