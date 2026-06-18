@@ -65,7 +65,7 @@
 
   <style>
     :root {
-      --oe-navy:   #0F2670;
+      --oe-navy:   #062F87;
       --oe-navy-dark: #0A1B4D;
       --oe-blue:   #01ABEE;
       --oe-white:  #FFFFFF;
@@ -73,7 +73,7 @@
       --oe-border: #D8E4EE;
       --oe-text:   #222222;
       --oe-muted:  #666666;
-      --oe-green:  #2E7D32;
+      --oe-green:  #029449;
     }
     @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Regular.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
     @font-face { font-family: 'Diodrum Rounded'; src: url('/assets/fonts/DiodrumRounded-Medium.woff2') format('woff2'), url('/assets/fonts/DiodrumRounded-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
@@ -1608,21 +1608,23 @@
 
     /* ── HERO — giant "30" treatment ───────────────────────── */
     .anniv-hero { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--oe-navy) 0%, var(--oe-navy-dark) 100%); }
+    .anniv-hero-bg { position:absolute; inset:0; z-index:0; }
+    .anniv-hero-bg img { width:100%; height:100%; object-fit:cover; display:block; }
+    .anniv-hero-bg::after { content:''; position:absolute; inset:0; background:linear-gradient(120deg, rgba(6,47,135,.94) 0%, rgba(6,47,135,.82) 42%, rgba(10,27,77,.55) 100%); z-index:0; }
+    .anniv-hero .hero-inner { position:relative; z-index:2; }
     .anniv-hero .hero-inner { grid-template-columns: 1fr; align-items: center; }
     .anniv-hero .anniv-hero-content { max-width: 760px; position: relative; z-index: 2; }
     .anniv-hero .hero-inner { padding-top: 48px; padding-bottom: 48px; }
     .anniv-hero-mark { display: block; width: 200px; max-width: 64%; height: auto; margin-bottom: 20px; }
     /* decorative full-bleed "30" watermark behind the content (duplicates the H1 — aria-hidden) */
     .anniv-hero-watermark {
-      position: absolute; top: 50%; right: -4%; transform: translateY(-50%);
+      position: absolute; top: 50%; left: auto; right: 6%; bottom: auto; transform: translateY(-50%);
       font-family: 'Diodrum Rounded', 'Nunito', sans-serif; font-weight: 900; line-height: 0.8;
       font-size: clamp(280px, 38vw, 620px);
-      color: var(--oe-blue); opacity: 0.14;
-      pointer-events: none; z-index: 1; margin: 0; user-select: none;
+      color: var(--oe-blue); opacity: 0.22;
+      pointer-events: none; z-index: 1; margin: 0; user-select: none; white-space: nowrap;
     }
-    @media (max-width: 760px) {
-      .anniv-hero-watermark { opacity: 0.10; }
-    }
+    @media (max-width: 760px) { .anniv-hero-watermark { display: none; } }
 
     /* ── STAT STRIP — banner of three big stats ────────────── */
     .anniv-strip { background: var(--oe-navy); padding: 56px 30px; }
@@ -1908,6 +1910,7 @@
 </div>
 <!-- HERO -->
 <section class="hero anniv-hero">
+  <div class="anniv-hero-bg" aria-hidden="true"><img src="https://lirp.cdn-website.com/7f93686c/dms3rep/multi/opt/Hydrovac-1920w.jpg" alt="" /></div>
   <span class="anniv-hero-watermark" aria-hidden="true">30</span>
   <div class="hero-inner">
     <div class="anniv-hero-content">
