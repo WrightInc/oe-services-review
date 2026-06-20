@@ -977,6 +977,22 @@ section { padding: 84px 0px; }
 @media(prefers-reduced-motion:reduce){#top .pillrow .pill{animation:none}}
 /* match Hydrovac eyebrow treatment: uppercase */
 .secnum{text-transform:uppercase !important;}
+#governance .teamband{margin:14px 0 26px}
+#governance .teamphoto{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 24px 56px rgba(10,27,77,.20);margin-bottom:28px}
+#governance .teamphoto img{width:100%;height:auto;display:block}
+#governance .teamphoto .tcap{position:absolute;left:20px;bottom:20px;background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;font-family:var(--fh);font-weight:600;font-size:1.05rem;padding:11px 20px;border-radius:12px;box-shadow:0 10px 26px -10px rgba(0,0,0,.5)}
+#governance .ldrlist{display:grid;grid-template-columns:repeat(2,1fr);gap:2px 48px}
+#governance .ldr{display:flex;align-items:center;gap:20px;padding:20px 4px;border-bottom:1px solid var(--line)}
+#governance .ldr .ini{position:relative;flex:none;width:62px;height:62px;border-radius:50%;color:#fff;font-family:var(--fh);font-weight:700;font-size:1.05rem;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 32% 26%, #6fd0f7 0%, #18a6e8 42%, #0f63b8 100%);box-shadow:0 8px 18px -6px rgba(8,80,160,.55), inset 0 -4px 8px rgba(4,40,90,.45), inset 0 3px 6px rgba(255,255,255,.55)}
+#governance .ldr .ini::after{content:"";position:absolute;top:5px;left:8px;width:54%;height:38%;background:radial-gradient(ellipse at center, rgba(255,255,255,.85), rgba(255,255,255,0) 70%);border-radius:50%;pointer-events:none}
+#governance .ldr .who{display:flex;flex-direction:column;min-width:0}
+#governance .ldr .nm{font-family:var(--fh);font-weight:700;color:var(--navy);font-size:1.45rem;line-height:1.25}
+#governance .ldr .rl{color:var(--grey);font-size:1.12rem;margin-top:4px;line-height:1.4}
+#governance .rlt-head{font-family:var(--fh);font-weight:700;color:var(--navy);font-size:1.8rem;margin:34px 0 10px}
+#governance .rlt-body{font-size:1.25rem;line-height:1.7;color:var(--ink)}
+#governance .barry-note{font-size:1.12rem;color:var(--ink);margin-top:18px}
+@media(max-width:760px){#governance .ldrlist{grid-template-columns:1fr;gap:0}}
+@media(max-width:600px){#governance .teamphoto .tcap{font-size:.9rem;left:12px;bottom:12px;padding:9px 15px}}
 </style>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>2025 Sustainability Report | OE Utility Services</title>
@@ -1474,15 +1490,25 @@ section { padding: 84px 0px; }
 <p>We are committed to leading sustainable practices and to communicating openly about both our progress and the work that remains. Our environmental policy was updated in 2025 and is published on the OE Utility Services website, where it is available to employees, Customers, and the broader public.</p>
 <p>OE’s leadership team as of the publication of this report — full biographies are available at <a href="https://www.oeservices.ca/about-us">www.oeservices.ca/about-us</a>:</p>
 </div>
-<div class="leaders reveal">
-<div class="leader"><div class="av">KB</div><div class="nm">Keith Boulton</div><div class="rl">President &amp; CEO</div></div>
-<div class="leader"><div class="av">DB</div><div class="nm">David Branigan</div><div class="rl">Chief Financial Officer</div></div>
-<div class="leader"><div class="av">TK</div><div class="nm">Tony Kerwin</div><div class="rl">Chief Operating Officer</div></div>
-<div class="leader"><div class="av">GC</div><div class="nm">George Chung</div><div class="rl">Chief Sales Officer</div></div>
-<div class="leader"><div class="av">NC</div><div class="nm">Nicole Chapman</div><div class="rl">Chief Human Resources Officer</div></div>
+<div class="teamband reveal">
+  <div class="teamphoto"><img src="/assets/elt-team.jpg" alt="OE Executive Leadership Team at a field site"><span class="tcap">OE Executive Leadership Team</span></div>
+  <div class="ldrlist">
+    <div class="ldr"><span class="ini">KB</span><span class="who"><span class="nm">Keith Boulton</span><span class="rl">President &amp; Chief Executive Officer</span></span></div>
+    <div class="ldr"><span class="ini">TK</span><span class="who"><span class="nm">Tony Kerwin</span><span class="rl">Chief Operating Officer</span></span></div>
+    <div class="ldr"><span class="ini">DB</span><span class="who"><span class="nm">David Branigan</span><span class="rl">Chief Financial Officer</span></span></div>
+    <div class="ldr"><span class="ini">GC</span><span class="who"><span class="nm">George Chung</span><span class="rl">Chief Sales Officer</span></span></div>
+    <div class="ldr"><span class="ini">NC</span><span class="who"><span class="nm">Nicole Chapman</span><span class="rl">Chief Human Resources Officer</span></span></div>
+    <div class="ldr"><span class="ini">ZP</span><span class="who"><span class="nm">Zoltan Pop</span><span class="rl">Manager, South Western Ontario Regional Business Unit</span></span></div>
+    <div class="ldr"><span class="ini">CP</span><span class="who"><span class="nm">Chris Penic</span><span class="rl">Director, Customer Relationships</span></span></div>
+    <div class="ldr"><span class="ini">TD</span><span class="who"><span class="nm">Todd Desjardins</span><span class="rl">Senior Manager, Greater Toronto Area (GTA) Operations</span></span></div>
+    <div class="ldr"><span class="ini">JW</span><span class="who"><span class="nm">Jason Walker</span><span class="rl">Manager, Durham &amp; Barrie Regional Business Units</span></span></div>
+    <div class="ldr"><span class="ini">NB</span><span class="who"><span class="nm">Noah Badgerow</span><span class="rl">Manager, Ottawa Regional Business Unit</span></span></div>
+    <div class="ldr"><span class="ini">MV</span><span class="who"><span class="nm">Mike Vander Holst</span><span class="rl">Manager, Fleet &amp; Facilities</span></span></div>
+  </div>
+  <h4 class="rlt-head">Regional Leadership Team</h4>
+  <p class="rlt-body">Our regional leadership team includes Zoltan Pop, Chris Penic, Todd Desjardins, Jason Walker, Noah Badgerow, and Mike Vander Holst, leading operations across our six Ontario locations.</p>
+  <p class="barry-note">With sincere thanks to Barry Wood, our previous President and CEO, for his leadership and contributions to OE Utility Services.</p>
 </div>
-<p class="regional reveal">With sincere thanks to Barry Wood, our previous President and CEO, for his leadership and contributions to OE Utility Services.</p>
-<p class="regional reveal">Our regional leadership team includes Zoltan Pop, Ellen D’Alessio, Mark Grimley, Jason Walker, and Todd Desjardins, with Mike Vander Holst serving as our Facilities and Fleet Manager and Chris Penic serving as a Sales Manager.</p>
 </div>
 </section>
 <section class="closing">
